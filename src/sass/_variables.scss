@@ -1,0 +1,24 @@
+:root {
+  // BACKGROUND COLORS
+  --dark-bg: #111111;
+  --light-bg: #ffffff;
+  //button gradient
+  --gradinet-bg: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  //stars gradient
+  --stars-gradient-bg: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
+
+  //   TEXT COLOR
+  //   dark theme
+  --white-txt-color: #ffffff;
+  --seconday-txt-color: #f8f8f8;
+  --grey-txt-color: #b7b7b7;
+  --active-txt-color: #f87719;
+
+  // light theme
+  --darck--txt-color: #282828;
+  --light-grey-txt-color: #595959;
+}
