@@ -2,7 +2,7 @@
   "name": "cine-spark",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://YuliaMoore.github.cine-spark.",
+  "homepage": "https://YuliaMoore.github/cine-spark",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /cine-spark./"
