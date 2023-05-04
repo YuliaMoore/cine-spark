@@ -1,8 +1,19 @@
-<section class="section catalod">
+<section class="catalog section">
   <div class="container">
-    <h2>Catalog-list</h2>
-    <p>
-      Тут буде форма пошуку і список фільмів (/src/partials/catalog-list.html)
-    </p>
+    <h2 class="catalog-title visually-hidden">Catalog-list</h2>
+    <form class="catalog-list__search-form" id="catalog-search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search"
+        class="catalog-list__search-input"
+      />
+      <button type="submit" class="catalog-list__search-button">Search</button>
+    </form>
+
+    <div class="catalog-list__items-list">
+      <!-- Catalog list -->
+    </div>
   </div>
 </section>
