@@ -5,7 +5,7 @@
   "homepage": "https://YuliaMoore.github/cine-spark",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /cine-spark./"
+    "build": "parcel build src/*.html --public-url /cine-spark/"
   },
   "repository": {
     "type": "git",
