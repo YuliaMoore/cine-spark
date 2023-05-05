@@ -1,0 +1,45 @@
+.footer {
+  display: flex;
+
+  &__box {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  &__text {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: var(--grey-txt-color);
+  }
+
+  &__link {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    text-decoration: underline;
+
+    color: var(--grey-txt-color);
+  }
+
+  &__link:hover {
+    color: var(--active-txt-color);
+  }
+}
