@@ -60,6 +60,11 @@
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    color: var(--grey-txt-color);
+  }
+
+  &__link:hover,
+  &__link:focus {
     color: var(--active-txt-color);
   }
 }
