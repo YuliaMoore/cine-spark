@@ -9,10 +9,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 704px;
+  min-width: 704px;
   height: 488px;
 
-  padding: 44px 49px 44px 44px;
+  padding: 29px 34px 29px 29px;
 
   background-color: var(--dark-bg);
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
@@ -24,8 +24,8 @@
   cursor: pointer;
 
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 5px;
+  right: 5px;
   width: 24px;
   height: 24px;
 }
