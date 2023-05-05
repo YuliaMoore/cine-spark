@@ -1,0 +1,19 @@
+{{#each this}}
+  <li class='catalog-list__item'>
+    <div class='catalog-list__wrapper'>
+      <h2 class='catalog-list__title'>{{title}}</h2>
+      <p class='catalog-list__movie-type'>{{genre_ids}}
+        <span class='catalog-list__movie-year'>{{releaseYear
+            release_date
+          }}</span>
+      </p>
+      <div class='catalog-list__movie-rating'>{{vote_average}}</div>
+      <img
+        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        alt='{{title}}'
+        width='280'
+        height='406'
+      />
+    </div>
+  </li>
+{{/each}}
