@@ -56,6 +56,7 @@ async function onSearchFormSubmit(e) {
       } else {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
         moviesCatalog.innerHTML = compiledMoviesCards(response.results);
+        scrollPage();
       }
     } catch (err) {
       console.log(err);
