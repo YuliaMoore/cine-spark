@@ -6,11 +6,11 @@
           <h2 class='catalog-list__title'>{{title}}</h2>
           <div class='catalog-list__additional-info'>
             <p class='catalog-list__movie-type'>{{makeGenres genre_ids}}
-              <span class='catalog-list__movie-year'>{{makeYear
-                  release_date
-                }}</span>
-            </p>
-            <div class='catalog-list__movie-rating'>{{vote_average}}</div>
+              |
+              {{makeYear release_date}}</p>
+            <div class='catalog-list-rating__list'>
+              {{{makeStars vote_average}}}
+            </div>
           </div>
         </div>
         <img

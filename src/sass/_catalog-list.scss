@@ -23,7 +23,6 @@
   color: var(--grey-txt-color);
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.14;
 }
 
 .catalog-list__search-button {
@@ -101,6 +100,7 @@
 .catalog-list__additional-info {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   color: var(--grey-txt-color);
   font-weight: 500;
   font-size: 12px;
@@ -109,22 +109,6 @@
 
 .catalog-list__title {
   margin-bottom: 10px;
-}
-
-.catalog-list__movie-year {
-  position: relative;
-  width: 100%;
-  margin-left: 10px;
-}
-
-.catalog-list__movie-year::before {
-  content: '';
-  position: absolute;
-  left: -7px;
-  bottom: 2px;
-  width: 2px;
-  height: 14px;
-  background-color: var(--grey-txt-color);
 }
 
 .catalog-list__error {
@@ -139,6 +123,19 @@
   .container {
     width: 768px;
   }
+  .catalog-list__search-form {
+    margin-bottom: 36px;
+  }
+  .catalog-list__search-input {
+    padding: 14px 20px;
+    width: 202px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .catalog-list__search-button {
+    width: 44px;
+    height: 44px;
+  }
   .catalog-list__list-wrapper {
     width: 224px;
     height: 325px;
@@ -149,8 +146,31 @@
   .container {
     width: 1280px;
   }
+  .catalog-list__search-form {
+    margin-bottom: 48px;
+  }
+  .catalog-list__search-input {
+    padding: 14px 24px;
+    width: 336px;
+    height: 48px;
+    font-size: 16px;
+  }
+  .catalog-list__search-button {
+    width: 48px;
+    height: 48px;
+  }
   .catalog-list__list-wrapper {
     width: 394px;
     height: 574px;
+  }
+  .catalog-list__info {
+    padding: 20px;
+  }
+  .catalog-list__additional-info {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+  .catalog-list__title {
+    margin-bottom: 15px;
   }
 }

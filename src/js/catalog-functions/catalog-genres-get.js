@@ -8,7 +8,7 @@ export function getGenres(ids) {
   //   console.log(genres);
 
   const genresNames = genres.slice(0, 2).map(genre => genre.name);
-  console.log(genresNames);
+  // console.log(genresNames);
 
   return genresNames;
 }
