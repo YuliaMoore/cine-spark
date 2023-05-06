@@ -1,6 +1,31 @@
 // підключаємо бібліотеку axios
 import axios from 'axios';
 
+const API_KEY = 'cca79e12b25cdd9f67fc795a1689f5d9';
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+export async function getTrendingFilms(page) {
+  const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getUpcomingFilms(page) {
+  const url = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=1`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export class MoviesAPI {
   // Приватні властивості
   #BASE_URL = 'https://api.themoviedb.org';
