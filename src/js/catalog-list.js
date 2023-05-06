@@ -1,3 +1,4 @@
+import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 const moviesAPI = new MoviesAPI();
 
@@ -13,6 +14,9 @@ Handlebars.registerHelper('releaseYear', function (date) {
 const searchInput = document.querySelector('.catalog-list__search-input');
 const searchForm = document.querySelector('.catalog-list__search-form');
 const moviesCatalog = document.querySelector('.catalog-list__items-list');
+
+onScroll();
+onToTopBtn();
 
 // Функція, яка викликається при першому завантаженні сторінки. Трендові фільми тижня.
 async function onRenderCatalogPage() {
@@ -52,4 +56,15 @@ async function onSearchFormSubmit(e) {
       console.log(err);
     }
   }
+}
+
+function scrollPage() {
+  const { height: cardHeight } = document
+    .querySelector('.catalog-list__items-list')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
