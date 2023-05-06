@@ -1,3 +1,7 @@
+.container {
+  width: 320px;
+}
+
 .catalog.section {
   padding: 40px 0 10px 0;
 }
@@ -29,7 +33,6 @@
   padding: 0;
   width: 40px;
   height: 40px;
-
   color: var(--light-bg);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 50%;
@@ -39,15 +42,27 @@
 
 .catalog-list__search-icon {
   color: currentColor;
+  transition: color 300ms ease-in-out;
 }
 
-.catalog-list__search-button:hover {
+.catalog-list__search-button:hover,
+.catalog-list__search-button:focus {
   color: var(--dark-bg);
 }
 
 .catalog-list__items-list {
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catalog-list__item:last-child {
+  margin-right: auto;
+}
+.catalog-list__list-link:hover .catalog-list__list-wrapper,
+.catalog-list__list-link:focus .catalog-list__list-wrapper {
+  background-color: #0000002c;
 }
 
 .catalog-list__list-wrapper {
@@ -55,22 +70,87 @@
   display: flex;
   width: 280px;
   height: 406px;
-  border-radius: 5px;
-}
-
-.catalog-list__info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  border-radius: 4px;
+  background-color: unset;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
     rgba(0, 0, 0, 0.9) 92.16%
   );
+  transition: background-color 300ms ease-in-out;
 }
 
 .catalog-list__image {
   display: block;
+  object-fit: cover;
+  z-index: -1;
   width: 100%;
+  border-radius: 5px;
+}
+
+.catalog-list__info {
+  position: absolute;
+  padding: 12px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--white-txt-color);
+}
+
+.catalog-list__additional-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey-txt-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.catalog-list__title {
+  margin-bottom: 10px;
+}
+
+.catalog-list__movie-year {
+  position: relative;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.catalog-list__movie-year::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  bottom: 2px;
+  width: 2px;
+  height: 14px;
+  background-color: var(--grey-txt-color);
+}
+
+.catalog-list__error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+  .catalog-list__list-wrapper {
+    width: 224px;
+    height: 325px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+  .catalog-list__list-wrapper {
+    width: 394px;
+    height: 574px;
+  }
 }

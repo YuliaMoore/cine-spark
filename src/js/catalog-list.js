@@ -4,10 +4,16 @@ const moviesAPI = new MoviesAPI();
 
 import compiledMoviesCards from '/src/templates/catalog-list-item.hbs';
 
-// В списку фільмів є рік, місяць і число, а нам потрібен тільки рік, для цього створюємо хелпер
+// Хелпер 1. В списку фільмів є рік, місяць і число, а нам потрібен тільки рік, для цього створюємо хелпер
 import Handlebars from 'handlebars';
-Handlebars.registerHelper('releaseYear', function (date) {
+Handlebars.registerHelper('makeYear', function (date) {
   return date.slice(0, 4);
+});
+// Хелпер 2. В списку фільмів є жанри, але ми отримуємо список жанрів у вигляді ІД, тому створили функцію getGenres(...ids), яка приймає всі ІД і повертає перші 2 жанри...
+import { getGenres } from './catalog-functions/catalog-genres-get';
+Handlebars.registerHelper('makeGenres', function (genre_ids) {
+  // return 'Жанр';
+  return getGenres(genre_ids).join(', ');
 });
 
 // Присвоюємо змінні елементам верстки
@@ -23,7 +29,6 @@ async function onRenderCatalogPage() {
   try {
     const response = await moviesAPI.getTrendMoviesWeek();
     // console.log(response.results);
-    // console.log(moviesAPI.getGenres(28, 12, 16));
     moviesCatalog.innerHTML = compiledMoviesCards(response.results);
   } catch (err) {
     console.log(err);
@@ -41,13 +46,13 @@ async function onSearchFormSubmit(e) {
   const page = 1;
   if (query === '') {
     //Якщо в полі пошуку нічого не введено - не робимо ніяких запитів і виводимо помилку
-    moviesCatalog.innerHTML = `<h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">Enter search query, please!</p>`;
+    moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">Enter search query, please!</p><div>`;
   } else {
     try {
       const response = await moviesAPI.getSearchMovies(query, page);
       if (response.total_results < 1) {
         //Якщо результатів пошуку немає - виводимо помилку
-        moviesCatalog.innerHTML = `<h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p>`;
+        moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
       } else {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
         moviesCatalog.innerHTML = compiledMoviesCards(response.results);
