@@ -1,0 +1,137 @@
+.header {
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 32px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
+  }
+
+  &__text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(28 / 24);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white-txt-color);
+  }
+}
+
+.nav {
+  display: flex;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  &__link {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--grey-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: var(--active-txt-color);
+  }
+
+  &__list &__link--current {
+    color: var(--active-txt-color);
+  }
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+
+  &__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &__input:checked + &__slider::after {
+    left: 42px;
+
+    background-image: url(../images/sun-check.svg);
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__slider {
+    display: inline-block;
+    position: relative;
+    padding: 3px;
+  }
+
+  &__slider::after {
+    position: absolute;
+    content: '';
+    background-image: url(../images/moon-check.svg);
+    top: 6px;
+    left: 6px;
+    width: 18px;
+    height: 18px;
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__slider::before {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 24px;
+    border-radius: 194px;
+    background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  }
+
+  &__moon {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+  }
+
+  &__sun {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+  }
+}

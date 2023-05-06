@@ -2,8 +2,8 @@
 
 body {
   font-family: Roboto, sans-serif;
-  background: #111111;
-  color: #ffffff;
+  background: var(--dark-bg);
+  color: var(--white-txt-color);
 }
 
 .container {
