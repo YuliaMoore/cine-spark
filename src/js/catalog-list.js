@@ -3,16 +3,24 @@ const moviesAPI = new MoviesAPI();
 
 import compiledMoviesCards from '/src/templates/catalog-list-item.hbs';
 
-// Хелпер 1. В списку фільмів є рік, місяць і число, а нам потрібен тільки рік, для цього створюємо хелпер
 import Handlebars from 'handlebars';
+// Хелпер 1. В списку фільмів є рік, місяць і число, а нам потрібен тільки рік, для цього створюємо хелпер
 Handlebars.registerHelper('makeYear', function (date) {
   return date.slice(0, 4);
 });
-// Хелпер 2. В списку фільмів є жанри, але ми отримуємо список жанрів у вигляді ІД, тому створили функцію getGenres(...ids), яка приймає всі ІД і повертає перші 2 жанри...
+
+// Хелпер 2. В списку фільмів є жанри, але ми отримуємо список жанрів у вигляді ІД, тому створили функцію getGenres(ids), яка приймає всі ІД і повертає перші 2 жанри...
 import { getGenres } from './catalog-functions/catalog-genres-get';
 Handlebars.registerHelper('makeGenres', function (genre_ids) {
   // return 'Жанр';
   return getGenres(genre_ids).join(', ');
+});
+
+// Хелпер 3. В списку фільмів є зірочки, але ми отримуємо оцінку...
+import { getStarsRating } from './catalog-functions/catalog-rating-get';
+Handlebars.registerHelper('makeStars', function (vote_average) {
+  // return 'Рейтинг';
+  return getStarsRating(vote_average);
 });
 
 // Присвоюємо змінні елементам верстки
