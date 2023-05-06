@@ -52,7 +52,7 @@
 }
 
 .hero-decription {
-  width: 200px;
+  width: 250px;
   height: 100%;
   padding-top: 40px;
 
@@ -93,6 +93,13 @@
   }
 }
 
+.hero-vote {
+  margin-top: 12px;
+  @media screen and (min-width: 1200px) {
+    margin-top: 16px;
+  }
+}
+
 .hero-text {
   width: 166px;
 
@@ -118,6 +125,18 @@
     line-height: 19px;
 
     margin-top: 16px;
+  }
+}
+
+.hero-text-API {
+  margin-top: 16px;
+
+  @media screen and (max-width: 767px) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 28px;
   }
 }
 

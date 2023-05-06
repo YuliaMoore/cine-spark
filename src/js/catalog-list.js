@@ -1,3 +1,4 @@
+import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 const moviesAPI = new MoviesAPI();
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
@@ -5,6 +6,9 @@ import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 const searchInput = document.querySelector('.catalog-list__search-input');
 const searchForm = document.querySelector('.catalog-list__search-form');
 const moviesCatalog = document.querySelector('.catalog-list__items-list');
+
+onScroll();
+onToTopBtn();
 
 // Функція, яка викликається при першому завантаженні сторінки. Трендові фільми тижня.
 async function onRenderCatalogPage() {
@@ -37,10 +41,23 @@ async function onSearchFormSubmit(e) {
         moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
       } else {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
+
         moviesCatalog.innerHTML = getCatalogCards(response.results);
+
       }
     } catch (err) {
       console.log(err);
     }
   }
+}
+
+function scrollPage() {
+  const { height: cardHeight } = document
+    .querySelector('.catalog-list__items-list')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
