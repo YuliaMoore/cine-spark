@@ -34,6 +34,8 @@ export class MoviesAPI {
   set query(newQuery) {
     this.#query = newQuery;
   }
+
+  // Романчук Володимир "ставлю свої поки що, потім розберемось"...
   // Три функції: тренди дня, тижня і пошуковий запит.
 
   async getTrendMoviesDay() {
