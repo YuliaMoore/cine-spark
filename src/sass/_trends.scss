@@ -1,0 +1,33 @@
+.catalog.section {
+  padding: 40px 0 10px 0;
+}
+
+.weekly-gallery {
+  display: flex;
+  gap: 16px;
+}
+
+.catalog-list__list-wrapper {
+  position: relative;
+  display: flex;
+  width: 280px;
+  height: 406px;
+  border-radius: 5px;
+}
+
+.catalog-list__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+}
+
+.catalog-list__image {
+  display: block;
+  width: 100%;
+}
