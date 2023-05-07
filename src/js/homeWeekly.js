@@ -87,7 +87,9 @@ function createMovies({
 
   return `
 <li class="catalog-list__item">
+<a href="#">
     <div class='catalog-list__list-wrapper'>
+
       <div class='catalog-list__info'>
       
       <h2 class='catalog-list__title'>${title}</h2>
@@ -96,6 +98,7 @@ function createMovies({
           <span class='catalog-list__movie-year'>${year}</span>
         </p>
         <div class='catalog-list__movie-rating'>${vote_average}</div>
+ 
       </div>
 
       <img
@@ -105,8 +108,9 @@ function createMovies({
         height='406'
         class='catalog-list__image'
        />
-
+     
     </div>
+      </a>
   </li>
 `;
 }
