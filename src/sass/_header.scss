@@ -322,11 +322,12 @@
   }
 
   @media screen and (max-width: 767px) {
-    position: absolute;
+    position: fixed;
     width: 204px;
     height: 428px;
-    left: 0px;
     top: 0px;
+
+    padding: 8px 20px;
 
     background: #171717;
     border-radius: 0px 8px 8px 0px;
@@ -345,15 +346,11 @@
   @media screen and (max-width: 767px) {
     width: 32px;
     height: 32px;
-
-    margin-top: 8px;
-    margin-left: 20px;
   }
 }
 
 .lists {
   margin-top: 40px;
-  margin-left: 20px;
 
   display: flex;
   flex-direction: column;
