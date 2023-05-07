@@ -86,9 +86,9 @@ function createMovies({
   let tempGenresString = tempGenres.join(', ');
 
   return `
-<li class="catalog-list__item">
+<li class="catalog-list__item trend-list__item">
 <a href="#">
-    <div class='catalog-list__list-wrapper'>
+    <div class='catalog-list__list-wrapper trend-list__list-wrapper'>
 
       <div class='catalog-list__info'>
       
