@@ -1,6 +1,31 @@
 // підключаємо бібліотеку axios
 import axios from 'axios';
 
+const API_KEY = 'cca79e12b25cdd9f67fc795a1689f5d9';
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+export async function getTrendingFilms(page) {
+  const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getUpcomingFilms(page) {
+  const url = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=1`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export class MoviesAPI {
   // Приватні властивості
   #BASE_URL = 'https://api.themoviedb.org';
@@ -73,17 +98,27 @@ export class MoviesAPI {
     }
   }
 
-  // Функція для отримання жанрів фільмів по вказаних ids
-  // async getGenres(ids) {
+  // Функція для отримання 2-х жанрів фільмів по вказаних ids
+  // Але зробити не вдалось, оскільки з Handlesbar не підтримує асинхронні функції в хелперах, тому звичайний масив локатоно зберігаємо.
+  // async getGenres(...ids) {
   //   try {
   //     const response = await axios.get(
   //       `${this.#BASE_URL}/3/genre/movie/list?api_key=${
   //         this.#API_KEY
   //       }&language=en-US`
   //     );
-  //     return response.genres
-  //       .filter(genre => ids.includes(genre.id))
-  //       .map(genre => genre.name);
+  //     const genres = response.data.genres.filter(genre =>
+  //       ids.includes(genre.id)
+  //     );
+  //     let genresText = '';
+  //     // console.log(genres.length);
+  //     if (genres.length > 1) {
+  //       genresText = `${genres[0].name}, ${genres[1].name}`;
+  //     } else {
+  //       genresText = `${genres[0].name}`;
+  //     }
+  //     // console.log(genresText);
+  //     return genresText;
   //   } catch (error) {
   //     throw new Error(error.response.status);
   //   }
