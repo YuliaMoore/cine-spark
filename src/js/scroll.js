@@ -8,13 +8,7 @@ window.addEventListener('scroll', onScroll);
 function onScroll() {
   const scrolled = window.pageYOffset;
   const coords = document.documentElement.clientHeight;
-  //   if (scrolled > coords) {
-  //     toTopBtn.style.visibility = 'visible';
-  //   } else {
-  //     toTopBtn.style.visibility = 'hidden';
-  //   }
-  // }
-
+ 
   if (scrolled > coords) {
     toTopBtn.classList.add('go-to-top--visible');
   }
