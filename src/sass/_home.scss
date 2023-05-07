@@ -11,6 +11,16 @@
   display: flex;
   align-items: end;
   justify-content: space-between;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 28px;
+  }
 }
 
 .see__all {
@@ -23,4 +33,9 @@
 .catalog-list__image {
   // width: 395px;
   // height: 574px;
+}
+
+.results {
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
