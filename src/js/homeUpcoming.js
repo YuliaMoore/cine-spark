@@ -129,8 +129,6 @@ function createUpcomingMovies({
   let tempGenresString = tempGenres.join(', ');
 
   return `
-<h2 class='upcoming-title'>upcoming this mounth</h2>
-    
    <a href="#">
 
     <div class='upcoming-img'>
