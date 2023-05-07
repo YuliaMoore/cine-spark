@@ -1,6 +1,6 @@
 import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
-const moviesAPI = new MoviesAPI();
+export const moviesAPI = new MoviesAPI();
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 
 const searchInput = document.querySelector('.catalog-list__search-input');
