@@ -1,4 +1,7 @@
-import { getUpcomingFilms } from './MoviesAPI';
+// import { getUpcomingFilms } from './MoviesAPI';
+
+import { MoviesAPI } from './MoviesAPI';
+const moviesAPI = new MoviesAPI();
 
 const upcomingCard = document.querySelector('.upcoming-container');
 
@@ -29,7 +32,7 @@ const genres = [
 
 async function onRenderPage() {
   try {
-    const respons = await getUpcomingFilms();
+    const respons = await moviesAPI.getUpcomingFilms();
     console.log(respons);
 
     const responsData = respons.results;
@@ -129,6 +132,8 @@ function createUpcomingMovies({
   let tempGenresString = tempGenres.join(', ');
 
   return `
+<h2 class='upcoming-title'>upcoming this mounth</h2>
+    
    <a href="#">
 
     <div class='upcoming-img'>

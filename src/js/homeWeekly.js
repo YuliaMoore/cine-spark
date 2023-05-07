@@ -1,6 +1,9 @@
-import { getTrendingFilms } from './MoviesAPI';
+// import { getTrendingFilms } from './MoviesAPI';
 
-const weeklyGallery = document.querySelector('.weekly-gallery');
+import { MoviesAPI } from './MoviesAPI';
+const moviesAPI = new MoviesAPI();
+
+const weeklyGallery = document.querySelector('.weekly-card');
 
 // const moviesApi = new MoviesAPI();
 // console.log(moviesApi);
@@ -29,7 +32,7 @@ const genres = [
 
 async function onRenderPage() {
   try {
-    const respons = await getTrendingFilms();
+    const respons = await moviesAPI.getTrendMoviesWeek();
     console.log(respons);
 
     const responsData = respons.results;
@@ -86,35 +89,119 @@ function createMovies({
   let tempGenresString = tempGenres.join(', ');
 
   return `
-<li class="catalog-list__item trend-list__item">
-<a href="#">
-    <div class='catalog-list__list-wrapper trend-list__list-wrapper'>
+    
+  <li class="weekly-item">
+  <a href="#" class="weekly-link">
+    <div class="weekly-wrapper">
 
-      <div class='catalog-list__info'>
-      
-      <h2 class='catalog-list__title'>${title}</h2>
-        
-        <p class='catalog-list__movie-type'>${tempGenresString}
-          <span class='catalog-list__movie-year'>${year}</span>
+      <div class="weekly-info">
+        <h2 class="weekly-info__title">${title}</h2>
+
+        <div class="catalog-list__additional-info">
+          <p class="weekly-info__genres__data">${tempGenresString} | ${release_date.slice(
+    0,
+    4
+  )}
         </p>
-        <div class='catalog-list__movie-rating'>${vote_average}</div>
- 
+
+          <div class="weekly-rating">${vote_average}</div>
+        </div>
       </div>
 
       <img
-        src='https://image.tmdb.org/t/p/w500${poster_path}'
-        alt='${title}'
-        width='280'
-        height='406'
-        class='catalog-list__image'
-       />
-     
+        src="https://image.tmdb.org/t/p/w500${poster_path}"
+        alt="${title}"
+        
+        class="weekly-img"
+      />
     </div>
-      </a>
-  </li>
+  </a>
+</li>
+
+  
+
 `;
 }
 
 function updateNewsList(markup) {
   weeklyGallery.innerHTML = markup;
+}
+
+// !=======================================
+
+{
+  /* <li class="catalog-list__item">
+  <a href="#" class="catalog-list__list-link">
+    <div class="catalog-list__list-wrapper">
+      <div class="catalog-list__info">
+        <h2 class="catalog-list__title">${title}</h2>
+        <div class="catalog-list__additional-info">
+          <p class="catalog-list__movie-type">
+            ${getGenres(genre_ids)} | ${release_date.slice(0, 4)}
+          </p>
+          <div class="catalog-list-rating">${getStarsRating(vote_average)}</div>
+        </div>
+      </div>
+      <img
+        src="https://image.tmdb.org/t/p/w500${poster_path}"
+        alt="${title}"
+        width="280"
+        height="406"
+        class="catalog-list__image"
+      />
+    </div>
+  </a>
+</li>; */
+}
+
+// !======================================
+
+{
+  /* <ul class="weekly-list">
+  <a href="#">
+    <li class="catalog-list__item weekly-item">
+      <img
+        src="https://image.tmdb.org/t/p/w500${poster_path}"
+        alt="${title}"
+        width="280"
+        height="406"
+        class="catalog-list__image weekly-img"
+      />
+      <div class="catalog-list__info weekly-info">
+        <h2 class="catalog-list__title weekly-info__title">${title}</h2>
+        <p class="catalog-list__movie-type weekly-info__genres">
+          ${tempGenresString}
+        </p>
+        <p class="catalog-list__movie-year weekly-info__date">${year}</p>
+      </div>
+      <div class="catalog-list__movie-rating weekly-rating">
+        ${vote_average}
+      </div>
+    </li>
+  </a>
+</ul>; */
+}
+
+// ==============================
+
+{
+  // <ul class="weekly-list">
+  //! <a href="#">
+  //! <li class="weekly-item">
+  // <div class="rrr">
+  //! <img
+  //! src="https://image.tmdb.org/t/p/w500${poster_path}"
+  //! alt="${title}"
+  //! class="weekly-img"
+  // />
+  //! <div class="weekly-info">
+  //! <h2 class="weekly-info__title">${title}</h2>
+  //! <p class="weekly-info__genres">${tempGenresString}</p>
+  //* <p class="weekly-info__date">${year}</p>
+  // </div>
+  //! <div class="weekly-rating">${vote_average}</div>
+  // </div>
+  // </li>
+  // </a>
+  // </ul>;
 }
