@@ -2,7 +2,26 @@
   <div class="container header__box">
     <div class="logo">
       <a href="./index.html" class="logo__link">
-        <img src="./images/popcorn.png" alt="" class="logo__logo" />
+        <picture>
+          <source
+            srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+            media="(min-width:1200px)"
+          />
+          <source
+            srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+            media="(min-width:768px)"
+          />
+          <source
+            srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+            media="(min-width:480px)"
+          />
+          <img
+            srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+            src="./images/popcorn.png"
+            alt=""
+            class="logo__logo"
+          />
+        </picture>
         <h2 class="logo__text">Cinemania</h2>
       </a>
     </div>
@@ -19,15 +38,59 @@
         </li>
       </ul>
     </nav>
+    <button type="button" class="menu-open-btn">MENU</button>
     <label for="checkbox" class="switch">
-      <input type="checkbox" id="checkbox" class="switch__input js-input" />
+      <input type="checkbox" id="checkbox" class="switch__input" />
       <span class="switch__slider"></span>
       <svg width="13px" height="13px" class="switch__moon">
         <use href="./images/symbol-defs.svg#moon"></use>
       </svg>
-      <svg width="13px" height="13px" class="switch__sun">
+      <svg class="switch__sun">
         <use href="./images/symbol-defs.svg#sun"></use>
       </svg>
     </label>
+
+    <div class="mob-menu is-hidden">
+      <div class="mob-menu__container">
+        <div class="mob-menu__top">
+          <a href="./index.html" class="logo__link">
+            <picture>
+              <source
+                srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+                media="(min-width:1200px)"
+              />
+              <source
+                srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+                media="(min-width:768px)"
+              />
+              <source
+                srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+                media="(min-width:480px)"
+              />
+              <img
+                srcset="./images/popcorn.png 1x, ./images/popcorn.png 2x"
+                src="./images/popcorn.png"
+                alt=""
+                class="mob-menu__logo"
+              /> </picture
+          ></a>
+          <ul class="mob-menu__list lists">
+            <li class="mob-menu__item">
+              <a href="./index.html" class="mob-menu__link mob-menu__link-current link">HOME</a>
+            </li>
+            <li class="mob-menu__item">
+              <a href="./catalog.html" class="mob-menu__link mob-menu__link-current link"
+                >CATALOG</a
+              >
+            </li>
+            <li class="mob-menu__item">
+              <a href="./my-library.html" class="mob-menu__link mob-menu__link-current link"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </header>

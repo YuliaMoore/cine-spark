@@ -35,7 +35,9 @@ export class MoviesAPI {
     this.#query = newQuery;
   }
 
+
   // Отримати тренди дня
+
   async getTrendMoviesDay() {
     const response = await axios.get(
       `${this.#BASE_URL}/3/trending/movie/day?api_key=${this.#API_KEY}`
@@ -51,7 +53,9 @@ export class MoviesAPI {
     return response.data;
   }
 
+
   // Отримати фільми по запиту
+
   async getSearchMovies(searchQuery, page) {
     const response = await axios.get(
       `${this.#BASE_URL}/3/search/movie?api_key=${
