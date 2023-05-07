@@ -23,18 +23,18 @@
   padding: 10px;
 
   @media screen and (min-width: 1200px) {
-    width: 846px;
-    height: 500px;
+    width: 820px;
+    height: 420px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     width: 620px;
-    height: 410px;
+    height: 440px;
   }
 
   @media screen and (max-width: 767px) {
     width: 280px;
-    height: 400px;
+    height: 680px;
   }
 
   &__item {
