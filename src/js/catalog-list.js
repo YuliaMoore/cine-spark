@@ -32,18 +32,22 @@ async function onSearchFormSubmit(e) {
   const page = 1;
   if (query === '') {
     //Якщо в полі пошуку нічого не введено - не робимо ніяких запитів і виводимо помилку
-    moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">Enter search query, please!</p><div>`;
+    moviesCatalog.innerHTML = `
+    <div class="catalog-list__error">
+    <h2 class="catalog-list__error-title">OOPS...</h2>
+    <p class="catalog-list__error-text">Enter search query, please!</p>
+    <div>`;
   } else {
     try {
       const response = await moviesAPI.getSearchMovies(query, page);
       if (response.total_results < 1) {
         //Якщо результатів пошуку немає - виводимо помилку
-        moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
+        const modalError = document.querySelector('#error');
+        // moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
       } else {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
 
         moviesCatalog.innerHTML = getCatalogCards(response.results);
-
       }
     } catch (err) {
       console.log(err);
