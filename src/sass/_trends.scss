@@ -10,9 +10,21 @@
 .catalog-list__list-wrapper {
   position: relative;
   display: flex;
-  width: 280px;
-  height: 406px;
+
   border-radius: 5px;
+
+  @media screen and (max-width: 480px) {
+    width: 280px;
+    height: 406px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 224px;
+    height: 325px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 395px;
+    height: 574px;
+  }
 }
 
 .catalog-list__info {
