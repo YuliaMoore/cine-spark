@@ -1,16 +1,44 @@
 .header {
   &__box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 6px 32px;
+
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      align-items: center;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    @media screen and (max-width: 767px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+
+      padding: 8px 20px;
+    }
   }
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  text-align: center;
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 59px;
+  }
 
   &__link {
     display: flex;
@@ -19,14 +47,20 @@
   }
 
   &__logo {
-    width: 48px;
-    height: 48px;
-    margin-right: 8px;
+    @media screen and (min-width: 768px) {
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   &__text {
     font-family: 'Roboto';
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: calc(28 / 24);
@@ -34,29 +68,65 @@
     align-items: center;
     text-align: center;
     color: var(--white-txt-color);
+
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
   }
 }
 
 .nav {
-  display: flex;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-right: 165px;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 
   &__list {
-    display: flex;
-    align-items: center;
-    text-align: center;
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__item:not(:last-child) {
-    margin-right: 40px;
+    @media screen and (min-width: 768px) {
+      margin-right: 32px;
+    }
   }
 
   &__link {
     font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: calc(16 / 14);
-    display: flex;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
@@ -78,6 +148,7 @@
 .switch {
   display: inline-block;
   position: relative;
+  top: 2px;
 
   &__input {
     position: absolute;
@@ -87,9 +158,17 @@
   }
 
   &__input:checked + &__slider::after {
-    left: 42px;
+    @media screen and (min-width: 768px) {
+      left: 43px;
 
-    background-image: url(../images/sun-check.svg);
+      background-image: url(../images/sun-check-18.svg);
+    }
+
+    @media screen and (max-width: 767px) {
+      left: 28px;
+
+      background-image: url(../images/sun-check-12.svg);
+    }
 
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -97,41 +176,213 @@
   &__slider {
     display: inline-block;
     position: relative;
-    padding: 3px;
+
+    @media screen and (min-width: 768px) {
+      padding: 3px;
+    }
+
+    @media screen and (max-width: 767px) {
+      padding: 4px;
+    }
   }
 
   &__slider::after {
-    position: absolute;
-    content: '';
-    background-image: url(../images/moon-check.svg);
-    top: 6px;
-    left: 6px;
-    width: 18px;
-    height: 18px;
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      content: '';
+      background-image: url(../images/moon-check-18.svg);
+      top: 6px;
+      left: 5px;
+      width: 18px;
+      height: 18px;
+    }
+
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      content: '';
+      background-image: url(../images/moon-check-12.svg);
+      top: 6px;
+      left: 6px;
+      width: 12px;
+      height: 12px;
+    }
 
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &__slider::before {
-    content: '';
-    display: block;
-    left: 0;
-    top: 0;
-    width: 60px;
-    height: 24px;
-    border-radius: 194px;
-    background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    @media screen and (min-width: 768px) {
+      content: '';
+      display: block;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 24px;
+      border-radius: 194px;
+      background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    }
+
+    @media screen and (max-width: 767px) {
+      content: '';
+      display: block;
+      left: 0;
+      top: 0;
+      width: 38px;
+      height: 16px;
+      border-radius: 194px;
+      background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    }
   }
 
   &__moon {
-    position: absolute;
-    top: 9px;
-    left: 9px;
+    @media screen and (min-width: 768px) {
+      width: 13px;
+      height: 13px;
+
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 8px;
+      height: 8px;
+
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
   }
 
   &__sun {
-    position: absolute;
-    top: 9px;
-    right: 9px;
+    @media screen and (min-width: 768px) {
+      width: 14px;
+      height: 14px;
+
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 8px;
+      height: 8px;
+
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
   }
+}
+
+// MOB-MENU
+
+.menu-open-btn {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    background-color: transparent;
+    border: transparent;
+
+    color: var(--grey-txt-color);
+  }
+}
+
+.menu-open-btn:hover,
+.menu-open-btn:focus {
+  color: var(--active-txt-color);
+}
+
+.mob-menu {
+  z-index: 555;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    width: 204px;
+    height: 428px;
+    left: 0px;
+    top: 0px;
+
+    background: #171717;
+    border-radius: 0px 8px 8px 0px;
+  }
+}
+
+.mob-menu__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.mob-menu__logo {
+  @media screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+}
+
+.lists {
+  margin-top: 40px;
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mob-menu__item + .mob-menu__item {
+  margin-top: 24px;
+}
+
+.mob-menu__link {
+  @media screen and (max-width: 767px) {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    text-align: right;
+
+    color: var(--white-txt-color);
+  }
+}
+
+.mob-menu__link:hover,
+.mob-menu__link:focus {
+  color: var(--active-txt-color);
 }
