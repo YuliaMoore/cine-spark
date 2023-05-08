@@ -387,3 +387,12 @@
 .mob-menu__link:focus {
   color: var(--active-txt-color);
 }
+
+//white-theme
+.white-mode .logo__text {
+  color: var(--darck--txt-color);
+}
+
+.white-mode .mob-menu__link {
+  color: var(--light-grey-txt-color);
+}

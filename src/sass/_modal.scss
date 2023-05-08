@@ -81,3 +81,13 @@
   opacity: 1;
   visibility: visible;
 }
+
+//white-theme
+.white-mode .modal {
+  background-color: var(--light-bg);
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+  color: var(--light-grey-txt-color);
+}
+// .white-mode .close-btn {
+//   fill: black;
+// }
