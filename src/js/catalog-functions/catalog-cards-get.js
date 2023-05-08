@@ -1,5 +1,6 @@
 import { getGenres } from './catalog-genres-get';
 import { getStarsRating } from './catalog-rating-get';
+import posterNoPhoto from '/src/images/nophoto.jpg';
 
 export function getCatalogCards(backendQuery) {
   const catalogCardsMarkup = backendQuery
@@ -7,7 +8,7 @@ export function getCatalogCards(backendQuery) {
       if (poster_path) {
         poster_path = `https://image.tmdb.org/t/p/w500${poster_path}`;
       } else {
-        poster_path = `/src/images/nophoto.jpg`;
+        poster_path = posterNoPhoto;
       }
       return `
     <li class='catalog-list__item'>
