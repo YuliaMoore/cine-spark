@@ -17,21 +17,76 @@
   </div>
 </section>
 
-<!-- <div class="upcoming-info-cover">
-    <div class="upcoming-info">
-      <h2 class="upcoming-list__title">${title}</h2>
+<!-- <li class="description-list__item upcoming-list__item">
+  <ul class="description-list__values upcoming-list__values">
+    <li class="description-list__title upcoming-data upcoming-list__title">
+      Release date
+    </li>
+    <li class="description-list__value upcoming-data-text upcoming-list__value">
+      ${release_date}
+    </li>
+  </ul>
+</li>
 
-      <p class="upcoming-genre">
-        ${getGenres(genre_ids)}
-        <span class="upcoming-year">Release date ${release_date}</span>
-      </p>
-      <p class="upcoming-rating">${getStarsRating(vote_average)}</p>
-    </div>
+<li class="description-list__item upcoming-list__item">
+  <ul class="description-list__values upcoming-list__values">
+    <li class="description-list__title upcoming-data upcoming-list__title">
+      Vote / Votes
+    </li>
 
-    <div class="movie-info">
-      <h2 class="info-title">About</h2>
-      <p class="movie-description"></p>
-    </div>
+    <li class="description-list__value upcoming-vote upcoming-list__value">
+      <span class="description-list__value--vote-orange upcoming-vote-text"
+        >${vote_average}</span
+      >
+      /
+      <span class="description-list__value--vote-grey upcoming-vote-text"
+        >${vote_count}</span
+      >
+    </li>
+  </ul>
+</li>
 
-    <button type="button" class="upcoming-btn">Remind me</button>
-  </div> -->
+<li class="description-list__item upcoming-list__item">
+  <ul class="description-list__values upcoming-list__values">
+    <li class="description-list__title upcoming-rating upcoming-list__title">
+      Popularity
+    </li>
+    <li
+      class="description-list__value upcoming-rating-text upcoming-list__value"
+    >
+      ${popularity}
+    </li>
+  </ul>
+</li>
+
+<li class="description-list__item upcoming-list__item">
+  <ul class="description-list__values upcoming-list__values">
+    <li class="description-list__title upcoming-genre upcoming-list__title">
+      Genre
+    </li>
+    <li
+      class="description-list__value upcoming-genre-text upcoming-list__value"
+    >
+      ${getGenres(genre_ids)}
+    </li>
+  </ul>
+</li> -->
+<!-- =============================== -->
+
+<!-- <li class="upcoming-data upcoming-list-data">
+  Release date <span class="upcoming-data-text">${release_date}</span>
+</li> -->
+
+<!-- <li class="upcoming-vote">
+  Vote/Votes<span class="upcoming-vote-text"
+    >${vote_average} / ${vote_count}</span
+  >
+</li> -->
+
+<!-- <li class="upcoming-rating">
+  Popularity<span class="upcoming-rating-text">${popularity}</span>
+</li> -->
+
+<!-- <li class="upcoming-genre">
+  Genre<span class="upcoming-genre-text">${getGenres( // genre_ids // )}</span>
+</li> -->

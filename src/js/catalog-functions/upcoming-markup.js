@@ -10,6 +10,7 @@ export function createUpcomingMovies({
   vote_average,
   popularity,
   vote_count,
+  overview,
 }) {
   return `
 
@@ -26,25 +27,48 @@ export function createUpcomingMovies({
 
   <div class="upcoming-info-cover">
     
-      <h2 class="upcoming-list__title">${title}</h2>
+      <h2 class="upcoming-info-title">${title}</h2>
 
     <div class="upcoming-info">
 
-      <p class="upcoming-data">Release date <span class="upcoming-data-text">${release_date}</span></p>
+      <ul class="upcoming-info-list">
+        <li class="list-info">
+          <ul class="info-list">
+            <li class="upcoming-list__title">Release date</li>
+            <li class="upcoming-list__value-data">${release_date}</li>
+          </ul>
+        <li>
 
-      <p class="upcoming-vote">Vote/Votes<span class="upcoming-vote-text">${vote_average} / ${vote_count}</span></p>
+        <li class="list-info">
+          <ul class="info-list">
+            <li class="upcoming-list__title">Vote / Votes</li>
+            <li class="upcoming-list__value">
+              <span class="upcoming-value-text averange">${vote_average}</span>
+                /
+              <span class="upcoming-value-text count">${vote_count}</span>
+            </li>
+          </ul>
+        </li>
 
-      <p class="upcoming-rating">Popularity<span class="upcoming-rating-text">${popularity}</span></p>
+        <li class="list-info">
+          <ul class="info-list">
+            <li class="upcoming-list__title">Popularity</li>
+            <li class="upcoming-list__value">${popularity}</li>
+          </ul>
+        </li>
 
-      <p class="upcoming-genre">Genre<span class="upcoming-genre-text">${getGenres(
-        genre_ids
-      )}</span></p>
-      
+        <li class="list-info">
+          <ul class="info-list">
+            <li class="upcoming-list__title">Genre</li>
+            <li class="upcoming-list__value">${getGenres(genre_ids)}</li>
+          <ul>
+        <li>
+      </ul>
     </div>
 
     <div class="movie-info">
       <h2 class="info-title">About</h2>
-      <p class="movie-description">HI</p>
+      <p class="movie-description">${overview}</p>
     </div>
 
     <button type="button" class="upcoming-btn">Remind me</button>
