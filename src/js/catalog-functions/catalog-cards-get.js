@@ -7,7 +7,7 @@ export function getCatalogCards(backendQuery) {
       if (poster_path) {
         poster_path = `https://image.tmdb.org/t/p/w500${poster_path}`;
       } else {
-        poster_path = `./images/nophoto.jpg`;
+        poster_path = `/src/images/nophoto.jpg`;
       }
       return `
     <li class='catalog-list__item'>
