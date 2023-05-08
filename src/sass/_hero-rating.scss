@@ -1,0 +1,70 @@
+.hero-vote-list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 0;
+}
+
+.hero-vote-item--noactive {
+  display: block;
+  margin: 0;
+  background: url(/src/images/star-outline@2x.png);
+  background-size: contain;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+}
+
+.hero-vote-item--active {
+  display: block;
+  margin: 0;
+  background: url(/src/images/star@2x.png);
+  background-size: contain;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+}
+
+.hero-vote-item--activehalf {
+  display: block;
+  margin: 0;
+  background: url(/src/images/star-half@2x.png);
+  background-size: contain;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-vote-item--noactive {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-vote-item--active {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-vote-item--activehalf {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-vote-item--noactive {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-vote-item--active {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-vote-item--activehalf {
+    width: 24px;
+    height: 24px;
+  }
+}

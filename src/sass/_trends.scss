@@ -1,0 +1,258 @@
+// .catalog.section {
+//   padding: 40px 0 10px 0;
+// }
+
+// .weekly-list {
+//   position: relative;
+// }
+
+// .weekly-img {
+//   width: 395px;
+//   height: 574px;
+// }
+
+//
+
+//
+
+// .catalog-list__list-wrapper {
+//   position: relative;
+//   display: flex;
+//   width: 280px;
+//   height: 406px;
+//   border-radius: 5px;
+// }
+
+// .catalog-list__info {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   background: linear-gradient(
+//     180deg,
+//     rgba(0, 0, 0, 0) 63.48%,
+//     rgba(0, 0, 0, 0.9) 92.16%
+//   );
+// }
+
+// .catalog-list__image {
+//   display: block;
+//   width: 100%;
+// }
+
+// ==================================
+
+// .container {
+//   width: 320px;
+// }
+
+// .catalog.section {
+//   padding: 40px 0 10px 0;
+// }
+
+.weekly {
+  padding: 0px 32px;
+}
+
+.weekly-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 28px;
+}
+
+.weekly-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.weekly-link-all {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  /* identical to box height */
+
+  color: #f87719;
+}
+
+.weekly-card {
+  display: flex;
+  gap: 16px;
+}
+
+.catalog-list__items-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catalog-list__ item:last-child {
+  margin-right: auto;
+}
+.weekly-link:hover .weekly-wrapper,
+.weekly-link:focus .weekly-wrapper {
+  background-color: #0000002c;
+}
+
+.weekly-wrapper {
+  position: relative;
+  display: flex;
+  // width: 280px;
+  // height: 406px;
+  border-radius: 4px;
+  background-color: unset;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  transition: background-color 300ms ease-in-out;
+}
+
+.weekly-img {
+  display: block;
+  object-fit: cover;
+  z-index: -1;
+  width: 100%;
+  border-radius: 5px;
+
+  width: 395px;
+  height: 574px;
+}
+
+// .weekly-img {
+//   width: 395px;
+//   height: 574px;
+// }
+
+.weekly-info {
+  position: absolute;
+  padding: 20px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--white-txt-color);
+}
+
+.catalog-list__additional-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey-txt-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.weekly-info__title {
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.weekly-info__genres__data,
+.weekly-rating {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #b7b7b7;
+}
+
+// .weekly-info__date,
+// .weekly-rating {
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 20px;
+//   line-height: 23px;
+
+//   color: #b7b7b7;
+// }
+
+.catalog-list__error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// ========== ретина =============
+
+// @media screen and (min-width: 768px) {
+//   .container {
+//     width: 768px;
+//   }
+//   // .catalog-list__search-form {
+//   //   margin-bottom: 36px;
+//   // }
+//   // .catalog-list__search-input {
+//   //   padding: 14px 20px;
+//   //   width: 202px;
+//   //   height: 44px;
+//   //   font-size: 16px;
+//   // }
+//   // .catalog-list__search-button {
+//   //   width: 44px;
+//   //   height: 44px;
+//   // }
+//   .weekly-wrapper {
+//     width: 224px;
+//     height: 325px;
+//   }
+// }
+
+// @media screen and (min-width: 1280px) {
+//   .container {
+//     width: 1280px;
+//   }
+//   .catalog-list__search-form {
+//     margin-bottom: 48px;
+//   }
+//   .catalog-list__search-input {
+//     padding: 14px 24px;
+//     width: 336px;
+//     height: 48px;
+//     font-size: 16px;
+//   }
+//   .catalog-list__search-button {
+//     width: 48px;
+//     height: 48px;
+//   }
+//   .catalog-list__list-wrapper {
+//     width: 394px;
+//     height: 574px;
+//   }
+//   .catalog-list__info {
+//     padding: 20px;
+//   }
+//   .catalog-list__additional-info {
+//     font-size: 20px;
+//     line-height: 1.15;
+//   }
+//   .catalog-list__title {
+//     margin-bottom: 15px;
+//     font-size: 20px;
+//     line-height: 1.15;
+//   }
+// }

@@ -36,6 +36,7 @@ export class MoviesAPI {
   }
 
   // Отримати тренди дня
+
   async getTrendMoviesDay() {
     const response = await axios.get(
       `${this.#BASE_URL}/3/trending/movie/day?api_key=${this.#API_KEY}`
@@ -51,7 +52,19 @@ export class MoviesAPI {
     return response.data;
   }
 
-  // Отримати фільми по запиту
+  // Отримати Upcoming фільми
+  async getUpcomingFilms() {
+    try {
+      const response = await axios.get(
+        `${this.#BASE_URL}/3/movie/upcoming?api_key=${this.#API_KEY}`
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.status);
+    }
+  }
+
+  // Отримати фільми по запиту (пошуковий запит)
   async getSearchMovies(searchQuery, page) {
     const response = await axios.get(
       `${this.#BASE_URL}/3/search/movie?api_key=${

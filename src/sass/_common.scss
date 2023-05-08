@@ -6,6 +6,10 @@ body {
   color: var(--white-txt-color);
 }
 
+body.no-scroll {
+  overflow-y: hidden;
+}
+
 .container {
   width: 100%;
   margin: 0px auto;
