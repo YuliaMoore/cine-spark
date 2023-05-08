@@ -1,6 +1,6 @@
 import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
-const moviesAPI = new MoviesAPI();
+export const moviesAPI = new MoviesAPI();
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 
 const searchInput = document.querySelector('.catalog-list__search-input');
@@ -48,13 +48,14 @@ async function onSearchFormSubmit(e) {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
 
         moviesCatalog.innerHTML = getCatalogCards(response.results);
+        scrollPage();
       }
     } catch (err) {
       console.log(err);
     }
   }
 }
-
+// плавний скрол
 function scrollPage() {
   const { height: cardHeight } = document
     .querySelector('.catalog-list__items-list')
