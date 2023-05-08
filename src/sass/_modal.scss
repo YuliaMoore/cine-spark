@@ -88,6 +88,10 @@
   box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
   color: var(--light-grey-txt-color);
 }
-// .white-mode .close-btn {
-//   fill: black;
-// }
+.white-mode .close-btn {
+  stroke: black;
+}
+
+.white-mode .overlay {
+  background: rgba(255, 255, 255, 0.5);
+}
