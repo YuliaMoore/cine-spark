@@ -306,6 +306,8 @@
     border: transparent;
 
     color: var(--grey-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -376,6 +378,8 @@
     text-align: right;
 
     color: var(--white-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
