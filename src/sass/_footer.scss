@@ -75,3 +75,12 @@
   --animate-delay: 2s;
   --animate-repeat: infinite;
 }
+
+//white-theme
+.white-mode .footer__text {
+  color: var(--light-grey-txt-color);
+}
+
+.white-mode .footer__link {
+  color: var(--light-grey-txt-color);
+}

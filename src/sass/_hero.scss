@@ -155,3 +155,9 @@
   @media screen and (min-width: 1280px) {
   }
 }
+
+//white-theme
+.white-mode .hero-title,
+.white-mode .hero-text {
+  color: var(--black-txt-color);
+}

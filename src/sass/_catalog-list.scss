@@ -175,3 +175,10 @@
     line-height: 1.15;
   }
 }
+
+//white-theme
+.white-mode .catalog-list__search-input {
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-grey-txt-color);
+  color: var(--light-grey-txt-color);
+}

@@ -1,3 +1,4 @@
+import './js/color-theme';
 import './js/homeWeekly';
 import './js/homeUpcoming';
 import './js/modal';

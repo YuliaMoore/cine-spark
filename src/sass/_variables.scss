@@ -5,7 +5,11 @@
   //button gradient
   --gradinet-bg: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   //stars gradient
-  --stars-gradient-bg: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+  --stars-gradient-bg: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
 
   //   TEXT COLOR
   //   dark theme
@@ -17,4 +21,5 @@
   // light theme
   --darck--txt-color: #282828;
   --light-grey-txt-color: #595959;
+  --black-txt-color: #111111;
 }
