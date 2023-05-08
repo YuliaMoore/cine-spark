@@ -13,7 +13,7 @@ async function onRenderPage() {
     const responsData = respons.results;
     // console.log(responsData.movie_id);
 
-    // ================================
+    //  отримуємо три рамдомних фільми
     let responsMovies = [];
 
     const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
@@ -23,7 +23,6 @@ async function onRenderPage() {
       responsMovies.push(responsData[index]);
       responsMovies = responsMovies.filter((v, i, arr) => arr.indexOf(v) == i);
     }
-    // ===================================
 
     const markup = responsMovies.reduce(
       (markup, responsMovies) => markup + createMovies(responsMovies),
@@ -33,19 +32,6 @@ async function onRenderPage() {
     // console.log(markup.length);
 
     updateNewsList(markup);
-
-    // // =======================================
-    // function RandArray(array) {
-    //   var rand = (Math.random() * array.length) | 3;
-    //   var rValue = array[rand];
-    //   return rValue;
-    // }
-
-    // // var myArray = ['one', 'two', 'three', 'four', 'five', 'six'];
-    // var rValue = RandArray(responsData);
-    // console.log(rValue.length);
-
-    // // =====================================
   } catch (err) {
     console.log(err);
   }

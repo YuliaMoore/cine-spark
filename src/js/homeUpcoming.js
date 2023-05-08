@@ -16,9 +16,10 @@ async function onRenderPage() {
     // console.log(responsData);
     // console.log(responsData.length);
 
+    // отримуємо один рамдомний фільм
     let responsMovies = [];
 
-    getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
+    const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
 
     while (responsMovies.length != 1) {
       let index = getRandomInt(responsData.length);
@@ -26,13 +27,6 @@ async function onRenderPage() {
       responsMovies = responsMovies.filter((v, i, arr) => arr.indexOf(v) == i);
     }
 
-    // const getRandomMovie =
-    //   responsData[Math.floor(Math.random() * responsData.length)];
-
-    // const markup = responsMovies.reduce(
-    //   (markup, responsMovies) => markup + createMovies(responsMovies),
-    //   ''
-    // );
     const markup = responsMovies.reduce(
       (markup, responsMovies) => markup + createUpcomingMovies(responsMovies),
       ''
@@ -46,7 +40,6 @@ async function onRenderPage() {
 
 onRenderPage();
 // console.log(onRenderPage());
-// console.log(onInfo());
 
 function updateNewsList(markup) {
   upcomingCard.innerHTML = markup;
