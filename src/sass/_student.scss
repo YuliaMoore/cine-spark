@@ -121,3 +121,24 @@
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   }
 }
+
+//white-theme
+.white-mode .student__name {
+  color: var(--black-txt-color);
+}
+
+.white-mode .student__title {
+  color: var(--dark--txt-color);
+}
+
+.white-mode .social__icon {
+  fill: var(--light-grey-txt-color);
+}
+
+.white-mode .student__item {
+  border: 2px solid var(--light-grey-txt-color);
+}
+
+.white-mode .student__item:hover {
+  box-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
+}
