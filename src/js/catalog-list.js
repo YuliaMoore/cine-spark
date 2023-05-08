@@ -37,13 +37,15 @@ async function onSearchFormSubmit(e) {
     <h2 class="catalog-list__error-title">OOPS...</h2>
     <p class="catalog-list__error-text">Enter search query, please!</p>
     <div>`;
+    searchInput.focus(); //Ставимо курсор в поле пошуку
   } else {
     try {
       const response = await moviesAPI.getSearchMovies(query, page);
       if (response.total_results < 1) {
         //Якщо результатів пошуку немає - виводимо помилку
         const modalError = document.querySelector('#error');
-        // moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
+        moviesCatalog.innerHTML = `<div class="catalog-list__error"><h2 class="catalog-list__error-title">OOPS...</h2><p class="catalog-list__error-text">We are very sorry!</p><p class="catalog-list__error-text">We don’t have any results due to your search.</p><div>`;
+        searchInput.focus(); //Ставимо курсор в поле пошуку
       } else {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
 
@@ -62,7 +64,7 @@ function scrollPage() {
     .firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
-    top: cardHeight * 2,
+    top: cardHeight * 1,
     behavior: 'smooth',
   });
 }
