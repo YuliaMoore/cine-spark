@@ -32,7 +32,7 @@ function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
   refs.container.innerHTML = `<h1 class="hero-title">${title}</h1><div class='hero-vote'>${getStarsVote(
     vote_average
   )}</div><p class="hero-text hero-text-API">${overview}</p>
-      <button type="button" class="btn hero-btn">Watch trailer</button>`;
+      <button type="button" class="btn hero-btn js-open-modal" data-modal="movie-card">Watch trailer</button>`;
 
   changeHeroBackground(urlHeroBGI);
 }
