@@ -7,3 +7,9 @@ function whitemode() {
 }
 
 document.querySelector('.switch__input').addEventListener('click', whitemode);
+
+function onload() {
+  document.body.classList.toggle('white-mode', localStorage.getItem('whitemode') === 'true');
+}
+
+document.addEventListener('DOMContentLoaded', onload);
