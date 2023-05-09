@@ -181,6 +181,8 @@
     display: inline-block;
     position: relative;
 
+    cursor: pointer;
+
     @media screen and (min-width: 768px) {
       padding: 3px;
     }
@@ -239,6 +241,7 @@
   }
 
   &__moon {
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       width: 13px;
       height: 13px;
@@ -259,6 +262,7 @@
   }
 
   &__sun {
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       width: 14px;
       height: 14px;
