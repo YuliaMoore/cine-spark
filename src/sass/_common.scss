@@ -6,6 +6,11 @@ body {
   color: var(--white-txt-color);
 }
 
+.white-mode {
+  background: var(--light-bg);
+  color: var(--dark--txt-color);
+}
+
 body.no-scroll {
   overflow-y: hidden;
 }

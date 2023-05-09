@@ -1,50 +1,43 @@
-// const btnn = document.querySelector('#btnn');
-// const root = document.querySelector(':root');
+// function whitemode() {
+//   const body = document.body;
+//   const wasWhitemode = localStorage.getItem('whitemode') === 'true';
 
-// const themes = {
-//   default: {
-//     '--dark-bg': '#111111',
-//     '--white-txt-color': '#ffffff',
-//     '--seconday-txt-color': '#f8f8f8',
-//     '--grey-txt-color': '#b7b7b7',
-//   },
-
-//   white: {
-//     '--light-bg': '#ffffff',
-//     '--darck--txt-color': '#282828',
-//     '--light-grey-txt-color': '#595959',
-//   },
-// };
-
-// if (!localStorage.getItem('isWhiteTheme')) {
-//   localStorage.setItem('isWhiteTheme', false);
+//   localStorage.setItem('whitemode', !wasWhitemode);
+//   body.classList.toggle('white-mode');
 // }
 
-// let isWhiteTheme = JSON.parse(localStorage.getItem('isWhiteTheme'));
-// changeTheme(isWhiteTheme);
+// document.querySelector('.switch__input').addEventListener('click', whitemode);
 
-// btnn.addEventListener('click', btnHandler);
-
-// function btnHandler(e) {
-//   e.preventDefault();
-//   isWhiteTheme = !isWhiteTheme;
-//   localStorage.setItem('isWhiteTheme', isWhiteTheme);
-//   changeTheme(isWhiteTheme);
+// function onload() {
+//   document.body.classList.toggle('white-mode', localStorage.getItem('whitemode') === 'true');
 // }
 
-// function changeTheme(isWhiteTheme) {
-//   const theme = isWhiteTheme ? 'white' : 'default';
-//   Object.entries(themes[theme]).forEach(([key, value]) => {
-//     root.style.setProperty(key, value);
-//   });
-// }
+// document.addEventListener('DOMContentLoaded', onload);
+
+const checkBoxEl = document.querySelector('.switch__input');
+let checkBoxWhitemode = localStorage.getItem('whitemode');
+const bodyTag = document.body;
 
 function whitemode() {
-  const body = document.body;
-  const wasWhitemode = localStorage.getItem('whitemode') === 'true';
-
-  localStorage.setItem('whitemode', !wasWhitemode);
-  body.classList.toggle('white-mode');
+  if (checkBoxEl.checked) {
+    localStorage.setItem('whitemode', 'true');
+    bodyTag.classList.add('white-mode');
+  } else {
+    localStorage.setItem('whitemode', 'false');
+    bodyTag.classList.remove('white-mode');
+  }
 }
 
-document.querySelector('.switch__input').addEventListener('click', whitemode);
+checkBoxEl.addEventListener('click', whitemode);
+
+function onload() {
+  if (checkBoxWhitemode === 'true') {
+    checkBoxEl.checked = true;
+    bodyTag.classList.add('white-mode');
+  } else {
+    checkBoxEl.checked = false;
+    bodyTag.classList.remove('white-mode');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', onload);

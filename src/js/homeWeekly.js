@@ -1,13 +1,19 @@
 import { MoviesAPI } from './MoviesAPI';
-const moviesAPI = new MoviesAPI();
-
 import { createMovies } from '/src/js/catalog-functions/weekly-markup';
+import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
+import { addAndRemoveToLocalStorage } from './localStorage';
 
+const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
+
+// скрол
+onScroll();
+onToTopBtn();
 
 async function onRenderPage() {
   try {
-    const respons = await moviesAPI.getTrendMoviesWeek();
+    const respons = await moviesAPI.getTrendMoviesWeeks();
     // console.log(respons);
 
     const responsData = respons.results;
@@ -32,6 +38,8 @@ async function onRenderPage() {
     // console.log(markup.length);
 
     updateNewsList(markup);
+    // скрол
+    scrollPage();
   } catch (err) {
     console.log(err);
   }
@@ -41,4 +49,59 @@ onRenderPage();
 
 function updateNewsList(markup) {
   weeklyGallery.innerHTML = markup;
+}
+
+// ===секція "нові фільми"===
+
+const upcomingCard = document.querySelector('.upcoming-cover');
+
+async function onRenderNewMovie() {
+  try {
+    const responsNewMovie = await moviesAPI.getUpcomingFilms();
+    // console.log(respons);
+
+    const responsDataMovie = responsNewMovie.results;
+    // console.log(responsDataMovie);
+    // console.log(responsData.length);
+
+    // отримуємо один рамдомний фільм
+    let randomNewMovie = [];
+
+    const getRandomFilm = max => Math.floor(Math.random() * Math.floor(max));
+
+    while (randomNewMovie.length != 1) {
+      let index = getRandomFilm(responsDataMovie.length);
+      randomNewMovie.push(responsDataMovie[index]);
+      randomNewMovie = randomNewMovie.filter(
+        (v, i, arr) => arr.indexOf(v) == i
+      );
+    }
+
+    const markupNewMovie = randomNewMovie.reduce(
+      (markup, randomNewMovie) => markup + createUpcomingMovies(randomNewMovie),
+      ''
+    );
+
+    updateNewMovies(markupNewMovie);
+
+    // setTimeout(function () {
+    const remindMeBtn = document.querySelector('.upcoming-btn');
+    remindMeBtn.addEventListener('click', addToLibrary);
+    function addToLibrary(event) {
+      addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+    }
+    // }, 2000);
+
+    // скрол
+    scrollPage();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+onRenderNewMovie();
+// console.log(onRenderPage());
+
+function updateNewMovies(markup) {
+  upcomingCard.innerHTML = markup;
 }

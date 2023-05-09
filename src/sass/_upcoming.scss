@@ -28,13 +28,13 @@
   width: 805px;
   height: 458px;
 
-  // background: linear-gradient(
-  //   307.47deg,
-  //   rgba(0, 0, 0, 0.2) 23.85%,
-  //   rgba(0, 0, 0, 0) 47.27%
-  // );
-  // // url(1236424.jpg);
-  // border-radius: 5px;
+  background: linear-gradient(
+    307.47deg,
+    rgba(0, 0, 0, 0.2) 23.85%,
+    rgba(0, 0, 0, 0) 47.27%
+  );
+  // url(1236424.jpg);
+  border-radius: 5px;
 }
 
 .upcoming-image {
@@ -50,93 +50,108 @@
   border-radius: 5px;
 }
 
-.upcoming-list__title {
+.upcoming-info-title {
   margin-bottom: 28px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
-  line-height: 38px;
-  /* identical to box height */
-
-  /* White */
+  line-height: 1.18;
 
   color: #ffffff;
 }
 
-.upcoming-info-cover {
-  display: flex;
-  flex-direction: column;
-
-  margin-bottom: 16px;
-  width: 400px;
-  height: auto;
-}
-
 .upcoming-info {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.upcoming-data,
-.upcoming-vote,
-.upcoming-rating,
-.upcoming-genre {
+.info-list {
   display: flex;
-  justify-content: space-between;
+}
 
+.list-info:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.upcoming-list__title {
+  width: 50%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.18;
+  /* identical to box height */
 
   color: #b7b7b7;
 }
 
-.upcoming-data {
-  margin-bottom: 12px;
-}
-.upcoming-vote {
-  margin-bottom: 12px;
-}
-.upcoming-rating {
-  margin-bottom: 12px;
+.upcoming-list__value {
+  display: flex;
 }
 
-.upcoming-data-text {
+.upcoming-value-text {
+  width: 36px;
+  height: 18px;
+
+  background: #ffffff;
+  border-radius: 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  color: #111111;
+}
+
+.averange {
+  margin-right: 4px;
+}
+
+.count {
+  margin-left: 4px;
+}
+
+.upcoming-list__value-data {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.18;
   /* identical to box height */
 
   display: flex;
   align-items: center;
   text-transform: uppercase;
 
+  /* orange */
+
   color: #f87719;
 }
 
-.upcoming-rating-text,
-.upcoming-genre-text {
+.upcoming-list__value {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
+  line-height: 1.18;
 
-  display: flex;
-  align-items: center;
-
-  /* White */
+  // display: flex;
+  // align-items: center;
 
   color: #ffffff;
 }
 
+// =========блок about=========
+
 .movie-info {
   margin-bottom: 20px;
+  width: 390px;
+  min-height: 160px;
 }
 .info-title {
   margin-bottom: 16px;
@@ -145,8 +160,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
+  line-height: 1.18;
 
   display: flex;
   align-items: center;
@@ -160,28 +174,49 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
-  /* or 143% */
-
-  /* Secondary text */
+  line-height: 1.42;
 
   color: #f8f8f8;
 }
 
+// =============кнопка================
 .upcoming-btn {
-  // flex-direction: row;
-  // align-items: flex-start;
-  // padding: 12px 24px;
-  // gap: 10px;
-
   width: 119px;
   height: 40px;
 
   color: #111;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 74px;
-
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+}
+
+//white-theme
+.white-mode .upcoming-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-info-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-list__title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-list__value {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-value-text {
+  background: #b4b3b3;
+}
+
+.white-mode .info-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .movie-description {
+  color: var(--dark--txt-color);
 }
