@@ -1,4 +1,3 @@
-
 import { onScroll, onToTopBtn } from './scroll';
 
 onScroll();
@@ -37,16 +36,14 @@ function removeMovieFromLibrary(movieId) {
   localStorage.setItem(librariesKey, JSON.stringify(libraries));
 }
 
-const remindMeBtn = document.querySelector('.upcoming-btn');
-remindMeBtn.addEventListener('click', addToLibrary);
-
-function addToLibrary(event) {
-  const movieId = event.target.dataset.movieid;
-  console.log(event);
+function onRenderLibraryCards() {
+  const savedMovies = getFromStorage('libraryFilm');
+  console.log(savedMovies);
+  // const parceMovies = JSON.parse(savedMovies);
+  const moviesMarkUp = getCatalogCards(savedMovies);
+  const moviesContainer = document.createElement('ul');
+  moviesContainer.innerHTML = moviesMarkUp;
+  const librarySection = document.querySelector('.section_library');
+  librarySection.appendChild(moviesContainer);
 }
-
-import { onScroll, onToTopBtn, scrollPage } from './scroll';
-
-onScroll();
-onToTopBtn();
-
+onRenderLibraryCards();
