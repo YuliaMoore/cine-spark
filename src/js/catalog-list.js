@@ -70,7 +70,7 @@ async function onSearchFormSubmit(e) {
   try {
     const response = await moviesAPI.getSearchMovies(page);
     // console.log(response.data.results);
-    console.log(response.data.results.length);
+    // console.log(response.data.results.length);
     // console.log(options.itemsPerPage);
     // console.log(page);
     // console.log(response.data.results);
@@ -105,16 +105,3 @@ async function onSearchFormSubmit(e) {
     console.log(err);
   }
 }
-
-// плавний скрол
-function scrollPage() {
-  const { height: cardHeight } = document
-    .querySelector('.catalog-list__items-list')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 1,
-    behavior: 'smooth',
-  });
-}
-

@@ -213,12 +213,12 @@ export class MoviesAPI {
 
   // Отримати тренди тижня
 
-  async getTrendMoviesWeek() {
-    const response = await axios.get(
-      `${this.#BASE_URL}/3/trending/movie/week?api_key=${this.#API_KEY}`
-    );
-    return response.data;
-  }
+  // async getTrendMoviesWeek() {
+  //   const response = await axios.get(
+  //     `${this.#BASE_URL}/3/trending/movie/week?api_key=${this.#API_KEY}`
+  //   );
+  //   return response.data;
+  // }
 
   // отримати нові фільми
   async getUpcomingFilms() {
@@ -260,7 +260,6 @@ export class MoviesAPI {
     };
     return result;
   }
-
 
   // async getSearchMovies(searchQuery, page) {
   //   const response = await axios.get(
