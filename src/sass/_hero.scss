@@ -180,5 +180,10 @@
 //white-theme
 .white-mode .hero-title,
 .white-mode .hero-text {
-  color: var(--black-txt-color);
+  @media screen and (max-width: 767px) {
+    color: var(--white-txt-color);
+  }
+  @media screen and (min-width: 768px) {
+    color: var(--black-txt-color);
+  }
 }
