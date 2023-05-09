@@ -1,15 +1,19 @@
 import { MoviesAPI } from './MoviesAPI';
-const moviesAPI = new MoviesAPI();
-
 import { createMovies } from '/src/js/catalog-functions/weekly-markup';
-
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
+import { addAndRemoveToLocalStorage } from './localStorage';
 
+const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
+
+// скрол
+onScroll();
+onToTopBtn();
 
 async function onRenderPage() {
   try {
-    const respons = await moviesAPI.getTrendMoviesWeek();
+    const respons = await moviesAPI.getTrendMoviesWeeks();
     // console.log(respons);
 
     const responsData = respons.results;
@@ -34,6 +38,8 @@ async function onRenderPage() {
     // console.log(markup.length);
 
     updateNewsList(markup);
+    // скрол
+    scrollPage();
   } catch (err) {
     console.log(err);
   }
@@ -77,6 +83,17 @@ async function onRenderNewMovie() {
     );
 
     updateNewMovies(markupNewMovie);
+
+    // setTimeout(function () {
+    const remindMeBtn = document.querySelector('.upcoming-btn');
+    remindMeBtn.addEventListener('click', addToLibrary);
+    function addToLibrary(event) {
+      addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+    }
+    // }, 2000);
+
+    // скрол
+    scrollPage();
   } catch (err) {
     console.log(err);
   }
