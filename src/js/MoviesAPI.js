@@ -115,8 +115,6 @@
 //   // }
 // }
 
-// !==================================================
-
 import axios from 'axios';
 
 export class MoviesAPI {
@@ -124,6 +122,61 @@ export class MoviesAPI {
   #BASE_URL = 'https://api.themoviedb.org';
   #API_KEY = 'cca79e12b25cdd9f67fc795a1689f5d9';
   #query = '';
+
+  constructor() {
+    this.currentPage = 1;
+    this.lang = 'en';
+    this.allGenres = [];
+  }
+
+  getTrendMoviesWeek(page) {
+    return axios.get(
+      `${this.#BASE_URL}/3/trending/movie/day?api_key=${this.#API_KEY}`,
+      {
+        params: {
+          page: this.currentPage,
+        },
+      }
+    );
+  }
+
+  getSearchMovies(page) {
+    return axios.get(
+      `${this.#BASE_URL}/3/search/movie?api_key=${this.#API_KEY}`,
+      {
+        params: {
+          page: this.currentPage,
+          query: this.#query,
+          language: this.lang,
+          include_adult: false,
+        },
+      }
+    );
+  }
+
+  get page() {
+    return this.currentPage;
+  }
+
+  set page(newPage) {
+    this.currentPage = newPage;
+  }
+
+  get query() {
+    return this.#query;
+  }
+
+  set query(newQuery) {
+    this.#query = newQuery;
+  }
+
+  // Отримати тренди тижня
+  // async getTrendMoviesWeek() {
+  //   const response = await axios.get(
+  //     `${this.#BASE_URL}/3/trending/movie/week?api_key=${this.#API_KEY}`
+  //   );
+  //   return response.data;
+  // }
 
   // //для відображення рандомних фільмів у каталозі
   // getTrendingFilms(page) {
@@ -149,10 +202,6 @@ export class MoviesAPI {
   //   });
   // }
 
-  set query(newQuery) {
-    this.#query = newQuery;
-  }
-
   // Отримати тренди дня
 
   async getTrendMoviesDay() {
@@ -163,6 +212,7 @@ export class MoviesAPI {
   }
 
   // Отримати тренди тижня
+
   async getTrendMoviesWeek() {
     const response = await axios.get(
       `${this.#BASE_URL}/3/trending/movie/week?api_key=${this.#API_KEY}`
@@ -179,6 +229,15 @@ export class MoviesAPI {
   }
 
   // Отримати фільми по запиту
+
+  // async getSearchMovies(searchQuery, page) {
+  //   const response = await axios.get(
+  //     `${this.#BASE_URL}/3/search/movie?api_key=${
+  //       this.#API_KEY
+  //     }&query=${searchQuery}&language=en-US&page=${page}&include_adult=false`
+  //   );
+  //   return response.data;
+  // }
 
   async getMovieById(id) {
     const { data } = await axios.get(`${BASE_URL}${id}?api_key=${API_KEY}`);
@@ -201,6 +260,7 @@ export class MoviesAPI {
     };
     return result;
   }
+
 
   // async getSearchMovies(searchQuery, page) {
   //   const response = await axios.get(
