@@ -1,3 +1,4 @@
+import { addAndRemoveToLocalStorage } from './localStorage';
 // import { MoviesAPI } from './MoviesAPI';
 // const moviesAPI = new MoviesAPI();
 

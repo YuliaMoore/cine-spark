@@ -2,6 +2,7 @@ import { MoviesAPI } from './MoviesAPI';
 import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
 import { onScroll, onToTopBtn, scrollPage } from './scroll';
+import { addAndRemoveToLocalStorage } from './localStorage';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
@@ -82,6 +83,15 @@ async function onRenderNewMovie() {
     );
 
     updateNewMovies(markupNewMovie);
+
+    // setTimeout(function () {
+    const remindMeBtn = document.querySelector('.upcoming-btn');
+    remindMeBtn.addEventListener('click', addToLibrary);
+    function addToLibrary(event) {
+      addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+    }
+    // }, 2000);
+
     // скрол
     scrollPage();
   } catch (err) {
