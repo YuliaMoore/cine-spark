@@ -1,5 +1,4 @@
 import { MoviesAPI } from './MoviesAPI';
-
 import { getStarsVote } from '/src/js/hero-rating';
 
 import SubtractDesktopDark from '../images/subtract_desktop_dark.png';
