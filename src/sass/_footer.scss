@@ -61,6 +61,8 @@
     text-decoration: underline;
 
     color: var(--grey-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &__link:hover {
@@ -72,4 +74,13 @@
   --animate-duration: 2s;
   --animate-delay: 2s;
   --animate-repeat: infinite;
+}
+
+//white-theme
+.white-mode .footer__text {
+  color: var(--light-grey-txt-color);
+}
+
+.white-mode .footer__link {
+  color: var(--light-grey-txt-color);
 }

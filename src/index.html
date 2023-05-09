@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania</title>
+
+    <!-- favicone -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/images/favicone.svg/favicon.svg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/images/favicone.svg/favicon.svg"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,16 +29,13 @@
     />
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
-  <body>
+  <body class="dark-mode">
     <include src="./partials/header-home.html"></include>
     <include src="./partials/hero.html"></include>
 
     <main class="main">
       <include src="./partials/home-weekly.html"></include>
       <include src="./partials/home-upcoming.html"></include>
-
-      <include src="./partials/library.html"></include>
-      <include src="./partials/pagination.html"></include>
     </main>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <include src="./partials/footer.html"></include>

@@ -1,9 +1,9 @@
 import './js/color-theme';
-import './js/homeWeekly';
-import './js/homeUpcoming';
+import './js/catalog-list';
+import './js/pagination';
 import './js/modal';
 import './js/mobile-menu';
+import './js/scroll';
+import './js/movie-card';
 import './js/hero';
 import './js/hero-rating';
-import './js/movie-card';
-import './js/scroll';

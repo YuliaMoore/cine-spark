@@ -145,6 +145,10 @@
   }
 }
 
+// .white-mode .nav__link {
+//   color: blue;
+// }
+
 .switch {
   display: inline-block;
   position: relative;
@@ -306,6 +310,8 @@
     border: transparent;
 
     color: var(--grey-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -376,10 +382,21 @@
     text-align: right;
 
     color: var(--white-txt-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 .mob-menu__link:hover,
 .mob-menu__link:focus {
   color: var(--active-txt-color);
+}
+
+//white-theme
+.white-mode .logo__text {
+  color: var(--dark--txt-color);
+}
+
+.white-mode .mob-menu__link {
+  color: var(--light-grey-txt-color);
 }

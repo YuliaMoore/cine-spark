@@ -187,8 +187,36 @@
   color: #111;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 74px;
-
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+}
+
+//white-theme
+.white-mode .upcoming-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-info-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-list__title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-list__value {
+  color: var(--black-txt-color);
+}
+
+.white-mode .upcoming-value-text {
+  background: #b4b3b3;
+}
+
+.white-mode .info-title {
+  color: var(--black-txt-color);
+}
+
+.white-mode .movie-description {
+  color: var(--dark--txt-color);
 }

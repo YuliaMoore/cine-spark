@@ -170,6 +170,7 @@ export class MoviesAPI {
     return response.data;
   }
 
+
   // отримати нові фільми
   async getUpcomingFilms() {
     const response = await axios.get(
