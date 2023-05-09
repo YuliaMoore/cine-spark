@@ -1,0 +1,150 @@
+.hero-modal {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--dark-bg);
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+
+  width: 280px;
+  height: 289px;
+  border-radius: 16px;
+  padding: 10px 10px 10px 10px;
+  @media screen and (min-width: 768px) {
+    width: 609px;
+    height: 400px;
+    padding: 10px 10px 10px 10px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 700px;
+    height: 400px;
+    padding: 35px;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
+.hero-modal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+  }
+}
+
+.hero-close-btn {
+  cursor: pointer;
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  stroke: #f8f8f8;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  top: 10px;
+  right: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+    top: 14px;
+    right: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  stroke: var(--active-txt-color);
+}
+
+.hero-overlay {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hero-modal.active,
+.hero-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+//white-theme
+// .white-mode .modal {
+//   background-color: var(--light-bg);
+//   box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+//   color: var(--light-grey-txt-color);
+// }
+// .white-mode .close-btn {
+//   stroke: black;
+// }
+
+// .white-mode .overlay {
+//   background: rgba(255, 255, 255, 0.5);
+// }
+
+.hero-modal-box {
+  @media screen and (min-width: 768px) {
+    margin-top: 120px;
+    margin-left: 32px;
+    @media screen and (min-width: 1280px) {
+      margin-top: 135px;
+      margin-left: 40px;
+    }
+  }
+}
+
+.hero-modal-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--white-txt-color);
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.hero-modal-img {
+  width: 160px;
+  @media screen and (min-width: 768px) {
+    width: 270px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 330px;
+    right: 0px;
+    bottom: 0px;
+  }
+}

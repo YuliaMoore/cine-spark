@@ -220,6 +220,7 @@ export class MoviesAPI {
   //   return response.data;
   // }
 
+
   // отримати нові фільми
   async getUpcomingFilms() {
     const response = await axios.get(
@@ -261,6 +262,16 @@ export class MoviesAPI {
     return result;
   }
 
+
+  async getFilmVideo(idFilm) {
+    const response = await axios.get(
+      `${this.#BASE_URL}/3/movie/${idFilm}/videos?api_key=${
+        this.#API_KEY
+      }&language=en-US`
+    );
+    return response.data;
+  }
+
   // async getSearchMovies(searchQuery, page) {
   //   const response = await axios.get(
   //     `${this.#BASE_URL}/3/search/movie?api_key=${
@@ -269,6 +280,7 @@ export class MoviesAPI {
   //   );
   //   return response.data;
   // }
+
 
   // Функція для отримання 2-х жанрів фільмів по вказаних ids
   // Але зробити не вдалось, оскільки з Handlesbar не підтримує асинхронні функції в хелперах, тому звичайний масив локатоно зберігаємо.
