@@ -13,15 +13,12 @@ onToTopBtn();
 
 async function onRenderPage() {
   try {
-    const respons = await moviesAPI.getTrendMoviesWeeks();
-    // console.log(respons);
+    const respons = await moviesAPI.getTrendMoviesWeek();
 
     const responsData = respons.results;
-    // console.log(responsData.movie_id);
 
     //  отримуємо три рамдомних фільми
     let responsMovies = [];
-
     const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
 
     while (responsMovies.length != 3) {
@@ -64,8 +61,15 @@ async function onRenderNewMovie() {
     // console.log(responsDataMovie);
     // console.log(responsData.length);
 
+    if (!responsDataMovie) {
+      return alert(
+        'Вибачте! Нових фільмів не знайдено/Sorry! No new movies found'
+      );
+    }
+
     // отримуємо один рамдомний фільм
     let randomNewMovie = [];
+    // console.log(randomNewMovie);
 
     const getRandomFilm = max => Math.floor(Math.random() * Math.floor(max));
 
