@@ -1,11 +1,8 @@
-// .scroll-to-top {
-//   position: relative;
-//  }
 .go-to-top {
   position: fixed;
   bottom: 3vh;
   right: 1vw;
-  z-index: 1000;
+  z-index: 20;
 
   border-radius: 50%;
   width: 50px;
@@ -20,8 +17,8 @@
   color: rgb(0, 0, 0);
 
   font-size: 40px;
-  // animation: movebtn 3s ease-in-out infinite;
-  // transition: all 0.5s ease-in-out;
+  animation: movebtn 3s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,10 +36,11 @@
 }
 
 .go-to-top:hover {
-  // animation: none;
+  animation: none;
   color: #ffffff;
   border: 2px solid linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  background: #000000;
+  background: #a43c12;
+  box-shadow: 1px 1px 14px rgba(227, 86, 9, 0.803);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .material-icons:hover {
