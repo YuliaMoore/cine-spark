@@ -1,4 +1,4 @@
-import { onScroll, onToTopBtn } from './scroll';
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 export const moviesAPI = new MoviesAPI();
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
@@ -50,21 +50,11 @@ async function onSearchFormSubmit(e) {
         // Тут виводяться результати пошуку, якщо вони. Тут же треба буде включати пейджинг, якщо результатів більше, ніж 20.
 
         moviesCatalog.innerHTML = getCatalogCards(response.results);
+
         scrollPage();
       }
     } catch (err) {
       console.log(err);
     }
   }
-}
-// плавний скрол
-function scrollPage() {
-  const { height: cardHeight } = document
-    .querySelector('.catalog-list__items-list')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 1,
-    behavior: 'smooth',
-  });
 }

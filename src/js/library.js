@@ -1,3 +1,4 @@
+
 import { onScroll, onToTopBtn } from './scroll';
 
 onScroll();
@@ -43,3 +44,9 @@ function addToLibrary(event) {
   const movieId = event.target.dataset.movieid;
   console.log(event);
 }
+
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
+
+onScroll();
+onToTopBtn();
+
