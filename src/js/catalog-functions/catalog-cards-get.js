@@ -20,7 +20,9 @@ export function getCatalogCards(backendQuery) {
                         <p class='catalog-list__movie-type'>${getGenres(
                           genre_ids
                         )} | ${release_date.slice(0, 4)}</p>
-                        <div class='catalog-list-rating'>${getStarsRating(vote_average)}
+                        <div class='catalog-list-rating'>${getStarsRating(
+                          vote_average
+                        )}
                         </div>
                     </div>
                 </div>
