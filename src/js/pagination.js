@@ -43,11 +43,8 @@ const createPopularPagination = async event => {
   try {
     const currentPage = event.page;
     moviesAPI.page = currentPage;
-    // console.log(currentPage);
     const response = await moviesAPI.getTrendMoviesWeek(currentPage);
-    // console.log(response);
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
-    // console.log(response.data.results);
   } catch (err) {
     console.log(err);
   }
@@ -57,9 +54,7 @@ const createMoviesByQueryPagination = async event => {
   try {
     const currentPage = event.page;
     moviesAPI.page = currentPage;
-
     const response = await moviesAPI.getSearchMovies(currentPage);
-
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
   } catch (err) {
     console.log(err);
