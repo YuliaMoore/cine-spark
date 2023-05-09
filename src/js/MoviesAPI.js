@@ -170,7 +170,6 @@ export class MoviesAPI {
     return response.data;
   }
 
-
   // отримати нові фільми
   async getUpcomingFilms() {
     const response = await axios.get(
@@ -181,14 +180,36 @@ export class MoviesAPI {
 
   // Отримати фільми по запиту
 
-  async getSearchMovies(searchQuery, page) {
-    const response = await axios.get(
-      `${this.#BASE_URL}/3/search/movie?api_key=${
-        this.#API_KEY
-      }&query=${searchQuery}&language=en-US&page=${page}&include_adult=false`
-    );
-    return response.data;
+  async getMovieById(id) {
+    const { data } = await axios.get(`${BASE_URL}${id}?api_key=${API_KEY}`);
+
+    const result = {
+      ...data,
+      year: createYear(data),
+      customGenres: createGenresFromID(data),
+    };
+
+    return result;
   }
+
+  async getMovieById2() {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+    );
+    const result = {
+      ...data,
+    };
+    return result;
+  }
+
+  // async getSearchMovies(searchQuery, page) {
+  //   const response = await axios.get(
+  //     `${this.#BASE_URL}/3/search/movie?api_key=${
+  //       this.#API_KEY
+  //     }&query=${searchQuery}&language=en-US&page=${page}&include_adult=false`
+  //   );
+  //   return response.data;
+  // }
 
   // Функція для отримання 2-х жанрів фільмів по вказаних ids
   // Але зробити не вдалось, оскільки з Handlesbar не підтримує асинхронні функції в хелперах, тому звичайний масив локатоно зберігаємо.
