@@ -145,6 +145,10 @@
   }
 }
 
+// .white-mode .nav__link {
+//   color: blue;
+// }
+
 .switch {
   display: inline-block;
   position: relative;
@@ -386,4 +390,13 @@
 .mob-menu__link:hover,
 .mob-menu__link:focus {
   color: var(--active-txt-color);
+}
+
+//white-theme
+.white-mode .logo__text {
+  color: var(--dark--txt-color);
+}
+
+.white-mode .mob-menu__link {
+  color: var(--light-grey-txt-color);
 }

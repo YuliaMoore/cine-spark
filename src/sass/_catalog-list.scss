@@ -18,11 +18,22 @@
   width: 224px;
   height: 40px;
   background-color: var(--dark-bg);
-  border: 1px solid var(--light-bg);
+  border: 1px solid var(--seconday-txt-color);
   border-radius: 8px;
   color: var(--grey-txt-color);
   font-weight: 500;
   font-size: 14px;
+}
+
+.catalog-list__search-input:hover {
+  cursor: pointer;
+}
+
+.catalog-list__search-input:focus {
+  cursor: auto;
+  outline: none;
+  color: var(--white-txt-color);
+  border: 2px solid var(--seconday-txt-color);
 }
 
 .catalog-list__search-button {
@@ -174,4 +185,11 @@
     font-size: 20px;
     line-height: 1.15;
   }
+}
+
+//white-theme
+.white-mode .catalog-list__search-input {
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-grey-txt-color);
+  color: var(--light-grey-txt-color);
 }

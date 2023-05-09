@@ -1,4 +1,4 @@
-import { onScroll, onToTopBtn } from './scroll';
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 
@@ -63,6 +63,7 @@ async function onSearchFormSubmit(e) {
     <h2 class="catalog-list__error-title">OOPS...</h2>
     <p class="catalog-list__error-text">Enter search query, please!</p>
     <div>`;
+
     return;
   }
 
@@ -116,3 +117,4 @@ function scrollPage() {
     behavior: 'smooth',
   });
 }
+

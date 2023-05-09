@@ -1,3 +1,4 @@
+import './js/color-theme';
 import './js/catalog-list';
 import './js/pagination';
 import './js/modal';
