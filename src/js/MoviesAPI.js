@@ -170,7 +170,6 @@ export class MoviesAPI {
     return response.data;
   }
 
-
   // отримати нові фільми
   async getUpcomingFilms() {
     const response = await axios.get(
@@ -186,6 +185,15 @@ export class MoviesAPI {
       `${this.#BASE_URL}/3/search/movie?api_key=${
         this.#API_KEY
       }&query=${searchQuery}&language=en-US&page=${page}&include_adult=false`
+    );
+    return response.data;
+  }
+
+  async getFilmVideo(idFilm) {
+    const response = await axios.get(
+      `${this.#BASE_URL}/3/movie/${idFilm}/videos?api_key=${
+        this.#API_KEY
+      }&language=en-US`
     );
     return response.data;
   }
