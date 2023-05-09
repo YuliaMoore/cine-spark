@@ -39,12 +39,19 @@ const options = {
 
 const pagination = new Pagination(container, options);
 
+function onToTopPagination() {
+  if (window.pageYOffset > 0) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+}
+
 const createPopularPagination = async event => {
   try {
     const currentPage = event.page;
     moviesAPI.page = currentPage;
     const response = await moviesAPI.getTrendMoviesWeek(currentPage);
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    onToTopPagination();
   } catch (err) {
     console.log(err);
   }
@@ -56,6 +63,7 @@ const createMoviesByQueryPagination = async event => {
     moviesAPI.page = currentPage;
     const response = await moviesAPI.getSearchMovies(currentPage);
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    onToTopPagination();
   } catch (err) {
     console.log(err);
   }

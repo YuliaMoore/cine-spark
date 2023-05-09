@@ -280,6 +280,38 @@ export class MoviesAPI {
   // }
 
   // Функція для отримання 2-х жанрів фільмів по вказаних ids
+  // Але зробити не вдалось, оскільки з Handlesbar не підтримує асинхронні функції в хелперах, тому звичайний масив локатоно зберігаємо.
+  // async getGenres(...ids) {
+  //   try {
+  //     const response = await axios.get(
+  //       `${this.#BASE_URL}/3/genre/movie/list?api_key=${
+  //         this.#API_KEY
+  //       }&language=en-US`
+  //     );
+  //     const genres = response.data.genres.filter(genre =>
+  //       ids.includes(genre.id)
+  //     );
+  //     let genresText = '';
+  //     // console.log(genres.length);
+  //     if (genres.length > 1) {
+  //       genresText = `${genres[0].name}, ${genres[1].name}`;
+  //     } else {
+  //       genresText = `${genres[0].name}`;
+  //     }
+  //     // console.log(genresText);
+  //     return genresText;
+  //   } catch (error) {
+  //     throw new Error(error.response.status);
+  //   }
+  // }
+
+  // Попизенко Михайло - запит на детальну інфу про фільм
+
+  async getMovieDetails(movieId) {
+    return await axios.get(
+      `${this.#BASE_URL}/3/movie/${movieId}?api_key=${this.#API_KEY}`
+    );
+  }
   async getGenresList() {
     const response = await axios.get(
       `${this.#BASE_URL}/3/genre/movie/list?api_key=${
