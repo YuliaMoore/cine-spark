@@ -1,11 +1,18 @@
-import { moviesAPI } from './catalog-list';
+import { moviesAPI, moviesCatalog } from './catalog-list';
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 
-export const container = document.getElementById('tui-pagination-container');
+export {
+  pagination,
+  createPopularPagination,
+  createMoviesByQueryPagination,
+  container,
+  options,
+};
 
-export const options = {
+const container = document.getElementById('tui-pagination-container');
+
+const options = {
   totalItems: 0,
   itemsPerPage: 20,
   visiblePages: 5,
@@ -19,37 +26,42 @@ export const options = {
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="tui-ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '<span class="tui-ico-{{type}}"></span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
   },
 };
 
-export const pagination = new Pagination(container, options);
-export const page = pagination.getCurrentPage();
+const pagination = new Pagination(container, options);
 
-export const createPopularPagination = async event => {
+const createPopularPagination = async event => {
   try {
     const currentPage = event.page;
-    const response = await moviesAPI.getSearchMovies(currentPage);
-    moviesCatalog.innerHTML = getCatalogCards(response.results);
+    moviesAPI.page = currentPage;
+    // console.log(currentPage);
+    const response = await moviesAPI.getTrendMoviesWeek(currentPage);
+    // console.log(response);
+    moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    // console.log(response.data.results);
   } catch (err) {
     console.log(err);
   }
 };
 
-export const createPhotosByQueryPagination = async event => {
+const createMoviesByQueryPagination = async event => {
   try {
     const currentPage = event.page;
-    const response = await moviesAPI.getTrendMoviesWeek(currentPage);
-    moviesCatalog.innerHTML = getCatalogCards(response.results);
+    moviesAPI.page = currentPage;
+    // console.log(currentPage);
+    const response = await moviesAPI.getSearchMovies(currentPage);
+    // console.log(response);
+    moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    // console.log(response.data.results);
   } catch (err) {
     console.log(err);
   }
