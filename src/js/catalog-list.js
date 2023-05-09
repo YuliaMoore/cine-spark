@@ -1,6 +1,8 @@
 import { onScroll, onToTopBtn, scrollPage } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
+
+import { openModalMovie } from './modal-window/modal-movie';
 import {
   pagination,
   createPopularPagination,
@@ -14,6 +16,7 @@ export { moviesAPI, moviesCatalog };
 const moviesAPI = new MoviesAPI();
 const page = pagination.getCurrentPage();
 
+
 const searchForm = document.querySelector('.catalog-list__search-form');
 const moviesCatalog = document.querySelector('.catalog-list__items-list');
 
@@ -23,10 +26,21 @@ onToTopBtn();
 // Функція, яка викликається при першому завантаженні сторінки. Трендові фільми тижня.
 async function onRenderCatalogPage(page) {
   try {
-    const response = await moviesAPI.getTrendMoviesWeek(page);
-    moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+
+     const response = await moviesAPI.getTrendMoviesWeek(page);
+   moviesCatalog.innerHTML = getCatalogCards(response.data.results);
     pagination.reset(response.data.total_results);
     container.classList.remove('is-hidden');
+
+    // Попизенко Михайло - додав слухача на картку
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
+
   } catch (err) {
     console.log(err);
   }

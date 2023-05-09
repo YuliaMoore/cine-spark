@@ -213,12 +213,14 @@ export class MoviesAPI {
 
   // Отримати тренди тижня
 
+
   // async getTrendMoviesWeek() {
   //   const response = await axios.get(
   //     `${this.#BASE_URL}/3/trending/movie/week?api_key=${this.#API_KEY}`
   //   );
   //   return response.data;
   // }
+
 
   // отримати нові фільми
   async getUpcomingFilms() {
@@ -304,4 +306,12 @@ export class MoviesAPI {
   //     throw new Error(error.response.status);
   //   }
   // }
+
+  // Попизенко Михайло - запит на детальну інфу про фільм
+
+  async getMovieDetails(movieId) {
+    return await axios.get(
+      `${this.#BASE_URL}/3/movie/${movieId}?api_key=${this.#API_KEY}`
+    );
+  }
 }
