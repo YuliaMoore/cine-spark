@@ -1,5 +1,4 @@
 import { getGenres } from './catalog-genres-get';
-import { getStarsRating } from './catalog-rating-get';
 
 export function createUpcomingMovies({
   title,

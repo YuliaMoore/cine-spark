@@ -1,5 +1,4 @@
 import { MoviesAPI } from './MoviesAPI';
-
 import { getStarsVote } from '/src/js/hero-rating';
 import { onOpenHeroModal, takeFilmOfDayId } from '/src/js/hero-modal.js';
 

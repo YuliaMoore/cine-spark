@@ -6,7 +6,9 @@
       e.webkitMatchesSelector ||
       function (e) {
         for (
-          let t = this, o = (t.document || t.ownerDocument).querySelectorAll(e), n = 0;
+          let t = this,
+            o = (t.document || t.ownerDocument).querySelectorAll(e),
+            n = 0;
           o[n] && o[n] !== t;
 
         )
@@ -42,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
       /* При каждом клике на кнопку мы будем забирать содержимое атрибута data-modal
              и будем искать модальное окно с таким же атрибутом. */
       let modalId = this.getAttribute('data-modal'),
-        modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
+        modalElem = document.querySelector(
+          '.modal[data-modal="' + modalId + '"]'
+        );
 
       /* После того как нашли нужное модальное окно, добавим классы
              подложке и окну чтобы показать их. */
