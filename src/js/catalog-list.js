@@ -2,6 +2,7 @@ import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 export const moviesAPI = new MoviesAPI();
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
+import { openModalMovie } from './modal-window/modal-movie';
 
 const searchInput = document.querySelector('.catalog-list__search-input');
 const searchForm = document.querySelector('.catalog-list__search-form');
@@ -14,8 +15,17 @@ onToTopBtn();
 async function onRenderCatalogPage() {
   try {
     const response = await moviesAPI.getTrendMoviesWeek();
-    // console.log(response.results);
+    console.log(response.results);
     moviesCatalog.innerHTML = getCatalogCards(response.results);
+
+    // Попизенко Михайло - додав слухача на картку
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
   } catch (err) {
     console.log(err);
   }

@@ -170,7 +170,6 @@ export class MoviesAPI {
     return response.data;
   }
 
-
   // отримати нові фільми
   async getUpcomingFilms() {
     const response = await axios.get(
@@ -215,4 +214,12 @@ export class MoviesAPI {
   //     throw new Error(error.response.status);
   //   }
   // }
+
+  // Попизенко Михайло - запит на детальну інфу про фільм
+
+  async getMovieDetails(movieId) {
+    return await axios.get(
+      `${this.#BASE_URL}/3/movie/${movieId}?api_key=${this.#API_KEY}`
+    );
+  }
 }
