@@ -43,7 +43,7 @@ function onRenderLibraryCards() {
   const moviesMarkUp = getCatalogCards(savedMovies);
   const moviesContainer = document.createElement('ul');
   moviesContainer.innerHTML = moviesMarkUp;
-  const librarySection = document.querySelector('.section_library');
+  const librarySection = document.querySelector('.library_wrapper');
   librarySection.appendChild(moviesContainer);
 }
 onRenderLibraryCards();
