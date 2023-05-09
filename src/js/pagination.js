@@ -57,11 +57,10 @@ const createMoviesByQueryPagination = async event => {
   try {
     const currentPage = event.page;
     moviesAPI.page = currentPage;
-    // console.log(currentPage);
+
     const response = await moviesAPI.getSearchMovies(currentPage);
-    // console.log(response);
+
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
-    // console.log(response.data.results);
   } catch (err) {
     console.log(err);
   }
