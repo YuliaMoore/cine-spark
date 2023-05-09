@@ -1,11 +1,14 @@
 import { MoviesAPI } from './MoviesAPI';
-const moviesAPI = new MoviesAPI();
-
 import { createMovies } from '/src/js/catalog-functions/weekly-markup';
-
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
+import { onScroll, onToTopBtn, scrollPage } from './scroll';
 
+const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
+
+// скрол
+onScroll();
+onToTopBtn();
 
 async function onRenderPage() {
   try {
@@ -34,6 +37,8 @@ async function onRenderPage() {
     // console.log(markup.length);
 
     updateNewsList(markup);
+    // скрол
+    scrollPage();
   } catch (err) {
     console.log(err);
   }
@@ -77,6 +82,8 @@ async function onRenderNewMovie() {
     );
 
     updateNewMovies(markupNewMovie);
+    // скрол
+    scrollPage();
   } catch (err) {
     console.log(err);
   }
