@@ -89,11 +89,25 @@ async function onRenderNewMovie() {
     updateNewMovies(markupNewMovie);
 
     // setTimeout(function () {
+    // const remindMeBtn = document.querySelector('.upcoming-btn');
+    // remindMeBtn.addEventListener('click', addToLibrary);
+    // function addToLibrary(event) {
+    //   addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+    // }
+
+    // Додаємо слухача на кнопку Remind me і при кліку на цю кнопку викликаємо функцію addToLibrary (запис в локальне сховище)
     const remindMeBtn = document.querySelector('.upcoming-btn');
     remindMeBtn.addEventListener('click', addToLibrary);
     function addToLibrary(event) {
-      addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+      // Отримати поточний список фільмів з локального сховища
+      let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
+      console.log(libraryFilms);
+      // Додати новий запис до масиву !!!! Дописати первірку на ту саму назву !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      libraryFilms.push(randomNewMovie);
+      // Зберегти оновлений список фільмів у локальному сховищі
+      localStorage.setItem('libraryFilm', JSON.stringify(libraryFilms));
     }
+
     // }, 2000);
 
     // скрол

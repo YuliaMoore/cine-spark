@@ -36,14 +36,20 @@ function removeMovieFromLibrary(movieId) {
   localStorage.setItem(librariesKey, JSON.stringify(libraries));
 }
 
-function onRenderLibraryCards() {
-  const savedMovies = getFromStorage('libraryFilm');
-  console.log(savedMovies);
-  // const parceMovies = JSON.parse(savedMovies);
-  const moviesMarkUp = getCatalogCards(savedMovies);
-  const moviesContainer = document.createElement('ul');
-  moviesContainer.innerHTML = moviesMarkUp;
-  const librarySection = document.querySelector('.library_wrapper');
-  librarySection.appendChild(moviesContainer);
+async function onRenderLibraryCards() {
+  const moviesContainer = document.querySelector('.library-list');
+  if (localStorage.getItem('libraryFilm')) {
+    const savedMovies = JSON.parse(localStorage.getItem('libraryFilm')).flat();
+    // console.log(savedMovies);
+    const moviesMarkUp = await getCatalogCards(savedMovies);
+    // console.log(moviesMarkUp);
+    moviesContainer.innerHTML = moviesMarkUp;
+  } else {
+    return (moviesContainer.innerHTML = `<div class=" container">
+      <p class="library-empty__mistake">OOPS... <br> We are very sorry! <br> You don't have any movies at your library.</p>
+      <button class="btn-library" onclick="window.location.href='catalog.html'"><a class="btn-library__link">Search movie</a></button>
+    </div>`);
+  }
 }
+
 onRenderLibraryCards();
