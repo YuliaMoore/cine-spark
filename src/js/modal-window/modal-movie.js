@@ -5,9 +5,9 @@ const modalEl = document.querySelector('.modal-card');
 
 export async function openModalMovie(id) {
   const moviesAPI = new MoviesAPI();
+
   try {
     const response = await moviesAPI.getMovieDetails(id);
-    console.log(response);
     modalEl.classList.add('modal-movie--show');
     modalEl.innerHTML = `
      <svg class="close-btn js-modal-close" type="button">
@@ -66,8 +66,8 @@ function closeModal() {
     modalEl.innerHTML = '';
   }
 
-  modalEl.classList.remove('modal-movie--show');
-  modalEl.innerHTML = '';
+  // modalEl.classList.remove('modal-movie--show');
+  // modalEl.innerHTML = '';
 
   document.removeEventListener('keydown', event => {
     if (event.keyCode === 27) {

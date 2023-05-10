@@ -4,6 +4,7 @@ onScroll();
 onToTopBtn();
 
 //добавить импорт модалки..
+import { openModalMovie } from './modal-window/modal-movie';
 
 import { addAndRemoveToLocalStorage, getFromStorage } from './localStorage';
 import { createUpcomingMovies } from './catalog-functions/upcoming-markup';
@@ -44,6 +45,14 @@ async function onRenderLibraryCards() {
     const moviesMarkUp = await getCatalogCards(savedMovies);
     // console.log(moviesMarkUp);
     moviesContainer.innerHTML = moviesMarkUp;
+
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
   } else {
     return (moviesContainer.innerHTML = `<div class=" container">
       <p class="library-empty__mistake">OOPS... <br> We are very sorry! <br> You don't have any movies at your library.</p>
