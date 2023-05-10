@@ -81,6 +81,7 @@
 
 .modal-details__item {
   color: #b7b7b7;
+  margin-bottom: 12px;
 }
 
 .modal-details__about {
@@ -115,6 +116,7 @@
 .vote {
   background-color: var(--light-bg);
   border-radius: 5px;
+  padding: 1px 8px;
   color: var(--black-txt-color);
 }
 
@@ -150,4 +152,11 @@
     border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     color: #ffffff;
   }
+}
+
+//white-theme
+.white-mode .modal-card {
+  background-color: var(--light-bg);
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+  color: var(--light-grey-txt-color);
 }

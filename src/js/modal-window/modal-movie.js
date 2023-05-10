@@ -24,21 +24,22 @@ export async function openModalMovie(id) {
         <div class="modal-container__info">
           <h2 class="modal-title">${response.data.original_title}</h2>
           <div class="modal-container__details">
-            <ul class="modal-details__list list">
-              <li class="modal-details__item">Vote / Votes</li>
-              <li class="modal-details__item">Popularity</li>
-              <li class="modal-details__item">Genre</li>
-            </ul>
-            <ul class="modal-details__value-list list">
-            <li class="modal-details__value">
-               <span class="vote">${response.data.vote_average}</span>
-              <span class="slash">/</span>
-              <span class="vote">${response.data.vote_count}</span>
-            </li>
-            <li class="modal-details__value">${response.data.popularity}</li>
-            <li class="modal-details__value">${response.data.genres[0].name}</li>
-            </ul>
-            </div>
+  <ul class="modal-details__list list">
+    <li class="modal-details__item">Vote / Votes</li>
+    <li class="modal-details__item">Popularity</li>
+    <li class="modal-details__item">Genre</li>
+  </ul>
+  <ul class="modal-details__value-list list">
+    <li class="modal-details__value">
+      <span class="vote">${response.data.vote_average}</span>
+      <span class="slash">/</span>
+      <span class="vote">${response.data.vote_count}</span>
+    </li>
+    <li class="modal-details__value">${response.data.popularity}</li>
+    <li class="modal-details__value">${response.data.genres[0].name}</li>
+  </ul>
+</div>
+
             <p class="modal-details__about">ABOUT</p>
             <p class="modal-details__story">${response.data.overview}</p>
           
