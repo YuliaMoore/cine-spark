@@ -1,7 +1,13 @@
 import { getGenres } from './catalog-genres-get';
 import { getStarsRating } from './catalog-rating-get';
 
-export function createMovies({ title, release_date, poster_path, genre_ids, vote_average }) {
+export function createMovies({
+  title,
+  release_date,
+  poster_path,
+  genre_ids,
+  vote_average,
+}) {
   return `
     <li class="weekly-item">
   <a href="#" class="weekly-link">
@@ -11,7 +17,9 @@ export function createMovies({ title, release_date, poster_path, genre_ids, vote
         <h2 class="weekly-info__title">${title}</h2>
 
         <div class="catalog-list__additional-info">
-          <p class="weekly-info__genres__data">${getGenres(genre_ids)} | ${release_date.slice(0, 4)}
+          <p class="weekly-info__genres__data">${getGenres(
+            genre_ids
+          )} | ${release_date.slice(0, 4)}
         </p>
 
           <div class="weekly-rating">${getStarsRating(vote_average)}</div>

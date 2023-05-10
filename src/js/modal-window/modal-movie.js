@@ -5,12 +5,17 @@ import { removeFromLibrary } from './remove-from-my-library';
 
 const modalEl = document.querySelector('.modal-card');
 
+const backdropEl = document.createElement('div');
+backdropEl.classList.add('modal-backdrop');
+document.body.appendChild(backdropEl);
+
 export async function openModalMovie(id) {
   const moviesAPI = new MoviesAPI();
 
   try {
     const response = await moviesAPI.getMovieDetails(id);
     modalEl.classList.add('modal-movie--show');
+    backdropEl.classList.add('backdrop--show');
     modalEl.innerHTML = `
      <svg class="close-btn js-modal-close" type="button">
     <use href="${symboldefs}#close-outline"></use>
@@ -21,27 +26,25 @@ export async function openModalMovie(id) {
         <div class="modal-container__info">
           <h2 class="modal-title">${response.data.original_title}</h2>
           <div class="modal-container__details">
-            <ul class="modal-details__list list">
-              <li class="modal-details__item">
-                <p class="modal-details__name">Vote / Votes</p>
-                <p class="modal-details__value">
-                  <span class="points">${response.data.vote_average}</span> 
-                  <span class="slash">/</span>
-                  <span class="amount">${response.data.vote_count}</span>
-                </p>
-              </li>
-              <li class="modal-details__item">
-                <p class="modal-details__name">Popularity</p>
-                <p class="modal-details__value">${response.data.popularity}</p>
-              </li>
-              <li class="modal-details__item">
-                <p class="modal-details__name">Genre</p>
-                <p class="modal-details__value">${response.data.genres[0].name}</p>
-              </li>
-            </ul>
+  <ul class="modal-details__list list">
+    <li class="modal-details__item">Vote / Votes</li>
+    <li class="modal-details__item">Popularity</li>
+    <li class="modal-details__item">Genre</li>
+  </ul>
+  <ul class="modal-details__value-list list">
+    <li class="modal-details__value">
+      <span class="vote">${response.data.vote_average}</span>
+      <span class="slash">/</span>
+      <span class="vote">${response.data.vote_count}</span>
+    </li>
+    <li class="modal-details__value">${response.data.popularity}</li>
+    <li class="modal-details__value">${response.data.genres[0].name}</li>
+  </ul>
+</div>
+
             <p class="modal-details__about">ABOUT</p>
             <p class="modal-details__story">${response.data.overview}</p>
-          </div>
+          
           <button class="btn-add-remove">Add to my library</button>
           <button class="btn-add-remove" id="remove-from-library-button">Remove from library</button>
           <button class="#">Watch trailer</button>
@@ -63,6 +66,7 @@ export async function openModalMovie(id) {
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');
     closeModalBtn.addEventListener('click', closeModal);
+    backdropEl.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', event => {
       if (event.keyCode === 27) {
@@ -78,14 +82,6 @@ export function closeModal() {
   if (modalEl) {
     modalEl.classList.remove('modal-movie--show');
     modalEl.innerHTML = '';
+    backdropEl.classList.remove('backdrop--show');
   }
-
-  // modalEl.classList.remove('modal-movie--show');
-  // modalEl.innerHTML = '';
-
-  document.removeEventListener('keydown', event => {
-    if (event.keyCode === 27) {
-      closeModal();
-    }
-  });
 }

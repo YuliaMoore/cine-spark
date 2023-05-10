@@ -102,8 +102,8 @@ async function onRenderNewMovie() {
     function addToLibrary(event) {
       // Отримати поточний список фільмів з локального сховища
       let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
-      // console.log(libraryFilms.flat());
-      // console.log(randomNewMovie[0].id);
+      console.log(libraryFilms.flat());
+      console.log(randomNewMovie[0].id);
       // Перевірка чи такого фільму ще немає в Локальному сховищі
       if (
         libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)
