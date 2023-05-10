@@ -3,6 +3,7 @@ import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
 import { onScroll, onToTopBtn, scrollPage } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
+import { openModalMovie } from './modal-window/modal-movie';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
@@ -62,9 +63,7 @@ async function onRenderNewMovie() {
     // console.log(responsData.length);
 
     if (!responsDataMovie) {
-      return alert(
-        'Вибачте! Нових фільмів не знайдено/Sorry! No new movies found'
-      );
+      return alert('Вибачте! Нових фільмів не знайдено/Sorry! No new movies found');
     }
 
     // отримуємо один рамдомний фільм
@@ -76,9 +75,7 @@ async function onRenderNewMovie() {
     while (randomNewMovie.length != 1) {
       let index = getRandomFilm(responsDataMovie.length);
       randomNewMovie.push(responsDataMovie[index]);
-      randomNewMovie = randomNewMovie.filter(
-        (v, i, arr) => arr.indexOf(v) == i
-      );
+      randomNewMovie = randomNewMovie.filter((v, i, arr) => arr.indexOf(v) == i);
     }
 
     const markupNewMovie = randomNewMovie.reduce(
@@ -101,7 +98,7 @@ async function onRenderNewMovie() {
     function addToLibrary(event) {
       // Отримати поточний список фільмів з локального сховища
       let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
-      console.log(libraryFilms);
+      // console.log(libraryFilms);
       // Додати новий запис до масиву !!!! Дописати первірку на ту саму назву !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       libraryFilms.push(randomNewMovie);
       // Зберегти оновлений список фільмів у локальному сховищі
