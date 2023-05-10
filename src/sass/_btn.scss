@@ -26,3 +26,10 @@
     color: #ffffff;
   }
 }
+
+//white-theme
+.white-mode .btn:hover {
+  background: transparent;
+  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: #f87719;
+}
