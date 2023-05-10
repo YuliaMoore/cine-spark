@@ -95,16 +95,29 @@
   color: var(--grey-txt-color);
 }
 
+.modal-details__value {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+
+  margin-bottom: 12px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+    line-height: calc(19 / 16);
+    margin-bottom: 14px;
+  }
+}
+
 .vote {
   background-color: var(--light-bg);
   border-radius: 5px;
   color: var(--black-txt-color);
 }
 
-.modal-details__item,
-.modal-details__value {
-  margin-bottom: 12px;
-}
 .modal-details__story {
   font-weight: 400;
   font-size: 14px;
