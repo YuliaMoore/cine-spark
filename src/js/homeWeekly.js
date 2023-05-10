@@ -13,7 +13,7 @@ onToTopBtn();
 
 async function onRenderPage() {
   try {
-    const respons = await moviesAPI.getTrendMoviesWeek();
+    const respons = await moviesAPI.getTrendMoviesWeeks();
 
     const responsData = respons.results;
 
