@@ -84,10 +84,28 @@ async function onSearchFormSubmit(e) {
     if (response.data.results < options.itemsPerPage) {
       container.classList.add('is-hidden');
       moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+
+      const links = document.querySelectorAll('.catalog-list__list-link');
+      links.forEach(link => {
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          openModalMovie(link.dataset.id);
+        });
+      });
+
       return;
     }
 
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
+
     pagination.reset(response.data.total_results);
     pagination.on('afterMove', createMoviesByQueryPagination);
     scrollPage();
