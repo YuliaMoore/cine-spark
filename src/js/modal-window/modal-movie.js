@@ -3,19 +3,19 @@
 
 import { MoviesAPI } from '../MoviesAPI';
 
-const modalEl = document.querySelector('.movie-card__wrapper');
+const modalEl = document.querySelector('.modal-card');
 // const overlay = document.querySelector('.overlay');
 
 export async function openModalMovie(id) {
-  console.log(id);
+  // console.log(id);
   const moviesAPI = new MoviesAPI();
   try {
     const response = await moviesAPI.getMovieDetails(id);
     console.log(response);
-    // modalEl.classList.add('modal-movie--show');
+    modalEl.classList.add('modal-movie--show');
     modalEl.innerHTML = `
       <div class="modal__card">
-        <img class="modal-poster" src="${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
+        <img class="modal-poster" src="https://image.tmdb.org/t/p/w500${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
         <div class="modal-container__info">
           <h2 class="modal-title">${response.data.original_title}</h2>
           <div class="modal-container__details">
@@ -63,7 +63,6 @@ export async function openModalMovie(id) {
 //     modalClose();
 //   }
 // });
-
 
 // window.addEventListener('click', e => {
 //   if (e.target === modalEl) {
