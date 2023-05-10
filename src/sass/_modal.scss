@@ -109,6 +109,10 @@
   z-index: 10;
 }
 
+.white-mode .has-backdrop::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .no-scroll {
   overflow: hidden;
 }
