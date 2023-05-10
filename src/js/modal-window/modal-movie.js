@@ -14,6 +14,7 @@ export async function openModalMovie(id) {
     <use href="${symboldefs}#close-outline"></use>
      </svg>
       <div class="modal__card">
+      <div class="modal-card__wrapper">
         <img class="modal-poster" src="https://image.tmdb.org/t/p/w500${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
         <div class="modal-container__info">
           <h2 class="modal-title">${response.data.original_title}</h2>
@@ -40,7 +41,9 @@ export async function openModalMovie(id) {
             <p class="modal-details__story">${response.data.overview}</p>
           </div>
           <button class="btn-add-remove">Add to my library</button>
+          <button class="hero-btn">Watch trailer</button>
         </div>
+      </div>
       </div>
     `;
 
