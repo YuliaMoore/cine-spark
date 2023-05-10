@@ -30,3 +30,44 @@
   opacity: 1;
   visibility: visible;
 }
+
+.modal-card {
+  padding: 0;
+  box-sizing: border-box;
+  width: 248px;
+
+  @media screen and (min-width: 768px) {
+    width: 616px;
+    height: 400px;
+    display: flex;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 726px;
+    height: 478px;
+    display: flex;
+  }
+}
+.modal-poster {
+  width: 248px;
+  height: 315px;
+  margin-bottom: 22px;
+  @media screen and (min-width: 768px) {
+    width: 294px;
+    height: 400px;
+    margin: 0 16px 0 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 375px;
+    height: 478px;
+    margin: 0 20px 0 0;
+  }
+}
+
+.modal-title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: calc(32 / 24);
+  color: var(--white-txt-color);
+}
