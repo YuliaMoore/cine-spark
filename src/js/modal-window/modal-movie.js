@@ -1,20 +1,16 @@
-// const modal = document.querySelector('.modal-movie');
-// const overlay = document.querySelector('.overlay');
 import symboldefs from '../../images/symbol-defs.svg';
 import { MoviesAPI } from '../MoviesAPI';
 
 const modalEl = document.querySelector('.modal-card');
-// const overlay = document.querySelector('.overlay');
 
 export async function openModalMovie(id) {
-  // console.log(id);
   const moviesAPI = new MoviesAPI();
   try {
     const response = await moviesAPI.getMovieDetails(id);
     console.log(response);
     modalEl.classList.add('modal-movie--show');
     modalEl.innerHTML = `
-     <svg class="close-btn js-modal-close">
+     <svg class="close-btn js-modal-close" type="button">
     <use href="${symboldefs}#close-outline"></use>
      </svg>
       <div class="modal__card">
@@ -47,34 +43,32 @@ export async function openModalMovie(id) {
         </div>
       </div>
     `;
-    // console.log();
-    // const btnCloseModalMovie = document.querySelector('.close-modal-movie-btn');
-    // btnCloseModalMovie.addEventListener('click', closeModalMovie);
+
+    const closeModalBtn = modalEl.querySelector('.js-modal-close');
+    closeModalBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', event => {
+      if (event.keyCode === 27) {
+        closeModal();
+      }
+    });
   } catch (error) {
     console.log(error);
   }
 }
 
-// function closeModalMovie() {
-//   // modalEl.classList.remove('modal-movie--show');
-//   modalEl.classList.add('hidden');
-//   overlay.classList.add('hidden');
-// }
-// overlay.addEventListener('click', closeModalMovie);
-// document.addEventListener('keydown', e => {
-//   if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
-//     modalClose();
-//   }
-// });
+function closeModal() {
+  if (modalEl) {
+    modalEl.classList.remove('modal-movie--show');
+    modalEl.innerHTML = '';
+  }
 
-// window.addEventListener('click', e => {
-//   if (e.target === modalEl) {
-//     closeModalMovie();
-//   }
-// });
+  modalEl.classList.remove('modal-movie--show');
+  modalEl.innerHTML = '';
 
-// window.addEventListener('keydown', e => {
-//   if (e.keyCode === 27) {
-//     closeModalMovie();
-//   }
-// });
+  document.removeEventListener('keydown', event => {
+    if (event.keyCode === 27) {
+      closeModal();
+    }
+  });
+}
