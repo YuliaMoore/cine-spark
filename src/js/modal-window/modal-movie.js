@@ -1,6 +1,6 @@
 // const modal = document.querySelector('.modal-movie');
 // const overlay = document.querySelector('.overlay');
-
+import symboldefs from '../../images/symbol-defs.svg';
 import { MoviesAPI } from '../MoviesAPI';
 
 const modalEl = document.querySelector('.modal-card');
@@ -14,6 +14,9 @@ export async function openModalMovie(id) {
     console.log(response);
     modalEl.classList.add('modal-movie--show');
     modalEl.innerHTML = `
+     <svg class="close-btn js-modal-close">
+    <use href="${symboldefs}#close-outline"></use>
+     </svg>
       <div class="modal__card">
         <img class="modal-poster" src="https://image.tmdb.org/t/p/w500${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
         <div class="modal-container__info">
