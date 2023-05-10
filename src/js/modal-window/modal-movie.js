@@ -25,13 +25,13 @@ export async function openModalMovie(id) {
               <li class="modal-details__item">Genre</li>
             </ul>
             <ul class="modal-details__value-list list">
-            <li class="modal-details__value>
+            <li class="modal-details__value">
                <span class="vote">${response.data.vote_average}</span>
               <span class="slash">/</span>
               <span class="vote">${response.data.vote_count}</span>
             </li>
-            <li class="modal-details__value>${response.data.popularity}</li>
-            <li class="modal-details__value>${response.data.genres[0].name}</li>
+            <li class="modal-details__value">${response.data.popularity}</li>
+            <li class="modal-details__value">${response.data.genres[0].name}</li>
             </ul>
             </div>
             <p class="modal-details__about">ABOUT</p>
