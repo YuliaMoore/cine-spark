@@ -16,7 +16,6 @@ export { moviesAPI, moviesCatalog };
 const moviesAPI = new MoviesAPI();
 const page = pagination.getCurrentPage();
 
-
 const searchForm = document.querySelector('.catalog-list__search-form');
 const moviesCatalog = document.querySelector('.catalog-list__items-list');
 
@@ -26,9 +25,8 @@ onToTopBtn();
 // Функція, яка викликається при першому завантаженні сторінки. Трендові фільми тижня.
 async function onRenderCatalogPage(page) {
   try {
-
-     const response = await moviesAPI.getTrendMoviesWeek(page);
-   moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    const response = await moviesAPI.getTrendMoviesWeek(page);
+    moviesCatalog.innerHTML = getCatalogCards(response.data.results);
     pagination.reset(response.data.total_results);
     container.classList.remove('is-hidden');
 
@@ -40,7 +38,6 @@ async function onRenderCatalogPage(page) {
         openModalMovie(link.dataset.id);
       });
     });
-
   } catch (err) {
     console.log(err);
   }

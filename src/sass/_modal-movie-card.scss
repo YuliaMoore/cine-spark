@@ -1,0 +1,32 @@
+.modal-card {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--dark-bg);
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+
+  border-radius: 16px;
+
+  @media screen and (min-width: 1200px) {
+    padding: 60px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    padding: 44px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 52px 16px;
+  }
+}
+
+.modal-movie--show {
+  opacity: 1;
+  visibility: visible;
+}
