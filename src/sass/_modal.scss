@@ -95,3 +95,20 @@
 .white-mode .overlay {
   background: rgba(255, 255, 255, 0.5);
 }
+
+// **********************************
+
+.has-backdrop::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
