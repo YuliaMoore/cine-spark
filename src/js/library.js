@@ -37,7 +37,7 @@ function removeMovieFromLibrary(movieId) {
   localStorage.setItem(librariesKey, JSON.stringify(libraries));
 }
 
-async function onRenderLibraryCards() {
+export async function onRenderLibraryCards() {
   const moviesContainer = document.querySelector('.library-list');
   if (localStorage.getItem('libraryFilm')) {
     const savedMovies = JSON.parse(localStorage.getItem('libraryFilm')).flat();

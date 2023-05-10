@@ -11,6 +11,8 @@ import {
   options,
 } from './pagination';
 
+import { searchFormUpdate } from './catalog-functions/search-form-update';
+
 export { moviesAPI, moviesCatalog };
 
 const moviesAPI = new MoviesAPI();
@@ -84,6 +86,7 @@ async function onSearchFormSubmit(e) {
     if (response.data.results < options.itemsPerPage) {
       container.classList.add('is-hidden');
       moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+      searchFormUpdate();
 
       const links = document.querySelectorAll('.catalog-list__list-link');
       links.forEach(link => {
@@ -97,6 +100,7 @@ async function onSearchFormSubmit(e) {
     }
 
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    searchFormUpdate();
 
     const links = document.querySelectorAll('.catalog-list__list-link');
     links.forEach(link => {

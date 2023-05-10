@@ -1,6 +1,8 @@
 import symboldefs from '../../images/symbol-defs.svg';
 import { MoviesAPI } from '../MoviesAPI';
 
+import { removeFromLibrary } from './remove-from-my-library';
+
 const modalEl = document.querySelector('.modal-card');
 
 const backdropEl = document.createElement('div');
@@ -44,10 +46,23 @@ export async function openModalMovie(id) {
             <p class="modal-details__story">${response.data.overview}</p>
           
           <button class="btn-add-remove">Add to my library</button>
+          <button class="btn-add-remove" id="remove-from-library-button">Remove from library</button>
+          <button class="#">Watch trailer</button>
         </div>
       </div>
       </div>
     `;
+
+    // Функція виклику функції removeFromLibrary для видалення фільму з локального сховища -----------------------------
+    const removeFromLibraryButton = document.querySelector(
+      '#remove-from-library-button'
+    );
+    const movieIdForRemoving = response.data.id;
+    removeFromLibraryButton.addEventListener('click', function () {
+      removeFromLibrary(movieIdForRemoving);
+      // console.log(movieIdForRemoving);
+    });
+    // ------------------------------------------------------------------ Функція виклику функції removeFromLibrary для видалення фільму з локального сховища
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');
     closeModalBtn.addEventListener('click', closeModal);
@@ -63,7 +78,7 @@ export async function openModalMovie(id) {
   }
 }
 
-function closeModal() {
+export function closeModal() {
   if (modalEl) {
     modalEl.classList.remove('modal-movie--show');
     modalEl.innerHTML = '';
