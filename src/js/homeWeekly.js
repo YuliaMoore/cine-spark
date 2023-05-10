@@ -96,6 +96,7 @@ async function onRenderNewMovie() {
     const remindMeBtn = document.querySelector('.upcoming-btn');
     remindMeBtn.addEventListener('click', addToLibrary);
     function addToLibrary(event) {
+      console.log('working');
       // Отримати поточний список фільмів з локального сховища
       let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
       // console.log(libraryFilms);

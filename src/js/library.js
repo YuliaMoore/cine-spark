@@ -54,9 +54,9 @@ async function onRenderLibraryCards() {
       });
     });
   } else {
-    return (moviesContainer.innerHTML = `<div class=" container">
+    return (moviesContainer.innerHTML = `<div class="container library-container-mistake">
       <p class="library-empty__mistake">OOPS... <br> We are very sorry! <br> You don't have any movies at your library.</p>
-      <button class="btn-library" onclick="window.location.href='catalog.html'"><a class="btn-library__link">Search movie</a></button>
+      <button class="btn btn-library" onclick="window.location.href='catalog.html'"><a class="btn-library__link">Search movie</a></button>
     </div>`);
   }
 }
