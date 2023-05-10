@@ -160,3 +160,20 @@
   box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
   color: var(--light-grey-txt-color);
 }
+
+.white-mode .modal-title,
+.white-mode .modal-details__item,
+.white-mode .modal-details__value,
+.white-mode .modal-details__about {
+  color: var(--black-txt-color);
+}
+
+.white-mode .modal-details__story {
+  color: #282828;
+}
+
+.white-mode .btn-add-remove {
+  background: transparent;
+  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: var(--black-txt-color);
+}
