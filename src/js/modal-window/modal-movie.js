@@ -3,12 +3,17 @@ import { MoviesAPI } from '../MoviesAPI';
 
 const modalEl = document.querySelector('.modal-card');
 
+const backdropEl = document.createElement('div');
+backdropEl.classList.add('modal-backdrop');
+document.body.appendChild(backdropEl);
+
 export async function openModalMovie(id) {
   const moviesAPI = new MoviesAPI();
 
   try {
     const response = await moviesAPI.getMovieDetails(id);
     modalEl.classList.add('modal-movie--show');
+    backdropEl.classList.add('backdrop--show');
     modalEl.innerHTML = `
      <svg class="close-btn js-modal-close" type="button">
     <use href="${symboldefs}#close-outline"></use>
@@ -60,14 +65,6 @@ function closeModal() {
   if (modalEl) {
     modalEl.classList.remove('modal-movie--show');
     modalEl.innerHTML = '';
+    backdropEl.classList.remove('backdrop--show');
   }
-
-  // modalEl.classList.remove('modal-movie--show');
-  // modalEl.innerHTML = '';
-
-  document.removeEventListener('keydown', event => {
-    if (event.keyCode === 27) {
-      closeModal();
-    }
-  });
 }
