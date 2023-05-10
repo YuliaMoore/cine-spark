@@ -84,6 +84,8 @@
 }
 
 .modal-details__about {
+  margin-top: 20px;
+  margin-bottom: 16px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -93,6 +95,16 @@
   color: var(--grey-txt-color);
 }
 
+.vote {
+  background-color: var(--light-bg);
+  border-radius: 5px;
+  color: var(--black-txt-color);
+}
+
+.modal-details__item,
+.modal-details__value {
+  margin-bottom: 12px;
+}
 .modal-details__story {
   font-weight: 400;
   font-size: 14px;
@@ -101,6 +113,7 @@
 }
 
 .btn-add-remove {
+  margin-top: 24px;
   padding: 12px 24px;
   background: transparent;
   border-radius: 74px;
