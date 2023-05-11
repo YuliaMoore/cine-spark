@@ -1,9 +1,12 @@
 import { MoviesAPI } from './MoviesAPI';
-import { createMovies } from '/src/js/catalog-functions/weekly-markup';
+// import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
 import { onScroll, onToTopBtn } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
 import { openModalMovie } from './modal-window/modal-movie';
+
+import { getGenres } from './catalog-functions/catalog-genres-get';
+import { getStarsRating } from './catalog-functions/catalog-rating-get';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
@@ -49,6 +52,42 @@ function updateNewsList(markup) {
   weeklyGallery.innerHTML = markup;
 }
 
+function createMovies({
+  title,
+  release_date,
+  poster_path,
+  genre_ids,
+  vote_average,
+}) {
+  return `
+    <li class='catalog-list__item'>
+        <a href='#' class='catalog-list__list-link'>
+            <div class='catalog-list__list-wrapper'>
+                <div class='catalog-list__info'>
+                    <h2 class='catalog-list__title'>${title}</h2>
+                    <div class='catalog-list__additional-info'>
+                        <p class='catalog-list__movie-type'>${getGenres(
+                          genre_ids
+                        )} | ${release_date.slice(0, 4)}</p>
+                        <div class='catalog-list-rating'>${getStarsRating(
+                          vote_average
+                        )}
+                        </div>
+                    </div>
+                </div>
+                <img
+                    src='https://image.tmdb.org/t/p/w500${poster_path}'
+                    alt='${title}'
+                    width='280'
+                    height='406'
+                    class='catalog-list__image'
+                />
+            </div>
+        </a>
+    </li> 
+`;
+}
+
 // ===секція "нові фільми"===
 
 const upcomingCard = document.querySelector('.upcoming-cover');
@@ -63,7 +102,9 @@ async function onRenderNewMovie() {
     // console.log(responsData.length);
 
     if (!responsDataMovie) {
-      return alert('Вибачте! Нових фільмів не знайдено/Sorry! No new movies found');
+      return alert(
+        'Вибачте! Нових фільмів не знайдено/Sorry! No new movies found'
+      );
     }
 
     // отримуємо один рамдомний фільм
@@ -75,7 +116,9 @@ async function onRenderNewMovie() {
     while (randomNewMovie.length != 1) {
       let index = getRandomFilm(responsDataMovie.length);
       randomNewMovie.push(responsDataMovie[index]);
-      randomNewMovie = randomNewMovie.filter((v, i, arr) => arr.indexOf(v) == i);
+      randomNewMovie = randomNewMovie.filter(
+        (v, i, arr) => arr.indexOf(v) == i
+      );
     }
 
     const markupNewMovie = randomNewMovie.reduce(
@@ -101,7 +144,9 @@ async function onRenderNewMovie() {
       // console.log(libraryFilms.flat());
       // console.log(randomNewMovie[0].id);
       // Перевірка чи такого фільму ще немає в Локальному сховищі
-      if (libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)) {
+      if (
+        libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)
+      ) {
         // Якщо фільм вже є, тоді поки що нічого не робимо
         console.log('Фільм вже додано в Локал Сторідж');
         return;
