@@ -1,28 +1,57 @@
 // import { MoviesAPI } from '../MoviesAPI';
 // const moviesAPI = new MoviesAPI();
 
-// const formMarkup = document.querySelector('#catalog-search-form');
+// import { getSearchMoviesAddParams } from '../MoviesAPI';
 
-// export function replaceSearchForm() {
-//   // const getListYears() { };
-//   // const genresListFromApi() { };
-//   // const countryListFromApi() { };
-//   formMarkup.innerHTML = `<div><h1>Цей текст відображається замість форми пошуку</h1></div>`;
-//   console.log('Замінюю Іннер ХТМЛ');
-//   //   `
-//   //     <form class="catalog-list__search-form" id="catalog-search-form">
-//   //   <input
-//   //     type="text"
-//   //     name="searchQuery"
-//   //     autocomplete="off"
-//   //     placeholder="Search"
-//   //     class="catalog-list__search-input"
-//   //   />
-//   //   <button type="submit" class="catalog-list__search-button">
-//   //     <svg width="13px" height="13px" class="catalog-list__search-icon">
-//   //       <use href="/src/images/symbol-defs.svg#icon-search"></use>
-//   //     </svg>
-//   //   </button>
-//   //     </form>
-//   //     `;
+// const formEl = document.querySelector('.catalog-list__search-form');
+// const searchInputEl = document.querySelector('.catalog-list__search-input');
+// let searchFormIsOpen = false;
+
+// export async function replaceSearchForm() {
+//   if (!searchFormIsOpen) {
+//     searchFormIsOpen = true;
+//     // console.log('Замінюю Іннер ХТМЛ');
+//     const markup = `
+//     <select name="year" class="catalog-list__select-year">
+//         <option value="">Select Year</option>
+//         <option value="2023">2023</option>
+//         <option value="2022">2022</option>
+//         <!-- Опції з роками -->
+//     </select>
+
+//     <select name="genre" class="catalog-list__select-genre">
+//         <option value="">Select Genre</option>
+//         <option value="action">Action</option>
+//         <option value="comedy">Comedy</option>
+//         <!-- Опції з жанрами -->
+//     </select>
+
+//     <select name="country" class="catalog-list__select-country">
+//         <option value="">Select Country</option>
+//         <option value="usa">USA</option>
+//         <option value="uk">UK</option>
+//         <!-- Опції з країнами -->
+//     </select>
+//     `;
+//     searchInputEl.insertAdjacentHTML('afterend', markup);
+//   } else {
+//     try {
+//       const response = await moviesAPI.getSearchMoviesAddParams(
+//         page,
+//         'Harry Potter',
+//         2021,
+//         'Fantasy',
+//         'US'
+//       );
+//       console.log(response.data.results);
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }
 // }
+
+// // https://api.themoviedb.org/3/search/movie?api_key=cca79e12b25cdd9f67fc795a1689f5d9&language=en-US&query=mavka&page=1&include_adult=false&region=IO&year=2020
+
+// // https://api.themoviedb.org/3/configuration/countries?api_key=cca79e12b25cdd9f67fc795a1689f5d9
+
+// // https://api.themoviedb.org/3/genre/movie/list?api_key=cca79e12b25cdd9f67fc795a1689f5d9&language=en-US
