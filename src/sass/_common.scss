@@ -6,6 +6,10 @@ body {
   color: var(--white-txt-color);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .white-mode {
   background: var(--light-bg);
   color: var(--dark--txt-color);
