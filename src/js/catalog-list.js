@@ -33,13 +33,13 @@ async function onRenderCatalogPage(page) {
     container.classList.remove('is-hidden');
 
     // Попизенко Михайло - додав слухача на картку
-    const links = document.querySelectorAll('.catalog-list__list-link');
-    links.forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        openModalMovie(link.dataset.id);
-      });
-    });
+    // const links = document.querySelectorAll('.catalog-list__list-link');
+    // links.forEach(link => {
+    //   link.addEventListener('click', event => {
+    //     event.preventDefault();
+    //     openModalMovie(link.dataset.id);
+    //   });
+    // });
   } catch (err) {
     console.log(err);
   }
@@ -106,7 +106,6 @@ async function onSearchFormSubmit(e) {
 
     pagination.reset(response.data.total_results);
     pagination.on('afterMove', createMoviesByQueryPagination);
-
 
     const links = document.querySelectorAll('.catalog-list__list-link');
     links.forEach(link => {
