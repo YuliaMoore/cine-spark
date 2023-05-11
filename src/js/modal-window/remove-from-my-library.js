@@ -1,5 +1,5 @@
 import { onRenderLibraryCards } from '../library';
-import { closeModal } from './modal-movie';
+// import { closeModal } from './modal-movie';
 
 export function removeFromLibrary(movieId) {
   //   console.log('Функція видалення фільму з локального сховища');
