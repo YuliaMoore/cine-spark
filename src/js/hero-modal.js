@@ -13,38 +13,38 @@ refs.overlay.addEventListener('click', onClickOverlay);
 
 const moviesAPI = new MoviesAPI();
 
-let savedId;
+// let savedId;
 
-// Відкриття модального вікна
-function onOpenHeroModal() {
-  if (refs.modalContainer.innerHTML === '') {
-    takeCurrentFilmVideo(savedId);
-  }
-  window.addEventListener('keydown', onEscKeyPress);
-  refs.heroModal.classList.add('active');
-  refs.overlay.classList.add('active');
-}
-// Закриття модального вікна по кнопці
-function onCloseHeroModal() {
-  window.removeEventListener('keydown', onEscKeyPress);
-  refs.heroModal.classList.remove('active');
-  refs.overlay.classList.remove('active');
-  refs.modalContainer.innerHTML = '';
-}
+// // Відкриття модального вікна
+// function onOpenHeroModal() {
+//   if (refs.modalContainer.innerHTML === '') {
+//     takeCurrentFilmVideo(savedId);
+//   }
+//   window.addEventListener('keydown', onEscKeyPress);
+//   refs.heroModal.classList.add('active');
+//   refs.overlay.classList.add('active');
+// }
+// // Закриття модального вікна по кнопці
+// function onCloseHeroModal() {
+//   window.removeEventListener('keydown', onEscKeyPress);
+//   refs.heroModal.classList.remove('active');
+//   refs.overlay.classList.remove('active');
+//   refs.modalContainer.innerHTML = '';
+// }
 
-// Закриття модального вікна по кліку на бекдроп
-function onClickOverlay(event) {
-  if (event.target === event.currentTarget) {
-    onCloseHeroModal();
-  }
-}
+// // Закриття модального вікна по кліку на бекдроп
+// function onClickOverlay(event) {
+//   if (event.target === event.currentTarget) {
+//     onCloseHeroModal();
+//   }
+// }
 
-// Закриття модального вікна по кнопці Esc
-function onEscKeyPress(event) {
-  if (event.code === 'Escape') {
-    onCloseHeroModal();
-  }
-}
+// // Закриття модального вікна по кнопці Esc
+// function onEscKeyPress(event) {
+//   if (event.code === 'Escape') {
+//     onCloseHeroModal();
+//   }
+// }
 
 // Отримуємо ID фільму дня
 function takeFilmOfDayId(id) {
