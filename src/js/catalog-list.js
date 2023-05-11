@@ -86,6 +86,9 @@ async function onSearchFormSubmit(e) {
     if (response.data.results < options.itemsPerPage) {
       container.classList.add('is-hidden');
       moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+
+      //Функція оновлення форми складної форми пошуку
+
       // searchFormUpdate();
 
       const links = document.querySelectorAll('.catalog-list__list-link');
@@ -100,10 +103,10 @@ async function onSearchFormSubmit(e) {
     }
 
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
-    // searchFormUpdate();
 
     pagination.reset(response.data.total_results);
     pagination.on('afterMove', createMoviesByQueryPagination);
+
 
     const links = document.querySelectorAll('.catalog-list__list-link');
     links.forEach(link => {

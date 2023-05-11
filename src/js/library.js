@@ -40,7 +40,8 @@ function removeMovieFromLibrary(movieId) {
 export async function onRenderLibraryCards() {
   const moviesContainer = document.querySelector('.library-list');
   if (localStorage.getItem('libraryFilm')) {
-    const savedMovies = JSON.parse(localStorage.getItem('libraryFilm')).flat();
+    const savedMovies =
+      JSON.parse(localStorage.getItem('libraryFilm')).flat() || [];
     // console.log(savedMovies);
     const moviesMarkUp = await getCatalogCards(savedMovies);
     // console.log(moviesMarkUp);
