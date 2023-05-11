@@ -19,7 +19,7 @@ const moviesAPI = new MoviesAPI();
 const page = pagination.getCurrentPage();
 
 const searchForm = document.querySelector('.catalog-list__search-form');
-const moviesCatalog = document.querySelector('.catalog-list__items-list');
+const moviesCatalog = document.querySelector('.library-list');
 
 onScroll();
 onToTopBtn();
