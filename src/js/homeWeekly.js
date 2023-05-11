@@ -63,7 +63,9 @@ async function onRenderNewMovie() {
     // console.log(responsData.length);
 
     if (!responsDataMovie) {
-      return alert('Вибачте! Нових фільмів не знайдено/Sorry! No new movies found');
+      return alert(
+        'Вибачте! Нових фільмів не знайдено/Sorry! No new movies found'
+      );
     }
 
     // отримуємо один рамдомний фільм
@@ -75,7 +77,9 @@ async function onRenderNewMovie() {
     while (randomNewMovie.length != 1) {
       let index = getRandomFilm(responsDataMovie.length);
       randomNewMovie.push(responsDataMovie[index]);
-      randomNewMovie = randomNewMovie.filter((v, i, arr) => arr.indexOf(v) == i);
+      randomNewMovie = randomNewMovie.filter(
+        (v, i, arr) => arr.indexOf(v) == i
+      );
     }
 
     const markupNewMovie = randomNewMovie.reduce(
@@ -98,10 +102,12 @@ async function onRenderNewMovie() {
     function addToLibrary(event) {
       // Отримати поточний список фільмів з локального сховища
       let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
-      console.log(libraryFilms.flat());
-      console.log(randomNewMovie[0].id);
+      // console.log(libraryFilms.flat());
+      // console.log(randomNewMovie[0].id);
       // Перевірка чи такого фільму ще немає в Локальному сховищі
-      if (libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)) {
+      if (
+        libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)
+      ) {
         // Якщо фільм вже є, тоді поки що нічого не робимо
         console.log('Фільм вже додано в Локал Сторідж');
         return;
