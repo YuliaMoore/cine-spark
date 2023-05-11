@@ -3,11 +3,11 @@ import { MoviesAPI } from '../MoviesAPI';
 
 import { removeFromLibrary } from './remove-from-my-library';
 
-const modalEl = document.querySelector('.modal-card');
+// const modalEl = document.querySelector('.modal-card');
 
-const backdropEl = document.createElement('div');
-backdropEl.classList.add('modal-backdrop');
-document.body.appendChild(backdropEl);
+// const backdropEl = document.createElement('div');
+// backdropEl.classList.add('modal-backdrop');
+// document.body.appendChild(backdropEl);
 
 export async function openModalMovie(id) {
   const moviesAPI = new MoviesAPI();
@@ -63,23 +63,23 @@ export async function openModalMovie(id) {
     });
     // ------------------------------------------------------------------ Функція виклику функції removeFromLibrary для видалення фільму з локального сховища
 
-    const closeModalBtn = modalEl.querySelector('.js-modal-close');
-    closeModalBtn.addEventListener('click', closeModal);
-    backdropEl.addEventListener('click', closeModal);
+    // const closeModalBtn = modalEl.querySelector('.js-modal-close');
+    // closeModalBtn.addEventListener('click', closeModal);
+    // backdropEl.addEventListener('click', closeModal);
 
-    document.addEventListener('keydown', event => {
-      if (event.keyCode === 27) {
-        closeModal();
-      }
-    });
+    // document.addEventListener('keydown', event => {
+    //   if (event.keyCode === 27) {
+    //     closeModal();
+    //   }
+    // });
   } catch (error) {
     console.log(error);
   }
 }
 
-export function closeModal() {
-  modalEl.classList.remove('modal-movie--show');
-  modalEl.innerHTML = '';
-  backdropEl.classList.remove('backdrop--show');
-  document.body.classList.remove('modal-open');
-}
+// export function closeModal() {
+//   modalEl.classList.remove('modal-movie--show');
+//   modalEl.innerHTML = '';
+//   backdropEl.classList.remove('backdrop--show');
+//   document.body.classList.remove('modal-open');
+// }
