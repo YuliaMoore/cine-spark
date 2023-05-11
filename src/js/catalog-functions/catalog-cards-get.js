@@ -5,9 +5,7 @@ import posterNoPhoto from '/src/images/nophoto.jpg';
 export function getCatalogCards(backendQuery) {
   const catalogCardsMarkup = backendQuery
 
-    .map(
-      ({ title, genre_ids, release_date, vote_average, poster_path, id }) => {
-      
+    .map(({ title, genre_ids, release_date, vote_average, poster_path, id }) => {
       if (poster_path) {
         poster_path = `https://image.tmdb.org/t/p/w500${poster_path}`;
       } else {
@@ -23,9 +21,7 @@ export function getCatalogCards(backendQuery) {
                         <p class='catalog-list__movie-type'>${getGenres(
                           genre_ids
                         )} | ${release_date.slice(0, 4)}</p>
-                        <div class='catalog-list-rating'>${getStarsRating(
-                          vote_average
-                        )}
+                        <div class='catalog-list-rating'>${getStarsRating(vote_average)}
                         </div>
                     </div>
                 </div>
@@ -39,8 +35,7 @@ export function getCatalogCards(backendQuery) {
             </div>
         </a>
     </li> `;
-      }
-    )
+    })
     .join('');
   // console.log(catalogCardsMarkup);
   return catalogCardsMarkup;
