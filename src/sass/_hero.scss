@@ -142,18 +142,16 @@
   height: 38px;
   margin-top: 16px;
   padding: 12px 24px;
-
   border-radius: 74px;
   font-family: 'Roboto';
-
+  border: transparent;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   color: #111111;
-
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 
   @media screen and (min-width: 768px) {
     min-width: 128px;
@@ -172,12 +170,25 @@
 
 .hero-btn:hover,
 .hero-btn:focus {
-  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  color: #f87719;
-  background-color: white;
+  background: linear-gradient(141.22deg, #111111, #111111) padding-box,
+    linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 74px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 //white-theme
+
+.white-mode .hero-btn:hover,
+.white-mode .hero-btn:focus {
+  background: linear-gradient(141.22deg, #ffffff, #ffffff) padding-box,
+    linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
+  color: #f87719;
+  border: 2px solid transparent;
+  border-radius: 74px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .white-mode .hero-title,
 .white-mode .hero-text {
   @media screen and (max-width: 767px) {
