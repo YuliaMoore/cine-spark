@@ -46,13 +46,13 @@ export async function onRenderLibraryCards() {
     // console.log(moviesMarkUp);
     moviesContainer.innerHTML = moviesMarkUp;
 
-    // const links = document.querySelectorAll('.catalog-list__list-link');
-    // links.forEach(link => {
-    //   link.addEventListener('click', event => {
-    //     event.preventDefault();
-    //     openModalMovie(link.dataset.id);
-    //   });
-    // });
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
   } else {
     return (moviesContainer.innerHTML = `<div class="container library-container-mistake">
       <p class="library-empty__mistake">OOPS... <br> We are very sorry! <br> You don't have any movies at your library.</p>

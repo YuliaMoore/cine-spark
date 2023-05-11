@@ -45,13 +45,13 @@ const createPopularPagination = async event => {
     const response = await moviesAPI.getTrendMoviesWeek(currentPage);
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
 
-    // const links = document.querySelectorAll('.catalog-list__list-link');
-    // links.forEach(link => {
-    //   link.addEventListener('click', event => {
-    //     event.preventDefault();
-    //     openModalMovie(link.dataset.id);
-    //   });
-    // });
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
 
     onToTopPagination();
   } catch (err) {
