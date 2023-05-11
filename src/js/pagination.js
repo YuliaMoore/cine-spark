@@ -3,7 +3,13 @@ import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 import Pagination from 'tui-pagination';
 import { openModalMovie } from './modal-window/modal-movie';
 
-export { pagination, createPopularPagination, createMoviesByQueryPagination, container, options };
+export {
+  pagination,
+  createPopularPagination,
+  createMoviesByQueryPagination,
+  container,
+  options,
+};
 
 const container = document.getElementById('tui-pagination-container');
 
@@ -17,7 +23,8 @@ const options = {
   lastItemClassName: 'tui-last-child',
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}"></span>' +
@@ -26,7 +33,8 @@ const options = {
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}"></span>' +
       '</span>',
-    moreButton: '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">...</a>',
   },
 };
 
@@ -34,7 +42,7 @@ const pagination = new Pagination(container, options);
 
 function onToTopPagination() {
   if (window.pageYOffset > 0) {
-    window.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 }
 
