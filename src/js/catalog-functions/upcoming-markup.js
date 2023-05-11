@@ -17,7 +17,7 @@ export function createUpcomingMovies({
     <div class="upcoming-img">
 
      <picture class='upcoming-images'>
-        <source srcset="https://image.tmdb.org/t/p/original/${backdrop_path}" media="(min-width: 1280px)" class='upcoming-images-desktop' />
+        <source srcset="https://image.tmdb.org/t/p/original/${backdrop_path}" media="(min-width: 1200px)" class='upcoming-images-desktop' />
       <source srcset="https://image.tmdb.org/t/p/original/${backdrop_path}" media="(min-width: 768px)" class='upcoming-images-tablet' />
       <source srcset="https://image.tmdb.org/t/p/original/${poster_path}" media="(min-width: 480px)" />
       <img src="https://image.tmdb.org/t/p/original/${poster_path}" alt="Movie Poster" class="upcoming-image"/>
