@@ -1,7 +1,7 @@
 import { MoviesAPI } from './MoviesAPI';
 import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
-import { onScroll, onToTopBtn, scrollPage } from './scroll';
+import { onScroll, onToTopBtn } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
 import { openModalMovie } from './modal-window/modal-movie';
 
@@ -133,4 +133,16 @@ onRenderNewMovie();
 
 function updateNewMovies(markup) {
   upcomingCard.innerHTML = markup;
+}
+
+//скрол
+function scrollPage() {
+  const { height: cardHeight } = document
+    .querySelector('.main')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 1,
+    behavior: 'smooth',
+  });
 }
