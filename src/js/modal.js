@@ -1,4 +1,4 @@
-!(function (e) {
+(function (e) {
   'function' != typeof e.matches &&
     (e.matches =
       e.msMatchesSelector ||
@@ -66,8 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
       let key = e.keyCode;
 
       if (key == 27) {
-        document.querySelector('.modal.active').classList.remove('active');
-        document.querySelector('.overlay').classList.remove('active');
+        let activeModal = document.querySelector('.modal.active');
+        if (activeModal) {
+          activeModal.classList.remove('active');
+        }
+
+        let activeOverlay = document.querySelector('.overlay.active');
+        if (activeOverlay) {
+          activeOverlay.classList.remove('active');
+        }
       }
     },
     false
