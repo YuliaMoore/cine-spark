@@ -60,32 +60,31 @@ function createMovies({
   vote_average,
 }) {
   return `
-    <li class="weekly-item">
-  <a href="#" class="weekly-link">
-    <div class="weekly-wrapper">
-
-      <div class="weekly-info">
-        <h2 class="weekly-info__title">${title}</h2>
-
-        <div class="catalog-list__additional-info">
-          <p class="weekly-info__genres__data">${getGenres(
-            genre_ids
-          )} | ${release_date.slice(0, 4)}
-        </p>
-
-          <div class="weekly-rating">${getStarsRating(vote_average)}</div>
-        </div>
-      </div>
-
-      <img
-        src="https://image.tmdb.org/t/p/w500${poster_path}"
-        alt="${title}"
-        
-        class="weekly-img"
-      />
-    </div>
-  </a>
-</li>
+    <li class='catalog-list__item'>
+        <a href='#' class='catalog-list__list-link'>
+            <div class='catalog-list__list-wrapper'>
+                <div class='catalog-list__info'>
+                    <h2 class='catalog-list__title'>${title}</h2>
+                    <div class='catalog-list__additional-info'>
+                        <p class='catalog-list__movie-type'>${getGenres(
+                          genre_ids
+                        )} | ${release_date.slice(0, 4)}</p>
+                        <div class='catalog-list-rating'>${getStarsRating(
+                          vote_average
+                        )}
+                        </div>
+                    </div>
+                </div>
+                <img
+                    src='https://image.tmdb.org/t/p/w500${poster_path}'
+                    alt='${title}'
+                    width='280'
+                    height='406'
+                    class='catalog-list__image'
+                />
+            </div>
+        </a>
+    </li> 
 `;
 }
 
