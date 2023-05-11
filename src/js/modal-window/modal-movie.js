@@ -54,14 +54,31 @@ export async function openModalMovie(id) {
       </div>
     `;
 
-    // Функція виклику функції removeFromLibrary для видалення фільму з локального сховища -----------------------------
-    const removeFromLibraryButton = document.querySelector('#remove-from-library-button');
-    const movieIdForRemoving = response.data.id;
-    removeFromLibraryButton.addEventListener('click', function () {
-      removeFromLibrary(movieIdForRemoving);
-      // console.log(movieIdForRemoving);
-    });
-    // ------------------------------------------------------------------ Функція виклику функції removeFromLibrary для видалення фільму з локального сховища
+    // Функція виклику функції removeFromLibrary для додавання / видалення фільму з локального сховища-----------------------------------------
+    const addRemoveLibraryButton = document.querySelector('.btn-add-remove');
+    const movieObject = response.data;
+    let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
+    // console.log(movieObject);
+    // console.log(libraryFilms.flat());
+    if (libraryFilms.flat().some(value => value.id === movieObject.id)) {
+      console.log('Фільм є в Locale Storage');
+      addRemoveLibraryButton.textContent = 'Remove from library';
+      console.log('Змінити назву кнопки.');
+      console.log('Встановити слухача з функцією видалення.');
+      addRemoveLibraryButton.addEventListener('click', function () {
+        removeFromLibrary(movieObject.id);
+        console.log('Видалили з Locale Storage.');
+      });
+    } else {
+      console.log('Фільму немає в Locale Storage');
+      console.log('Додати слухача і функцію додавання на кнопку');
+      addRemoveLibraryButton.addEventListener('click', function () {
+        addToLibrary(movieObject[0]);
+        console.log(movieObject);
+        console.log('Додали обєкт в Locale Storage.');
+      });
+    }
+    // ------------------------------------------------------------------
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');
     closeModalBtn.addEventListener('click', closeModal);
