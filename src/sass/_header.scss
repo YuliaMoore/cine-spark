@@ -2,7 +2,7 @@
   &__box {
     padding: 6px 32px;
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1200px) {
       display: flex;
       justify-content: space-between;
       text-align: center;
@@ -27,7 +27,7 @@
 }
 
 .logo {
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     display: flex;
     align-items: center;
     text-align: center;
@@ -103,7 +103,7 @@
   }
 
   &__list {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1200px) {
       display: flex;
       align-items: center;
       text-align: center;
