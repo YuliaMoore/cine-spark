@@ -116,26 +116,26 @@ export function createUpcomingMovies({
 //   }
 // }
 
-{
-  /* <img
+// {
+/* <img
   src="https://image.tmdb.org/t/p/w500${backdrop_path}"
   alt="${title}"
   loading="lazy"
   class="upcoming-image"
 /> */
-}
+// }
 
-{
-  /* <img
+// {
+/* <img
   src="https://image.tmdb.org/t/p/original/${poster_path}"
   alt="Movie Poster"
   style="width: 805px"
 />; */
-}
+// }
 
-{
-  /* <source srcset="https://image.tmdb.org/t/p/original/${poster_path}" media="(min-width: 320px)" />
+// {
+/* <source srcset="https://image.tmdb.org/t/p/original/${poster_path}" media="(min-width: 320px)" />
       <img srcset="https://image.tmdb.org/t/p/original/${
         (backdrop_path, poster_path)
       }"  style='width: 280px'/> */
-}
+// }
