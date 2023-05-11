@@ -13,7 +13,7 @@
 
   border-radius: 16px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding: 60px;
   }
 
@@ -42,7 +42,7 @@
     display: flex;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 726px;
     height: 478px;
     display: flex;
@@ -58,7 +58,7 @@
     margin: 0 16px 0 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 375px;
     height: 478px;
     margin: 0 20px 0 0;
@@ -106,7 +106,7 @@
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     font-size: 16px;
     line-height: calc(19 / 16);
     margin-bottom: 14px;
@@ -142,7 +142,7 @@
     font-size: 14px;
     line-height: calc(20 / 14);
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     font-size: 16px;
     line-height: calc(24 / 16);
   }

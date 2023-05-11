@@ -22,12 +22,12 @@
   justify-content: center;
   padding: 10px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 820px;
     height: 440px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 620px;
     height: 440px;
   }
@@ -58,11 +58,11 @@
     border-radius: 20px;
     margin-bottom: 10px;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
       width: 216px;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1199px) {
+    @media screen and (min-width: 768px) {
       width: 216px;
     }
 

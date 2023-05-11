@@ -7,7 +7,7 @@
     padding-bottom: 20px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 20px;
     padding-bottom: 10px;
   }
@@ -23,7 +23,7 @@
     grid-template-columns: repeat(auto-fill, 293px);
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(auto-fill, 274px);
   }
 }
