@@ -1,4 +1,4 @@
-import { onScroll, onToTopBtn, scrollPage } from './scroll';
+import { onScroll, onToTopBtn } from './scroll';
 import { MoviesAPI } from './MoviesAPI';
 import { getCatalogCards } from '/src/js/catalog-functions/catalog-cards-get';
 
@@ -118,4 +118,16 @@ async function onSearchFormSubmit(e) {
   } catch (err) {
     console.log(err);
   }
+}
+
+//скрол
+function scrollPage() {
+  const { height: cardHeight } = document
+    .querySelector('.catalog-list__items-list')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 1,
+    behavior: 'smooth',
+  });
 }
