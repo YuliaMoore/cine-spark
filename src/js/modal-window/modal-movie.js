@@ -1,78 +1,85 @@
-// const modal = document.querySelector('.modal-movie');
-// const overlay = document.querySelector('.overlay');
-
+import symboldefs from '../../images/symbol-defs.svg';
 import { MoviesAPI } from '../MoviesAPI';
 
-const modalEl = document.querySelector('.movie-card__wrapper');
-// const overlay = document.querySelector('.overlay');
+import { removeFromLibrary } from './remove-from-my-library';
+
+const modalEl = document.querySelector('.modal-card');
+
+const backdropEl = document.createElement('div');
+backdropEl.classList.add('modal-backdrop');
+document.body.appendChild(backdropEl);
 
 export async function openModalMovie(id) {
-  console.log(id);
   const moviesAPI = new MoviesAPI();
+
   try {
     const response = await moviesAPI.getMovieDetails(id);
-    console.log(response);
-    // modalEl.classList.add('modal-movie--show');
+    modalEl.classList.add('modal-movie--show');
+    backdropEl.classList.add('backdrop--show');
+    document.body.classList.add('modal-open');
     modalEl.innerHTML = `
+     <svg class="close-btn js-modal-close" type="button">
+    <use href="${symboldefs}#close-outline"></use>
+     </svg>
       <div class="modal__card">
-        <img class="modal-poster" src="${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
+      <div class="modal-card__wrapper">
+        <img class="modal-poster" src="https://image.tmdb.org/t/p/w500${response.data.poster_path}" alt="${response.data.title}" width="248" height="315">
         <div class="modal-container__info">
           <h2 class="modal-title">${response.data.original_title}</h2>
           <div class="modal-container__details">
-            <ul class="modal-details__list list">
-              <li class="modal-details__item">
-                <p class="modal-details__name">Vote / Votes</p>
-                <p class="modal-details__value">
-                  <span class="points">${response.data.vote_average}</span> 
-                  <span class="slash">/</span>
-                  <span class="amount">${response.data.vote_count}</span>
-                </p>
-              </li>
-              <li class="modal-details__item">
-                <p class="modal-details__name">Popularity</p>
-                <p class="modal-details__value">${response.data.popularity}</p>
-              </li>
-              <li class="modal-details__item">
-                <p class="modal-details__name">Genre</p>
-                <p class="modal-details__value">${response.data.genres[0].name}</p>
-              </li>
-            </ul>
+  <ul class="modal-details__list list">
+    <li class="modal-details__item">Vote / Votes</li>
+    <li class="modal-details__item">Popularity</li>
+    <li class="modal-details__item">Genre</li>
+  </ul>
+  <ul class="modal-details__value-list list">
+    <li class="modal-details__value">
+      <span class="vote">${response.data.vote_average}</span>
+      <span class="slash">/</span>
+      <span class="vote">${response.data.vote_count}</span>
+    </li>
+    <li class="modal-details__value">${response.data.popularity}</li>
+    <li class="modal-details__value">${response.data.genres[0].name}</li>
+  </ul>
+</div>
+
             <p class="modal-details__about">ABOUT</p>
             <p class="modal-details__story">${response.data.overview}</p>
-          </div>
+          
           <button class="btn-add-remove">Add to my library</button>
+          <button class="btn-add-remove" id="remove-from-library-button">Remove from library</button>
+          <button class="#">Watch trailer</button>
         </div>
       </div>
+      </div>
     `;
-    // console.log();
-    // const btnCloseModalMovie = document.querySelector('.close-modal-movie-btn');
-    // btnCloseModalMovie.addEventListener('click', closeModalMovie);
+
+    // Функція виклику функції removeFromLibrary для видалення фільму з локального сховища -----------------------------
+    const removeFromLibraryButton = document.querySelector('#remove-from-library-button');
+    const movieIdForRemoving = response.data.id;
+    removeFromLibraryButton.addEventListener('click', function () {
+      removeFromLibrary(movieIdForRemoving);
+      // console.log(movieIdForRemoving);
+    });
+    // ------------------------------------------------------------------ Функція виклику функції removeFromLibrary для видалення фільму з локального сховища
+
+    const closeModalBtn = modalEl.querySelector('.js-modal-close');
+    closeModalBtn.addEventListener('click', closeModal);
+    backdropEl.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', event => {
+      if (event.keyCode === 27) {
+        closeModal();
+      }
+    });
   } catch (error) {
     console.log(error);
   }
 }
 
-// function closeModalMovie() {
-//   // modalEl.classList.remove('modal-movie--show');
-//   modalEl.classList.add('hidden');
-//   overlay.classList.add('hidden');
-// }
-// overlay.addEventListener('click', closeModalMovie);
-// document.addEventListener('keydown', e => {
-//   if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
-//     modalClose();
-//   }
-// });
-
-
-// window.addEventListener('click', e => {
-//   if (e.target === modalEl) {
-//     closeModalMovie();
-//   }
-// });
-
-// window.addEventListener('keydown', e => {
-//   if (e.keyCode === 27) {
-//     closeModalMovie();
-//   }
-// });
+export function closeModal() {
+  modalEl.classList.remove('modal-movie--show');
+  modalEl.innerHTML = '';
+  backdropEl.classList.remove('backdrop--show');
+  document.body.classList.remove('modal-open');
+}

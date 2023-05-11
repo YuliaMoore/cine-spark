@@ -11,11 +11,12 @@ import {
   options,
 } from './pagination';
 
+import { searchFormUpdate } from './catalog-functions/search-form-update';
+
 export { moviesAPI, moviesCatalog };
 
 const moviesAPI = new MoviesAPI();
 const page = pagination.getCurrentPage();
-
 
 const searchForm = document.querySelector('.catalog-list__search-form');
 const moviesCatalog = document.querySelector('.catalog-list__items-list');
@@ -26,9 +27,8 @@ onToTopBtn();
 // Функція, яка викликається при першому завантаженні сторінки. Трендові фільми тижня.
 async function onRenderCatalogPage(page) {
   try {
-
-     const response = await moviesAPI.getTrendMoviesWeek(page);
-   moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    const response = await moviesAPI.getTrendMoviesWeek(page);
+    moviesCatalog.innerHTML = getCatalogCards(response.data.results);
     pagination.reset(response.data.total_results);
     container.classList.remove('is-hidden');
 
@@ -40,7 +40,6 @@ async function onRenderCatalogPage(page) {
         openModalMovie(link.dataset.id);
       });
     });
-
   } catch (err) {
     console.log(err);
   }
@@ -87,10 +86,30 @@ async function onSearchFormSubmit(e) {
     if (response.data.results < options.itemsPerPage) {
       container.classList.add('is-hidden');
       moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+      searchFormUpdate();
+
+      const links = document.querySelectorAll('.catalog-list__list-link');
+      links.forEach(link => {
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          openModalMovie(link.dataset.id);
+        });
+      });
+
       return;
     }
 
     moviesCatalog.innerHTML = getCatalogCards(response.data.results);
+    searchFormUpdate();
+
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(link.dataset.id);
+      });
+    });
+
     pagination.reset(response.data.total_results);
     pagination.on('afterMove', createMoviesByQueryPagination);
     scrollPage();

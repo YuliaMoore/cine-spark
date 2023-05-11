@@ -3,6 +3,7 @@ import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
 import { onScroll, onToTopBtn, scrollPage } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
+import { openModalMovie } from './modal-window/modal-movie';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
@@ -14,14 +15,11 @@ onToTopBtn();
 async function onRenderPage() {
   try {
     const respons = await moviesAPI.getTrendMoviesWeeks();
-    // console.log(respons);
 
     const responsData = respons.results;
-    // console.log(responsData.movie_id);
 
     //  отримуємо три рамдомних фільми
     let responsMovies = [];
-
     const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
 
     while (responsMovies.length != 3) {
@@ -64,8 +62,15 @@ async function onRenderNewMovie() {
     // console.log(responsDataMovie);
     // console.log(responsData.length);
 
+    if (!responsDataMovie) {
+      return alert(
+        'Вибачте! Нових фільмів не знайдено/Sorry! No new movies found'
+      );
+    }
+
     // отримуємо один рамдомний фільм
     let randomNewMovie = [];
+    // console.log(randomNewMovie);
 
     const getRandomFilm = max => Math.floor(Math.random() * Math.floor(max));
 
@@ -85,11 +90,35 @@ async function onRenderNewMovie() {
     updateNewMovies(markupNewMovie);
 
     // setTimeout(function () {
+    // const remindMeBtn = document.querySelector('.upcoming-btn');
+    // remindMeBtn.addEventListener('click', addToLibrary);
+    // function addToLibrary(event) {
+    //   addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+    // }
+
+    // Додаємо слухача на кнопку Remind me і при кліку на цю кнопку викликаємо функцію addToLibrary (запис в локальне сховище)
     const remindMeBtn = document.querySelector('.upcoming-btn');
     remindMeBtn.addEventListener('click', addToLibrary);
     function addToLibrary(event) {
-      addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
+      // Отримати поточний список фільмів з локального сховища
+      let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
+      console.log(libraryFilms.flat());
+      console.log(randomNewMovie[0].id);
+      // Перевірка чи такого фільму ще немає в Локальному сховищі
+      if (
+        libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)
+      ) {
+        // Якщо фільм вже є, тоді поки що нічого не робимо
+        console.log('Фільм вже додано в Локал Сторідж');
+        return;
+      } else {
+        // console.log('Такого фільму ще немає в Локал Сторідж, додаємо');
+        libraryFilms.push(randomNewMovie); // Додаємо новий запис до масиву.
+      }
+      // Зберегти оновлений список фільмів у локальному сховищі
+      localStorage.setItem('libraryFilm', JSON.stringify(libraryFilms));
     }
+
     // }, 2000);
 
     // скрол
