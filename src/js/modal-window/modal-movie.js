@@ -16,6 +16,7 @@ export async function openModalMovie(id) {
     const response = await moviesAPI.getMovieDetails(id);
     modalEl.classList.add('modal-movie--show');
     backdropEl.classList.add('backdrop--show');
+    document.body.classList.add('modal-open');
     modalEl.innerHTML = `
      <svg class="close-btn js-modal-close" type="button">
     <use href="${symboldefs}#close-outline"></use>
@@ -54,9 +55,7 @@ export async function openModalMovie(id) {
     `;
 
     // Функція виклику функції removeFromLibrary для видалення фільму з локального сховища -----------------------------
-    const removeFromLibraryButton = document.querySelector(
-      '#remove-from-library-button'
-    );
+    const removeFromLibraryButton = document.querySelector('#remove-from-library-button');
     const movieIdForRemoving = response.data.id;
     removeFromLibraryButton.addEventListener('click', function () {
       removeFromLibrary(movieIdForRemoving);
@@ -79,9 +78,8 @@ export async function openModalMovie(id) {
 }
 
 export function closeModal() {
-  if (modalEl) {
-    modalEl.classList.remove('modal-movie--show');
-    modalEl.innerHTML = '';
-    backdropEl.classList.remove('backdrop--show');
-  }
+  modalEl.classList.remove('modal-movie--show');
+  modalEl.innerHTML = '';
+  backdropEl.classList.remove('backdrop--show');
+  document.body.classList.remove('modal-open');
 }
