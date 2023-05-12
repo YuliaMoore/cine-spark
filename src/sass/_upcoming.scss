@@ -285,6 +285,16 @@
   cursor: pointer;
 }
 
+.upcoming-btn.disabled {
+  background: #444;
+  &:hover,
+  &:focus {
+    color: var(--black-txt-color);
+    border: 2px solid transparent;
+    cursor: default;
+  }
+}
+
 //white-theme
 .white-mode .upcoming-btn:hover,
 .white-mode .upcoming-btn:focus {
