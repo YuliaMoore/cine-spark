@@ -85,10 +85,11 @@ export async function onRenderLibraryCards() {
     // console.log(moviesMarkUp);
     // moviesContainer.innerHTML = moviesMarkUp;
 
-    const parMovies = loadPartMovies(page);
-    const moviesMarkUp = getCatalogCards(parMovies);
+    let partMovies = loadPartMovies(page);
+    let moviesMarkUp = getCatalogCards(partMovies);
     // console.log(moviesMarkUp);
     moviesContainer.insertAdjacentHTML('beforeend', moviesMarkUp);
+    // page += 1;
 
     // Встановлюємо слухача на всі посилання карток товарів
     const links = document.querySelectorAll('.catalog-list__list-link');
@@ -104,11 +105,11 @@ export async function onRenderLibraryCards() {
 
     // Слухач на кнопку, рендеримо список і додаємо beforeend
     loadMoreBtn.addEventListener('click', function () {
-      const parMovies = loadPartMovies(page);
-      const moviesMarkUp = getCatalogCards(parMovies);
+      page += 1;
+      let partMovies = loadPartMovies(page);
+      let moviesMarkUp = getCatalogCards(partMovies);
       // console.log(moviesMarkUp);
       moviesContainer.insertAdjacentHTML('beforeend', moviesMarkUp);
-      page += 1;
 
       if (page >= lastPage) {
         loadMoreBtn.classList.add('is-hidden');
