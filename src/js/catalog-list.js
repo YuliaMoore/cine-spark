@@ -115,20 +115,11 @@ async function onSearchFormSubmit(e) {
       });
     });
 
-    scrollPage();
+
+    pagination.reset(response.data.total_results);
+    pagination.on('afterMove', createMoviesByQueryPagination);
+
   } catch (err) {
     console.log(err);
   }
-}
-
-//скрол
-function scrollPage() {
-  const { height: cardHeight } = document
-    .querySelector('.catalog-list__items-list')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 1,
-    behavior: 'smooth',
-  });
 }

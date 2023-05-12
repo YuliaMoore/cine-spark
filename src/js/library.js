@@ -62,3 +62,26 @@ async function onRenderLibraryCards() {
 }
 
 onRenderLibraryCards();
+
+// const librariesKey = 'libraryFilm';
+// let page = 1;
+// let perPage = 9;
+
+// const loadMoreBtn = document.querySelector('.btn-load-more');
+
+// loadMoreBtn.addEventListener('click', () => {
+//   page += 1;
+//   onRenderLibraryCards();
+// });
+
+// loadMoreBtn.classList.remove('is-hidden');
+// if (allMovies.length > page * perPage) {
+//   loadMoreBtn.classList.add('is-hidden');
+// }
+// return markup;
+// if (perPage < 9) {
+//   loadMoreBtn.classList.add('is-hidden');
+//   return;
+// }
+
+// loadMoreBtn.classList.remove('is-hidden');

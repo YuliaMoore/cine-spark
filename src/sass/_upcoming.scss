@@ -6,7 +6,7 @@
     margin-top: 44px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 65px;
   }
 }
@@ -26,7 +26,7 @@
     line-height: 1.16;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 28px;
     font-size: 28px;
     line-height: 1.18;
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     flex-direction: row;
   }
 }
@@ -49,7 +49,7 @@
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 0px;
     margin-right: 16px;
   }
@@ -72,7 +72,7 @@
     );
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-right: 16px;
     width: 805px;
     height: 458px;
@@ -82,7 +82,7 @@
 .upcoming-image {
   position: relative;
   z-index: -1;
-  width: 100%;
+  // width: 100%;
   height: 100%;
 
   border-radius: 5px;
@@ -105,7 +105,7 @@
     line-height: 1.18;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 28px;
   }
 }
@@ -113,7 +113,7 @@
 .upcoming-info {
   margin-bottom: 16px;
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     display: flex;
     margin-bottom: 20px;
   }
@@ -243,6 +243,11 @@
     width: 625px;
     height: 100px;
   }
+
+  @media screen and (min-width: 1200px) {
+    width: 390px;
+    height: 160px;
+  }
 }
 
 // =============кнопка================
@@ -274,7 +279,6 @@
   line-height: 1.5;
 
   cursor: pointer;
-
 }
 
 //white-theme

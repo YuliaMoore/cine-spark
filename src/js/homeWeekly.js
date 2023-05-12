@@ -1,10 +1,13 @@
 import { MoviesAPI } from './MoviesAPI';
-import { createMovies } from '/src/js/catalog-functions/weekly-markup';
+// import { createMovies } from '/src/js/catalog-functions/weekly-markup';
 import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup';
 import { onScroll, onToTopBtn } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
 import { openModalMovie } from './modal-window/modal-movie';
 import { addToLibrary } from './modal-window/add-to-library';
+
+import { getGenres } from './catalog-functions/catalog-genres-get';
+import { getStarsRating } from './catalog-functions/catalog-rating-get';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');
@@ -48,6 +51,42 @@ onRenderPage();
 
 function updateNewsList(markup) {
   weeklyGallery.innerHTML = markup;
+}
+
+function createMovies({
+  title,
+  release_date,
+  poster_path,
+  genre_ids,
+  vote_average,
+}) {
+  return `
+    <li class='catalog-list__item'>
+        <a href='#' class='catalog-list__list-link'>
+            <div class='catalog-list__list-wrapper'>
+                <div class='catalog-list__info'>
+                    <h2 class='catalog-list__title'>${title}</h2>
+                    <div class='catalog-list__additional-info'>
+                        <p class='catalog-list__movie-type'>${getGenres(
+                          genre_ids
+                        )} | ${release_date.slice(0, 4)}</p>
+                        <div class='catalog-list-rating'>${getStarsRating(
+                          vote_average
+                        )}
+                        </div>
+                    </div>
+                </div>
+                <img
+                    src='https://image.tmdb.org/t/p/w500${poster_path}'
+                    alt='${title}'
+                    width='280'
+                    height='406'
+                    class='catalog-list__image'
+                />
+            </div>
+        </a>
+    </li> 
+`;
 }
 
 // ===секція "нові фільми"===
