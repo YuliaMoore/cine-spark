@@ -64,9 +64,7 @@ function addHeroMarkup({ backdrop_path, title, overview, vote_average, id }) {
 
   changeHeroBackground(urlHeroBGI);
 
-  document
-    .querySelector('.switch__input')
-    .addEventListener('click', onChakboxMode);
+  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();
@@ -80,9 +78,7 @@ function addHeroBasicMarkup() {
 
   changeHeroBackground(basicHeroBGI);
 
-  document
-    .querySelector('.switch__input')
-    .addEventListener('click', onChakboxMode);
+  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();
