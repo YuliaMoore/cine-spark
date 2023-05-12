@@ -12,7 +12,7 @@ backdropEl.classList.add('modal-backdrop');
 document.body.appendChild(backdropEl);
 
 export async function openModalMovie(id) {
-  console.log(id);
+
   const moviesAPI = new MoviesAPI();
 
   try {
@@ -130,6 +130,4 @@ export function closeModal() {
   modalEl.innerHTML = '';
   backdropEl.classList.remove('backdrop--show');
   document.body.classList.remove('modal-open');
-
-  opanTrailerModal.removeEventListener('click', onOpenTrailerModal);
 }
