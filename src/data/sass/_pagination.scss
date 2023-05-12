@@ -1,0 +1,106 @@
+.tui-pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-top: 44px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 60px;
+    height: 40px;
+  }
+}
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--light-grey-txt-color);
+  color: var(--light-grey-txt-color);
+  background: transparent;
+  @media screen and (max-width: 767px) {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+.tui-page-btn:hover,
+.tui-page-btn:focus {
+  color: var(--active-txt-color);
+  border: 2px solid var(--active-txt-color);
+}
+.tui-page-btn.tui-is-selected {
+  color: var(--light-grey-txt-color);
+  border: none;
+  background: var(--gradinet-bg);
+}
+
+.tui-page-btn.tui-first {
+  margin: 0;
+  border: none;
+  background-image: url(/src/images/vector-first.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  @media screen and (max-width: 767px) {
+    background-image: url(/src/images/vector-first-mobile.png);
+  }
+}
+.tui-page-btn.tui-last {
+  border: none;
+  background-image: url(/src/images/vector-last.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 767px) {
+    background-image: url(/src/images/vector-last-mobile.png);
+  }
+}
+.tui-page-btn.tui-prev-is-ellip.tui-first-child,
+.tui-page-btn.tui-next-is-ellip.tui-last-child {
+  border: none;
+}
+.tui-page-btn.tui-next {
+  background-image: url(/src/images/vector-last.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  margin-right: 0;
+  @media screen and (max-width: 767px) {
+    background-image: url(/src/images/vector-last-mobile.png);
+  }
+}
+.tui-page-btn.tui-prev {
+  background-image: url(/src/images/vector-first.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  margin-right: 0;
+  @media screen and (max-width: 767px) {
+    background-image: url(/src/images/vector-first-mobile.png);
+  }
+}
+.tui-next-is-ellip,
+.tui-prev-is-ellip {
+  border: none;
+  align-items: flex-end;
+  width: 10px;
+}
+.tui-is-disabled {
+  display: none;
+}
+.tui-next-is-ellip.tui-last-child {
+  margin-right: 0;
+}
+
+#tui-pagination-container.is-hidden {
+  display: none;
+}
