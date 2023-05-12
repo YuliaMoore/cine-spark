@@ -38,13 +38,13 @@
 
   @media screen and (min-width: 768px) {
     width: 616px;
-    height: 400px;
+    min-height: 400px;
     display: flex;
   }
 
   @media screen and (min-width: 1200px) {
     width: 726px;
-    height: 478px;
+    min-height: 478px;
     display: flex;
   }
 }
