@@ -21,15 +21,17 @@
   }
 
   &:hover {
-    background: #000000;
-    border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    background: linear-gradient(#111111, #111111) padding-box,
+      linear-gradient(141deg, #ffc226 9.4%, #f84119 91.91%) border-box;
+    border: 3px solid transparentt;
     color: #ffffff;
   }
 }
 
 //white-theme
 .white-mode .btn:hover {
-  background: transparent;
-  border-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(141deg, #ffc226 9.4%, #f84119 91.91%) border-box;
+  border: 3px solid transparentt;
   color: #f87719;
 }
