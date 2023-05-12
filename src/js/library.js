@@ -37,11 +37,12 @@ import { getCatalogCards } from './catalog-functions/catalog-cards-get';
 //   localStorage.setItem(librariesKey, JSON.stringify(libraries));
 // }
 
-async function onRenderLibraryCards() {
+export async function onRenderLibraryCards() {
   const moviesContainer = document.querySelector('.library-list');
-  if (localStorage.getItem('libraryFilm')) {
-    let savedMovies = JSON.parse(localStorage.getItem('libraryFilm')) || [];
-    // console.log(savedMovies);
+  let savedMovies = JSON.parse(localStorage.getItem('libraryFilm')) || [];
+  // console.log(savedMovies);
+
+  if (savedMovies.length > 0) {
     const moviesMarkUp = await getCatalogCards(savedMovies);
     // console.log(moviesMarkUp);
     moviesContainer.innerHTML = moviesMarkUp;
@@ -54,6 +55,7 @@ async function onRenderLibraryCards() {
       });
     });
   } else {
+    // console.log('Бачу ЕЛС');
     return (moviesContainer.innerHTML = `<div class="container library-container-mistake">
       <p class="library-empty__mistake">OOPS... <br> We are very sorry! <br> You don't have any movies at your library.</p>
       <button class="btn btn-library" onclick="window.location.href='catalog.html'"><a class="btn-library__link">Search movie</a></button>
