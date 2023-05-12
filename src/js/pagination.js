@@ -34,7 +34,7 @@ const pagination = new Pagination(container, options);
 
 function onToTopPagination() {
   if (window.pageYOffset > 0) {
-    window.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 }
 

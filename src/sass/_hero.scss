@@ -16,7 +16,7 @@
     background-position: 0px -60px, 275px 0;
     background-size: auto, contain;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     height: 660px;
     max-width: 1280px;
 
@@ -29,7 +29,7 @@
 .hero-container {
   height: 100%;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 1280;
   }
 }
@@ -48,7 +48,7 @@
     width: 300px;
     justify-content: center;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 464px;
   }
 }
@@ -66,7 +66,7 @@
     font-size: 44px;
     line-height: 52px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     max-height: 500px;
     font-size: 64px;
     line-height: 75px;
@@ -77,7 +77,7 @@
   display: flex;
   align-items: center;
   margin-top: 12px;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-top: 16px;
   }
 }
@@ -100,7 +100,7 @@
     line-height: 16px;
     width: 100%;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 16px;
     line-height: 19px;
 
@@ -121,7 +121,7 @@
     max-height: 80px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     max-height: none;
     margin-top: 28px;
   }
@@ -133,7 +133,7 @@
   @media screen and (min-width: 768px) {
     display: inline;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
   }
 }
 
@@ -160,7 +160,7 @@
     font-size: 14px;
     line-height: 16px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     min-width: 140px;
     height: 48px;
     font-size: 16px;
