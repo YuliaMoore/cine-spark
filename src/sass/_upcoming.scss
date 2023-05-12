@@ -113,7 +113,7 @@
 .upcoming-info {
   margin-bottom: 16px;
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     display: flex;
     margin-bottom: 20px;
   }
@@ -244,7 +244,7 @@
     height: 100px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 390px;
     height: 160px;
   }
