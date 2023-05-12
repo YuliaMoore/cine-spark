@@ -4,6 +4,7 @@ import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup'
 import { onScroll, onToTopBtn } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
 import { openModalMovie } from './modal-window/modal-movie';
+import { addToLibrary } from './modal-window/add-to-library';
 
 const moviesAPI = new MoviesAPI();
 const weeklyGallery = document.querySelector('.weekly-list');

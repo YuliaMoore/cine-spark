@@ -6,10 +6,10 @@ onToTopBtn();
 //добавить импорт модалки..
 import { openModalMovie } from './modal-window/modal-movie';
 
-import { addAndRemoveToLocalStorage, getFromStorage } from './localStorage';
-import { createUpcomingMovies } from './catalog-functions/upcoming-markup';
+// import { addAndRemoveToLocalStorage, getFromStorage } from './localStorage';
+// import { createUpcomingMovies } from './catalog-functions/upcoming-markup';
 import { getCatalogCards } from './catalog-functions/catalog-cards-get';
-import { formToJSON } from 'axios';
+// import { formToJSON } from 'axios';
 // export {  };
 // function addMovieToLibrary(movieId) {
 //   getMovieById2(movieId).then(movie => {
@@ -37,11 +37,10 @@ import { formToJSON } from 'axios';
 //   localStorage.setItem(librariesKey, JSON.stringify(libraries));
 // }
 
-export async function onRenderLibraryCards() {
+async function onRenderLibraryCards() {
   const moviesContainer = document.querySelector('.library-list');
   if (localStorage.getItem('libraryFilm')) {
-    let savedMovies =
-      JSON.parse(localStorage.getItem('libraryFilm')).flat() || [];
+    let savedMovies = JSON.parse(localStorage.getItem('libraryFilm')) || [];
     // console.log(savedMovies);
     const moviesMarkUp = await getCatalogCards(savedMovies);
     // console.log(moviesMarkUp);
