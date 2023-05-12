@@ -16,7 +16,7 @@ const moviesAPI = new MoviesAPI();
 let savedId;
 
 // Відкриття модального вікна
-function onOpenHeroModal() {
+export function onOpenHeroModal() {
   if (refs.modalContainer.innerHTML === '') {
     getCurrentFilmVideo(savedId);
   }
