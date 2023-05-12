@@ -1,10 +1,15 @@
 .tui-pagination {
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  height: 40px;
-  @media screen and (max-width: 767px) {
-    height: 24px;
+  height: 24px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-top: 44px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 60px;
+    height: 40px;
   }
 }
 .tui-page-btn {

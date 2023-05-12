@@ -336,6 +336,7 @@
     width: 204px;
     height: 428px;
     top: 0px;
+    left: 0px;
 
     padding: 8px 20px;
 
@@ -397,6 +398,10 @@
 }
 
 //white-theme
+.white-mode .mob-menu {
+  background: var(--light-bg);
+}
+
 .white-mode .logo__text {
   color: var(--dark--txt-color);
 }

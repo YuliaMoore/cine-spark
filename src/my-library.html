@@ -6,16 +6,8 @@
     <title>Cinemania: my library</title>
 
     <!-- favicone -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/src/images/favicone.svg/favicon.svg"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/src/images/favicone.svg/favicon.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/src/images/favicone.svg/favicon.svg" />
+    <link rel="icon" type="image/png" href="/src/images/favicone.svg/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,9 +24,7 @@
   <body>
     <include src="./partials/header-library.html"></include>
     <main class="main">
-      <include src="./partials/spiner.html"></include>
       <include src="./partials/mylibrary.html"></include>
-
       <button type="button" class="btn-load-more is-hidden">Load more</button>
     </main>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
@@ -42,7 +32,7 @@
     <include src="./partials/modal.html"></include>
 
     <include src="./partials/modal-movie.html"></include>
-
+    <include src="./partials/hero-modal.html"></include>
     <a class="go-to-top">
       <span class="material-icons">
         <svg width="20px" height="25px" class="top-icon">
@@ -58,6 +48,7 @@
     <script type="module" src="./js/color-theme.js"></script>
     <script type="module" src="./js/spiner.js"></script> -->
 
+    <script type="module" src="./js/hero-modal.js"></script>
     <script type="module" src="./my-library.js"></script>
   </body>
 </html>
