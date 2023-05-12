@@ -1,6 +1,6 @@
 import { MoviesAPI } from './MoviesAPI';
 import { getStarsVote } from '/src/js/hero-rating';
-import { onOpenHeroModal, takeFilmOfDayId } from '/src/js/hero-modal.js';
+import { onOpenHeroModal, getFilmOfDayId } from '/src/js/hero-modal.js';
 
 import subtractDesktopDark from '../images/subtract_desktop_dark.png';
 import subtractDesktopLight from '../images/subtract-desktop-ligth.png';
@@ -11,17 +11,18 @@ import basicHeroBGI from '../images/home_desktop.jpg';
 const moviesAPI = new MoviesAPI();
 
 const refs = {
-  container: document.querySelector('.hero-decription'),
+  container: document.querySelector('.hero-description'),
   hero: document.querySelector('.hero'),
 };
 
 let currentSubtractDesktop;
 let currentSubtractTablet;
 
-document.addEventListener('DOMContentLoaded', onloadHero);
+onloadHero();
+getTrendMovieDay();
 
 function onloadHero() {
-  if (document.body.classList.contains('white-mode')) {
+  if (localStorage.getItem('whitemode') === 'true') {
     currentSubtractDesktop = subtractDesktopLight;
     currentSubtractTablet = subtractTabletLight;
   } else {
@@ -30,16 +31,15 @@ function onloadHero() {
   }
 }
 
-takeTrendMovieDay();
-
-async function takeTrendMovieDay() {
+// Робимо запит на АРІ
+async function getTrendMovieDay() {
   try {
     const response = await moviesAPI.getTrendMoviesDay();
     const randomFilmOfDay = Math.floor(Math.random() * response.results.length);
 
     addHeroMarkup(response.results[randomFilmOfDay]);
 
-    takeFilmOfDayId(response.results[randomFilmOfDay].id);
+    getFilmOfDayId(response.results[randomFilmOfDay].id);
   } catch (err) {
     addHeroBasicMarkup();
   }
@@ -49,7 +49,7 @@ async function takeTrendMovieDay() {
 function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
   const urlHeroBGI = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
-  refs.container.innerHTML = `<h1 class="hero-title">${title}</h1><div class='hero-vote'>${getStarsVote(
+  refs.container.innerHTML = `<h2 class="hero-title">${title}</h2><div class='hero-vote'>${getStarsVote(
     vote_average
   )}</div><p class="hero-text hero-text-API">${overview}</p>
       <button type="button" class="btn hero-btn">Watch trailer</button>`;
@@ -59,7 +59,9 @@ function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
 
   changeHeroBackground(urlHeroBGI);
 
-  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
+  document
+    .querySelector('.switch__input')
+    .addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();
@@ -69,11 +71,13 @@ function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
 
 // Додаємо базову розмітку на Hero
 function addHeroBasicMarkup() {
-  refs.container.innerHTML = `<h1 class="hero-title">Let’s Make Your Own Cinema</h1><p class="hero-text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.<span class="hero-text-more">Decorate your space, choose your films, and stock up on snacks for the full experience.</span></p><a href="../catalog.html"" class="btn hero-btn">Get Started</a>`;
+  refs.container.innerHTML = `<h2 class="hero-title">Let’s Make Your Own Cinema</h2><p class="hero-text">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.<span class="hero-text-more">Decorate your space, choose your films, and stock up on snacks for the full experience.</span></p><a href="../catalog.html"" class="btn hero-btn">Get Started</a>`;
 
   changeHeroBackground(basicHeroBGI);
 
-  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
+  document
+    .querySelector('.switch__input')
+    .addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();

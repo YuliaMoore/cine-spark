@@ -18,7 +18,7 @@ let savedId;
 // Відкриття модального вікна
 function onOpenHeroModal() {
   if (refs.modalContainer.innerHTML === '') {
-    takeCurrentFilmVideo(savedId);
+    getCurrentFilmVideo(savedId);
   }
   window.addEventListener('keydown', onEscKeyPress);
   refs.heroModal.classList.add('active');
@@ -47,13 +47,13 @@ function onEscKeyPress(event) {
 }
 
 // Отримуємо ID фільму дня
-function takeFilmOfDayId(id) {
+function getFilmOfDayId(id) {
   savedId = id;
-  takeCurrentFilmVideo(id);
+  getCurrentFilmVideo(id);
 }
 
 // Отримуємо всі відео по фільму
-async function takeCurrentFilmVideo(id) {
+async function getCurrentFilmVideo(id) {
   try {
     const response = await moviesAPI.getFilmVideo(id);
     searchOfficialTrailer(response.results);
@@ -101,4 +101,4 @@ function addBasicHeroModalMarkup() {
   refs.modalContainer.innerHTML = modalMarkup;
 }
 
-export { onOpenHeroModal, takeFilmOfDayId };
+export { onOpenHeroModal, getFilmOfDayId };
