@@ -36,10 +36,18 @@ async function onRenderPage() {
       (markup, responsMovies) => markup + createMovies(responsMovies),
       ''
     );
-
-    // console.log(markup.length);
-
     updateNewsList(markup);
+
+    // Встановлюємо слухача на всі посилання карток товарів
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach((link, i) => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(responsMovies[i].id);
+        // console.log('Клік на лінк картки товару, ІД: ', responsMovies[i].id);
+      });
+    });
+
     // скрол
     // scrollPage();
   } catch (err) {
@@ -129,12 +137,15 @@ async function onRenderNewMovie() {
 
     updateNewMovies(markupNewMovie);
 
-    // Додаємо слухача на кнопку Remind me і при кліку на цю кнопку викликаємо функцію addToLibrary (запис в локальне сховище)
+    // Додаємо слухача з функцією на клік addToLibrary
     const movieObject = randomNewMovie[0];
     // console.log(randomNewMovie[0]);
     const remindMeBtn = document.querySelector('.upcoming-btn');
     remindMeBtn.addEventListener('click', function () {
       addToLibrary(movieObject);
+      remindMeBtn.textContent = 'Added';
+      remindMeBtn.disabled = true;
+      remindMeBtn.classList.add('disabled');
     });
 
     // }, 2000);

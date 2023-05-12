@@ -1,5 +1,5 @@
 import './js/color-theme';
-import './js/hero';
+// import './js/hero';
 import './js/homeWeekly';
 import './js/homeUpcoming';
 import './js/modal';

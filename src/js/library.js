@@ -47,6 +47,7 @@ export async function onRenderLibraryCards() {
     // console.log(moviesMarkUp);
     moviesContainer.innerHTML = moviesMarkUp;
 
+    // Встановлюємо слухача на всі посилання карток товарів
     const links = document.querySelectorAll('.catalog-list__list-link');
     links.forEach(link => {
       link.addEventListener('click', event => {

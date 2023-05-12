@@ -3,6 +3,7 @@ import { MoviesAPI } from '../MoviesAPI';
 import { addToLibrary } from './add-to-library';
 import { removeFromLibrary } from './remove-from-my-library';
 import { onRenderLibraryCards } from '../library';
+import { onOpenHeroModal, getFilmOfDayId } from '/src/js/hero-modal.js';
 
 const modalEl = document.querySelector('.modal-card');
 
@@ -46,9 +47,10 @@ export async function openModalMovie(id) {
 
             <p class="modal-details__about">ABOUT</p>
             <p class="modal-details__story">${response.data.overview}</p>
-          
+          <div class="block-watch-btn">
           <button class="btn-add-remove">Add to my library</button>
           <button class="watch-btn-modal">Watch trailer</button>
+          </div>
         </div>
       </div>
       </div>
@@ -96,8 +98,17 @@ export async function openModalMovie(id) {
           modalButtonCreation();
         });
       }
+      //Відкриття трейлера
+      const opanTrailerModal = document.querySelector('.watch-btn-modal');
+      opanTrailerModal.addEventListener('click', onOpenTrailerModal);
+
+      function onOpenTrailerModal() {
+        getFilmOfDayId(id);
+        onOpenHeroModal();
+      }
     }
     modalButtonCreation();
+
     // -----------------------------------------------------------------------------------------
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');

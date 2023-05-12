@@ -46,7 +46,7 @@ async function getTrendMovieDay() {
 }
 
 // Додаємо розмітку на Hero з API
-function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
+function addHeroMarkup({ backdrop_path, title, overview, vote_average, id }) {
   const urlHeroBGI = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
   refs.container.innerHTML = `<h2 class="hero-title">${title}</h2><div class='hero-vote'>${getStarsVote(
@@ -55,13 +55,16 @@ function addHeroMarkup({ backdrop_path, title, overview, vote_average }) {
       <button type="button" class="btn hero-btn">Watch trailer</button>`;
 
   const WatchTrailerBtn = document.querySelector('.hero-btn');
-  WatchTrailerBtn.addEventListener('click', onOpenHeroModal);
+  WatchTrailerBtn.addEventListener('click', onOpenTrailerModal);
+
+  function onOpenTrailerModal() {
+    getFilmOfDayId(id);
+    onOpenHeroModal();
+  }
 
   changeHeroBackground(urlHeroBGI);
 
-  document
-    .querySelector('.switch__input')
-    .addEventListener('click', onChakboxMode);
+  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();
@@ -75,9 +78,7 @@ function addHeroBasicMarkup() {
 
   changeHeroBackground(basicHeroBGI);
 
-  document
-    .querySelector('.switch__input')
-    .addEventListener('click', onChakboxMode);
+  document.querySelector('.switch__input').addEventListener('click', onChakboxMode);
 
   function onChakboxMode() {
     onloadHero();
@@ -101,8 +102,10 @@ function changeHeroBackground(BGI) {
 
   // Відслуховуємо зміну ширини сторінки...
   window.addEventListener('resize', onResizePageWidth);
+
   // ... та змінюємо на відповідний фон при зміні ширини екрану
   function onResizePageWidth(events) {
+    // console.log('message');
     const currentPageWidth = events.currentTarget.innerWidth;
     if (currentPageWidth >= 1280) {
       refs.hero.style.backgroundImage = `url('${currentSubtractDesktop}'), url('${BGI}')`;
