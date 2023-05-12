@@ -127,7 +127,8 @@
   color: var(--seconday-txt-color);
 }
 
-.btn-add-remove {
+.btn-add-remove,
+.watch-btn-modal {
   margin-top: 24px;
   padding: 12px 24px;
 
@@ -161,6 +162,10 @@
   }
 }
 
+.watch-btn-modal {
+  margin-left: 20px;
+}
+
 //white-theme
 .white-mode .modal-card {
   background-color: var(--light-bg);
@@ -179,7 +184,8 @@
   color: #282828;
 }
 
-.white-mode .btn-add-remove {
+.white-mode .btn-add-remove,
+.white-mode .watch-btn-modal {
   background: linear-gradient(141.22deg, #ffffff, #ffffff) padding-box,
     linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
   border: 3px solid transparent;

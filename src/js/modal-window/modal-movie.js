@@ -48,7 +48,7 @@ export async function openModalMovie(id) {
             <p class="modal-details__story">${response.data.overview}</p>
           
           <button class="btn-add-remove">Add to my library</button>
-          <button class="#">Watch trailer</button>
+          <button class="watch-btn-modal">Watch trailer</button>
         </div>
       </div>
       </div>
