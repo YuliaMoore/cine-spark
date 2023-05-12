@@ -137,12 +137,12 @@
 
   background: linear-gradient(#111111, #111111) padding-box,
     linear-gradient(141deg, #ffc226 9.4%, #f84119 91.91%) border-box;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 74px;
 
   color: #ffffff;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all 250ms ease-in-out;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -154,8 +154,9 @@
   }
 
   &:hover {
-    background: #ffffff;
-    border: transparent;
+    background: linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(141deg, #ffffff 9.4%, #ffffff 91.91%) border-box;
+    border: 2px solid transparent;
     color: #f87719;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -182,14 +183,18 @@
 .white-mode .btn-add-remove {
   background: linear-gradient(141.22deg, #ffffff, #ffffff) padding-box,
     linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 74px;
   color: #111111;
-  transition: all 0.5s ease-in-out;
+  transition: all 250ms ease-in-out;
   &:hover {
-    background: #111111;
+    background: linear-gradient(141.22deg, #111111, #111111) padding-box,
+      linear-gradient(141.22deg, #111111 9.4%, #111111 91.91%) border-box;
+    border: 3px solid transparent;
+    border-radius: 74px;
+
     color: var(--active-txt-color);
-    border: transparent;
+
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
