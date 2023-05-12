@@ -12,7 +12,6 @@ backdropEl.classList.add('modal-backdrop');
 document.body.appendChild(backdropEl);
 
 export async function openModalMovie(id) {
-
   const moviesAPI = new MoviesAPI();
 
   try {
@@ -48,9 +47,10 @@ export async function openModalMovie(id) {
 
             <p class="modal-details__about">ABOUT</p>
             <p class="modal-details__story">${response.data.overview}</p>
-          
+          <div class="block-watch-btn">
           <button class="btn-add-remove">Add to my library</button>
           <button class="watch-btn-modal">Watch trailer</button>
+          </div>
         </div>
       </div>
       </div>
