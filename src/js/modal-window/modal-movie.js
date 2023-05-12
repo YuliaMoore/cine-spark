@@ -3,6 +3,7 @@ import { MoviesAPI } from '../MoviesAPI';
 import { addToLibrary } from './add-to-library';
 import { removeFromLibrary } from './remove-from-my-library';
 import { onRenderLibraryCards } from '../library';
+import { onOpenHeroModal, getFilmOfDayId } from '/src/js/hero-modal.js';
 
 const modalEl = document.querySelector('.modal-card');
 
@@ -11,6 +12,7 @@ backdropEl.classList.add('modal-backdrop');
 document.body.appendChild(backdropEl);
 
 export async function openModalMovie(id) {
+  console.log(id);
   const moviesAPI = new MoviesAPI();
 
   try {
@@ -96,8 +98,17 @@ export async function openModalMovie(id) {
           modalButtonCreation();
         });
       }
+      //Відкриття трейлера
+      const opanTrailerModal = document.querySelector('.watch-btn-modal');
+      opanTrailerModal.addEventListener('click', onOpenTrailerModal);
+
+      function onOpenTrailerModal() {
+        getFilmOfDayId(id);
+        onOpenHeroModal();
+      }
     }
     modalButtonCreation();
+
     // -----------------------------------------------------------------------------------------
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');
@@ -119,4 +130,6 @@ export function closeModal() {
   modalEl.innerHTML = '';
   backdropEl.classList.remove('backdrop--show');
   document.body.classList.remove('modal-open');
+
+  opanTrailerModal.removeEventListener('click', onOpenTrailerModal);
 }
