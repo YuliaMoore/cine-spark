@@ -36,10 +36,18 @@ async function onRenderPage() {
       (markup, responsMovies) => markup + createMovies(responsMovies),
       ''
     );
-
-    // console.log(markup.length);
-
     updateNewsList(markup);
+
+    // Встановлюємо слухача на всі посилання карток товарів
+    const links = document.querySelectorAll('.catalog-list__list-link');
+    links.forEach((link, i) => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openModalMovie(responsMovies[i].id);
+        // console.log('Клік на лінк картки товару, ІД: ', responsMovies[i].id);
+      });
+    });
+
     // скрол
     // scrollPage();
   } catch (err) {
