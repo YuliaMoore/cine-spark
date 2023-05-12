@@ -1,6 +1,3 @@
-import { onRenderLibraryCards } from '../library';
-import { closeModal } from './modal-movie';
-
 export function removeFromLibrary(movieId) {
   //   console.log('Функція видалення фільму з локального сховища');
   // Отримати поточний список фільмів з локального сховища
@@ -12,8 +9,4 @@ export function removeFromLibrary(movieId) {
   // console.log(libraryFilms);
   // Зберегти оновлений список фільмів у локальному сховищі
   localStorage.setItem('libraryFilm', JSON.stringify(libraryFilms));
-  // Функція новий рендерінг сторінки (імпортована)
-  onRenderLibraryCards();
-  // Функція закрити модальне вікно
-  closeModal();
 }

@@ -4,6 +4,7 @@ import { createUpcomingMovies } from '/src/js/catalog-functions/upcoming-markup'
 import { onScroll, onToTopBtn } from './scroll';
 import { addAndRemoveToLocalStorage } from './localStorage';
 import { openModalMovie } from './modal-window/modal-movie';
+import { addToLibrary } from './modal-window/add-to-library';
 
 import { getGenres } from './catalog-functions/catalog-genres-get';
 import { getStarsRating } from './catalog-functions/catalog-rating-get';
@@ -128,35 +129,13 @@ async function onRenderNewMovie() {
 
     updateNewMovies(markupNewMovie);
 
-    // setTimeout(function () {
-    // const remindMeBtn = document.querySelector('.upcoming-btn');
-    // remindMeBtn.addEventListener('click', addToLibrary);
-    // function addToLibrary(event) {
-    //   addAndRemoveToLocalStorage('libraryFilm', JSON.stringify(randomNewMovie));
-    // }
-
     // Додаємо слухача на кнопку Remind me і при кліку на цю кнопку викликаємо функцію addToLibrary (запис в локальне сховище)
+    const movieObject = randomNewMovie[0];
+    // console.log(randomNewMovie[0]);
     const remindMeBtn = document.querySelector('.upcoming-btn');
-    remindMeBtn.addEventListener('click', addToLibrary);
-    function addToLibrary(event) {
-      // Отримати поточний список фільмів з локального сховища
-      let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
-      // console.log(libraryFilms.flat());
-      // console.log(randomNewMovie[0].id);
-      // Перевірка чи такого фільму ще немає в Локальному сховищі
-      if (
-        libraryFilms.flat().some(value => value.id === randomNewMovie[0].id)
-      ) {
-        // Якщо фільм вже є, тоді поки що нічого не робимо
-        console.log('Фільм вже додано в Локал Сторідж');
-        return;
-      } else {
-        // console.log('Такого фільму ще немає в Локал Сторідж, додаємо');
-        libraryFilms.push(randomNewMovie); // Додаємо новий запис до масиву.
-      }
-      // Зберегти оновлений список фільмів у локальному сховищі
-      localStorage.setItem('libraryFilm', JSON.stringify(libraryFilms));
-    }
+    remindMeBtn.addEventListener('click', function () {
+      addToLibrary(movieObject);
+    });
 
     // }, 2000);
 

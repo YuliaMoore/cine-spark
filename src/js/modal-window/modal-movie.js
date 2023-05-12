@@ -1,6 +1,6 @@
 import symboldefs from '../../images/symbol-defs.svg';
 import { MoviesAPI } from '../MoviesAPI';
-
+import { addToLibrary } from './add-to-library';
 import { removeFromLibrary } from './remove-from-my-library';
 
 const modalEl = document.querySelector('.modal-card');
@@ -47,21 +47,45 @@ export async function openModalMovie(id) {
             <p class="modal-details__story">${response.data.overview}</p>
           
           <button class="btn-add-remove">Add to my library</button>
-          <button class="btn-add-remove" id="remove-from-library-button">Remove from library</button>
           <button class="#">Watch trailer</button>
         </div>
       </div>
       </div>
     `;
 
-    // Функція виклику функції removeFromLibrary для видалення фільму з локального сховища -----------------------------
-    const removeFromLibraryButton = document.querySelector('#remove-from-library-button');
-    const movieIdForRemoving = response.data.id;
-    removeFromLibraryButton.addEventListener('click', function () {
-      removeFromLibrary(movieIdForRemoving);
-      // console.log(movieIdForRemoving);
-    });
-    // ------------------------------------------------------------------ Функція виклику функції removeFromLibrary для видалення фільму з локального сховища
+    // Функція виклику функції для додавання / видалення кнопок / фільму з локального сховища-----------------------------------------
+
+    function modalButtonCreation() {
+      const addRemoveLibraryButton = document.querySelector('.btn-add-remove');
+      const movieObject = response.data;
+
+      let libraryFilms = JSON.parse(localStorage.getItem('libraryFilm')) || [];
+      // console.log(`movieObject`, movieObject);
+      // console.log(libraryFilms.flat());
+
+      if (libraryFilms.flat().some(value => value.id === movieObject.id)) {
+        // console.log('Фільм є в Locale Storage');
+        // console.log('Нова назва кнопки + слухач з функцією видалення.');
+        addRemoveLibraryButton.textContent = 'Remove from library';
+        addRemoveLibraryButton.addEventListener('click', function () {
+          removeFromLibrary(movieObject.id);
+          // console.log('Видалили з Locale Storage.');
+          modalButtonCreation();
+        });
+      } else {
+        // console.log('Фільму немає в Locale Storage');
+        // console.log('Нова назва кноки іслухач з функцію додавання');
+        addRemoveLibraryButton.textContent = 'Add to library';
+        addRemoveLibraryButton.addEventListener('click', function () {
+          addToLibrary(movieObject);
+          // console.log(`movieObject (from modal-movie.js)`, movieObject);
+          // console.log('Вийшов з функції додавання Locale Storage', movieObject);
+          modalButtonCreation();
+        });
+      }
+    }
+    modalButtonCreation();
+    // -----------------------------------------------------------------------------------------
 
     const closeModalBtn = modalEl.querySelector('.js-modal-close');
     closeModalBtn.addEventListener('click', closeModal);
