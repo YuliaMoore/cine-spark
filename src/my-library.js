@@ -5,4 +5,4 @@ import './js/library';
 import './js/movie-card';
 import './js/scroll';
 import './js/spiner';
-// import './js/hero-modal';
+import './js/hero-modal';
