@@ -112,20 +112,7 @@ async function onSearchFormSubmit(e) {
 
     pagination.reset(response.data.total_results);
     pagination.on('afterMove', createMoviesByQueryPagination);
-    scrollPage();
   } catch (err) {
     console.log(err);
   }
-}
-
-//скрол
-function scrollPage() {
-  const { height: cardHeight } = document
-    .querySelector('.catalog-list__items-list')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 1,
-    behavior: 'smooth',
-  });
 }
